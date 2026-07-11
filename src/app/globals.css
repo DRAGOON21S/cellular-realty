@@ -2,25 +2,69 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #000000;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-montserrat);
+  --font-serif: var(--font-playfair);
+  --font-hanken: var(--font-hanken-grotesk);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Cellular Realty palette — white, black, and a single accent.
+   Plain (non-inline) @theme so utilities reference var(--color-*) instead
+   of baking in literal values — this lets a scope like .theme-brown below
+   override the palette for just its subtree. */
+@theme {
+  --color-forest: #000000;
+  --color-cream: #ffffff;
+  --color-cream-2: #ffffff;
+  --color-gold: #9a7d5e;
+  --color-gold-light: color-mix(in srgb, #9a7d5e 60%, #ffffff 40%);
+  --color-gold-light-2: color-mix(in srgb, #9a7d5e 60%, #ffffff 40%);
+  --color-amber: color-mix(in srgb, #9a7d5e 60%, #ffffff 40%);
+  --color-amber-dark: color-mix(in srgb, #9a7d5e 55%, #000000 45%);
+  --color-amber-darker: #000000;
+  --color-taupe: #000000;
+  --color-border-tan: #9a7d5e;
+  --color-border-gray: #9a7d5e;
+  --color-body: #000000;
+  --color-muted: color-mix(in srgb, #000000 60%, #9a7d5e 40%);
+  --color-ink: #000000;
+}
+
+/* Scoped override for the /brown-accents route — same four roles, different
+   hexes. Wrap that route's content in className="theme-brown". */
+.theme-brown {
+  --color-forest: #413126;
+  --color-cream: #fcfdf5;
+  --color-cream-2: #fcfdf5;
+  --color-gold: #9a7d5e;
+  --color-gold-light: #b49f78;
+  --color-gold-light-2: #b49f78;
+  --color-amber: #b49f78;
+  --color-amber-dark: #9a7d5e;
+  --color-amber-darker: #413126;
+  --color-taupe: #413126;
+  --color-border-tan: #b49f78;
+  --color-border-gray: #b49f78;
+  --color-body: #413126;
+  --color-muted: color-mix(in srgb, #413126 60%, #9a7d5e 40%);
+  --color-ink: #413126;
+  background: #fcfdf5;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-montserrat), Arial, Helvetica, sans-serif;
+  /* Fixed 1920px desktop canvas for now — matches the Figma frame at 100%
+     zoom instead of reflowing. Horizontal scroll below 1920px is expected
+     until responsive breakpoints are added. `relative` makes body the
+     containing block so absolutely positioned children (e.g. the header)
+     resolve `w-full` against this 1920px canvas, not the viewport. */
+  position: relative;
+  min-width: 1920px;
 }

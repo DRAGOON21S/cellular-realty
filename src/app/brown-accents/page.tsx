@@ -9,13 +9,13 @@ import Testimonials from "@/components/Testimonials";
 import NewsletterCTA from "@/components/NewsletterCTA";
 import Footer from "@/components/Footer";
 
-export default function Home() {
+export default function BrownAccentsHome() {
   return (
-    <div className="flex flex-1 flex-col">
+    <div className="theme-brown flex flex-1 flex-col">
       <Header />
       <main className="flex flex-1 flex-col">
-        <Hero />
-        <StatsBar />
+        <Hero iconSuffix="-brown" />
+        <StatsBar iconSuffix="-brown" />
         <BrandNarrative />
         <Portfolio />
         <ClientLogos />
@@ -23,7 +23,7 @@ export default function Home() {
         <Testimonials />
         <NewsletterCTA />
       </main>
-      <Footer />
+      <Footer iconSuffix="-brown" />
     </div>
   );
 }
