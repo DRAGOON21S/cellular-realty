@@ -1,0 +1,334 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Button from "../../components/ui/Button.astro";
+import { Icon } from "astro-icon/components";
+import { projects, type Project } from "../../lib/cms";
+import { amenityIcon, connectivityIcon } from "../../lib/icons";
+import { site } from "../../data/global";
+
+export function getStaticPaths() {
+  return projects.map((p) => ({ params: { slug: p.slug }, props: { project: p } }));
+}
+interface Props { project: Project; }
+const { project: p } = Astro.props;
+
+const reraDisplay = p.reraNumber && !/awaited|on registration|registration confirmed/i.test(p.reraNumber) ? p.reraNumber : "On registration";
+const locationFull = p.locationShort.includes(p.state) ? p.locationShort : `${p.locationShort}, ${p.state}`;
+
+const galleryImages = p.gallery.filter((g) => g.src && !/location map/i.test(g.type));
+const heroImages = [p.heroImage, ...galleryImages.map((g) => g.src)].filter(Boolean).slice(0, 6) as string[];
+const scopeImages = galleryImages.filter((g) => /3d|scope|entrance|infrastructure|render|aerial/i.test(g.type + g.title)).map((g) => g.src!).slice(0, 5);
+const locationMap = p.gallery.find((g) => /location map/i.test(g.type))?.src;
+const overview = p.section01Body ?? p.heroDescription;
+const brochure = p.downloads.find((d) => /brochure/i.test(d.type) && d.available);
+
+// Amenities — cap to the design's grid (7-col × 2 = 14).
+const amenities = p.amenities.slice(0, 14);
+
+// Connectivity grouped into the 3 buckets the design shows.
+const groupOf = (cat: string) =>
+  /highway|transport|airport/i.test(cat) ? "Highway Access"
+  : /employment|city|region|convenience/i.test(cat) ? "Industrial & Business Hubs"
+  : "Education & Institutions";
+const connGroups: Record<string, typeof p.connectivity> = {};
+for (const c of p.connectivity) (connGroups[groupOf(c.category)] ??= []).push(c);
+const connIcon: Record<string, string> = {
+  "Highway Access": "lucide:milestone",
+  "Industrial & Business Hubs": "lucide:briefcase",
+  "Education & Institutions": "lucide:graduation-cap",
+};
+
+// Gallery categories
+const catMatch = {
+  Infrastructure: /infrastructure|entrance|3d|layout|road|utility/i,
+  Amenities: /amenit|landscape|park|convenience|garden|central green/i,
+  "Site Progress": /progress|construction/i,
+};
+const galleryCats = Object.entries(catMatch)
+  .map(([name, re]) => ({ name, images: galleryImages.filter((g) => re.test(g.type + " " + g.title)).map((g) => g.src!) }))
+  .filter((c) => c.images.length > 0);
+
+const projectSchema = {
+  "@context": "https://schema.org", "@type": "Residence", name: p.name,
+  description: p.seoDescription ?? p.cardDescription ?? undefined,
+  url: new URL(`/projects/${p.slug}`, site.url).href,
+  ...(p.heroImage ? { image: new URL(p.heroImage, site.url).href } : {}),
+  address: { "@type": "PostalAddress", addressLocality: p.city, addressRegion: p.state, addressCountry: "IN" },
+};
+---
+
+<Layout
+  title={p.seoTitle ?? `${p.name} — Cellular Realty`}
+  description={p.seoDescription ?? p.cardDescription ?? undefined}
+  ogImage={p.ogImage ?? undefined}
+  jsonLd={[projectSchema]}
+>
+  {p.comingSoon ? (
+    <!-- COMING SOON (Rewari teasers) -->
+    <section class="relative flex min-h-[70vh] items-center overflow-hidden bg-brown-900 text-offwhite">
+      <img src={p.heroImage ?? undefined} alt="" class="absolute inset-0 h-full w-full object-cover opacity-40" />
+      <div class="absolute inset-0 bg-gradient-to-t from-brown-900 via-brown-900/70 to-brown-900/60"></div>
+      <div class="container-content relative py-32 text-center">
+        <span class="inline-block bg-brown-500 px-4 py-1.5 text-[12px] font-bold uppercase tracking-[0.14em] text-offwhite">Coming Soon</span>
+        <h1 class="mx-auto mt-6 max-w-3xl font-display text-5xl leading-[1.05] lg:text-7xl">{p.name}</h1>
+        <p class="mx-auto mt-5 max-w-xl text-lg text-offwhite/80">A planned plotted development in {locationFull} — currently under land procurement, to follow the group's established standards of organised, compliant development.</p>
+        <div class="mt-9 flex justify-center gap-4">
+          <Button enquire data-project={p.name} data-cta="Register Interest" variant="accent" size="lg">Register Interest</Button>
+          <Button href="/contact" variant="outline-light" size="lg">Contact Us</Button>
+        </div>
+      </div>
+    </section>
+  ) : (
+    <>
+      <!-- ============ HERO (contained) ============ -->
+      <section class="bg-offwhite pt-8 lg:pt-10">
+        <div class="container-content grid gap-6 lg:grid-cols-[1.9fr_1fr]">
+          <!-- image carousel -->
+          <div class="relative aspect-[16/10] overflow-hidden rounded-[4px]">
+            {heroImages.map((src, i) => (
+              <img src={src} alt={`${p.name} ${i + 1}`} data-slide={i} loading={i === 0 ? "eager" : "lazy"} class:list={["absolute inset-0 h-full w-full object-cover transition-opacity duration-700", i === 0 ? "opacity-100" : "opacity-0"]} />
+            ))}
+            <div class="absolute inset-0 bg-gradient-to-t from-brown-900/85 via-transparent to-transparent"></div>
+            <div class="absolute inset-x-0 bottom-0 p-8 text-offwhite">
+              <h1 class="font-display text-4xl leading-tight lg:text-5xl">{p.name}</h1>
+              {p.heroSubtitle && <p class="mt-2 text-lg text-offwhite/90">{p.heroSubtitle}</p>}
+              <p class="mt-1 text-sm text-offwhite/70">{p.projectType} · {locationFull}</p>
+              {heroImages.length > 1 && (
+                <div class="mt-5 flex gap-2" data-dots>
+                  {heroImages.map((_, i) => <button type="button" data-dot={i} aria-label={`Slide ${i + 1}`} class:list={["h-1.5 rounded-full transition-all", i === 0 ? "w-8 bg-brown-lightest" : "w-4 bg-offwhite/40"]} />)}
+                </div>
+              )}
+            </div>
+          </div>
+          <!-- 3D masterplan (gated) + RERA QR -->
+          <div class="flex flex-col gap-6">
+            <button type="button" data-enquire data-project={p.name} data-cta="Masterplan Unlock" data-download={p.view3dLink ?? undefined} class="group relative aspect-[4/3] overflow-hidden rounded-[4px] bg-brown-900 text-left">
+              {p.view3dLink && <img src={p.view3dLink} alt="3D master plan" class="absolute inset-0 h-full w-full object-cover blur-[6px] transition group-hover:blur-[4px]" />}
+              <div class="absolute inset-0 bg-brown-900/55"></div>
+              <div class="absolute inset-0 flex flex-col items-center justify-center text-offwhite">
+                <Icon name="lucide:lock" class="h-7 w-7" />
+                <span class="mt-3 text-[13px] font-semibold uppercase tracking-[0.12em]">3D Master Plan</span>
+                <span class="mt-1 text-[12px] text-offwhite/70">Unlock with your details</span>
+              </div>
+            </button>
+            {p.reraQr && (
+              <div class="flex items-center gap-4 rounded-[4px] border border-[color:var(--color-line)] bg-offwhite p-4">
+                <img src={p.reraQr} alt={`RERA QR — ${p.name}`} class="h-20 w-20 shrink-0 object-contain" />
+                <div>
+                  <p class="text-[11px] font-semibold uppercase tracking-wider text-brown-light">RERA Registered</p>
+                  <p class="mt-1 font-display text-lg text-brown-dark">{reraDisplay}</p>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ PROJECT OVERVIEW ============ -->
+      <section class="bg-offwhite py-12 lg:py-16">
+        <div class="container-content">
+          <p class="eyebrow">Project Overview</p>
+          <div class="mt-6 grid grid-cols-2 gap-8 lg:grid-cols-4">
+            {[
+              { label: "DTCP License", value: p.dtcpLicence },
+              { label: "Total Plots", value: p.totalPlots ? `${p.totalPlots} Plots` : null },
+              { label: "Plot Sizes", value: p.plotSizes },
+              { label: "Total Area", value: p.landAreaDisplay },
+            ].filter((s) => s.value).map((s) => (
+              <div class="border-l-2 border-brown-lightest pl-4">
+                <p class="text-[12px] font-semibold uppercase tracking-[0.1em] text-brown-light">{s.label}</p>
+                <p class="mt-1.5 font-display text-2xl text-brown-dark lg:text-[26px]">{s.value}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- COMPLIANCE STRIP -->
+      <section class="bg-brown-dark text-offwhite">
+        <div class="container-content flex flex-wrap items-center gap-x-8 gap-y-3 py-5 text-[14px]">
+          <span class="flex items-center gap-2 font-semibold text-brown-300"><Icon name="lucide:shield-check" class="h-5 w-5" /> Compliance</span>
+          {p.dtcpLicence && <span>DTCP Licence {p.dtcpLicence}</span>}
+          <span class="hidden opacity-30 sm:inline">·</span>
+          <span>RERA: {reraDisplay}</span>
+          <span class="hidden opacity-30 sm:inline">·</span>
+          <span class="text-offwhite/75">{site.compliance}</span>
+          <span class="hidden opacity-30 sm:inline">·</span>
+          <span class="text-offwhite/75">{site.bankFinance}</span>
+        </div>
+      </section>
+
+      <!-- ============ SECTION 01 — PROJECT SCOPE ============ -->
+      {overview && (
+        <section class="bg-offwhite py-20 lg:py-28">
+          <div class="container-content grid gap-14 lg:grid-cols-2 lg:gap-16">
+            <div>
+              <p class="eyebrow">Section 01 / Project Scope</p>
+              <h2 class="mt-4 font-display text-4xl leading-tight text-brown-dark lg:text-[46px]">{p.section01Title === "Project Overview" ? "Redefining Plotted Development" : (p.section01Title ?? "Project Scope")}</h2>
+              <p class="mt-6 text-[16px] leading-[1.8] text-ink-soft">{overview}</p>
+              <div class="mt-8 flex gap-10">
+                {p.landAreaDisplay && <div class="border-l-2 border-brown-lightest pl-4"><p class="font-display text-2xl text-brown-dark">{p.landAreaDisplay}</p><p class="text-[12px] uppercase tracking-wide text-brown-light">Planned Development</p></div>}
+                <div class="border-l-2 border-brown-lightest pl-4"><p class="font-display text-2xl text-brown-dark">RERA</p><p class="text-[12px] uppercase tracking-wide text-brown-light">Registered Project</p></div>
+              </div>
+            </div>
+            {scopeImages.length > 0 && (
+              <div class="relative aspect-[4/3] overflow-hidden rounded-[4px]" data-scope>
+                {scopeImages.map((src, i) => <img src={src} alt={`${p.name} scope ${i + 1}`} data-scope-slide={i} loading="lazy" class:list={["absolute inset-0 h-full w-full object-cover transition-opacity duration-700", i === 0 ? "opacity-100" : "opacity-0"]} />)}
+              </div>
+            )}
+          </div>
+        </section>
+      )}
+
+      <!-- ============ SECTION 02 — AMENITIES ============ -->
+      {amenities.length > 0 && (
+        <section class="bg-brown-100/50 py-20 lg:py-28">
+          <div class="container-content">
+            <p class="eyebrow">Section 02 / Community Amenities</p>
+            <h2 class="mt-4 font-display text-4xl text-brown-dark lg:text-[46px]">Community Infrastructure and Lifestyle Amenities</h2>
+            <div class="mt-14 grid grid-cols-3 gap-x-6 gap-y-12 sm:grid-cols-4 lg:grid-cols-7">
+              {amenities.map((a) => (
+                <div class="flex flex-col items-center text-center">
+                  <Icon name={amenityIcon(a.icon)} class="h-8 w-8 text-brown-lightest" />
+                  <p class="mt-3 text-[12px] font-medium uppercase leading-snug tracking-wide text-brown-dark">{a.label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      <!-- ============ SECTION 03 — CONNECTIVITY ============ -->
+      {p.connectivity.length > 0 && (
+        <section class="bg-offwhite py-20 lg:py-28">
+          <div class="container-content grid gap-14 lg:grid-cols-2 lg:gap-16">
+            <div>
+              <p class="eyebrow">Section 03 / Connectivity</p>
+              <h2 class="mt-4 font-display text-4xl leading-tight text-brown-dark lg:text-[46px]">Positioned for Regional Connectivity</h2>
+              <div class="mt-10 space-y-8">
+                {Object.entries(connGroups).map(([group, items]) => (
+                  <div class="flex gap-4">
+                    <Icon name={connIcon[group]} class="mt-1 h-6 w-6 shrink-0 text-brown-lightest" />
+                    <div class="flex-1">
+                      <h3 class="font-display text-xl text-brown-dark">{group}</h3>
+                      <ul class="mt-2 space-y-1.5">
+                        {items.slice(0, 4).map((c) => (
+                          <li class="flex justify-between gap-4 text-[15px] text-ink-soft"><span>{c.place}</span><span class="whitespace-nowrap text-brown-light">{c.distance}</span></li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            {locationMap && <div class="lg:sticky lg:top-28 lg:self-start"><img src={locationMap} alt={`${p.name} location map`} class="w-full rounded-[4px] border border-[color:var(--color-line)] object-cover" loading="lazy" /></div>}
+          </div>
+        </section>
+      )}
+
+      <!-- ============ PROJECT GALLERY (categories) ============ -->
+      {galleryCats.length > 0 && (
+        <section class="bg-brown-100/50 py-20 lg:py-28">
+          <div class="container-content text-center">
+            <p class="eyebrow">Visual Journey</p>
+            <h2 class="mt-4 font-display text-4xl text-brown-dark lg:text-[46px]">Project Gallery</h2>
+            <p class="mx-auto mt-4 max-w-xl text-[16px] text-ink-soft">Explore the roads, green spaces, amenities and development that shape {p.name} into a complete plotted community.</p>
+          </div>
+          <div class="container-content mt-12" data-gallery-cats>
+            <div class="grid gap-6 md:grid-cols-3">
+              {galleryCats.map((c, ci) => (
+                <button type="button" data-cat={ci} class="group relative aspect-[4/3] overflow-hidden rounded-[4px]" aria-pressed={ci === 0 ? "true" : "false"}>
+                  <img src={c.images[0]} alt={c.name} loading="lazy" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-brown-900/80 to-transparent"></div>
+                  <span class="absolute bottom-5 left-5 font-display text-2xl text-offwhite">{c.name}</span>
+                </button>
+              ))}
+            </div>
+            {galleryCats.map((c, ci) => (
+              <div data-cat-panel={ci} hidden={ci !== 0} class="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+                {c.images.map((src) => <img src={src} alt={c.name} loading="lazy" class="aspect-square w-full rounded-[3px] object-cover" />)}
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <!-- ============ SECTION 04 — DEVELOPMENT TIMELINE ============ -->
+      {p.timeline.length > 0 && (
+        <section class="bg-offwhite py-20 lg:py-28">
+          <div class="container-content">
+            <div class="flex flex-wrap items-end justify-between gap-6">
+              <div>
+                <p class="eyebrow">Section 04 / Development Progress</p>
+                <h2 class="mt-4 font-display text-4xl text-brown-dark lg:text-[46px]">Development Timeline</h2>
+              </div>
+              <button type="button" data-progress-report class="inline-flex items-center gap-2 rounded-[2px] border border-brown-dark/30 px-5 py-3 text-[12px] font-semibold uppercase tracking-[0.1em] text-brown-dark hover:bg-brown-dark hover:text-offwhite">
+                <Icon name="lucide:download" class="h-4 w-4" /> View Progress Report
+              </button>
+            </div>
+            <div class="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+              {p.timeline.map((t) => (
+                <div class="border-t-2 border-brown-lightest pt-5">
+                  <p class="text-[12px] font-semibold uppercase tracking-wide text-brown-light">{t.phase}</p>
+                  <h3 class="mt-2 font-display text-xl text-brown-dark">{t.title}</h3>
+                  {t.targetDate && <p class="mt-1 text-sm text-brown-light">{t.targetDate}</p>}
+                  {t.description && <p class="mt-2 text-sm leading-relaxed text-ink-soft">{t.description}</p>}
+                </div>
+              ))}
+            </div>
+            <p data-progress-note hidden class="mt-6 text-sm italic text-brown-light">Monthly progress reports are coming soon — share your details and we'll notify you when they're published.</p>
+          </div>
+        </section>
+      )}
+
+      <!-- ============ PLOT AVAILABILITY CTA ============ -->
+      <section class="bg-brown-900 py-24 text-center text-offwhite">
+        <div class="container-content">
+          <h2 class="mx-auto max-w-3xl font-display text-4xl leading-tight lg:text-[52px]">Explore Plot Availability at {p.name}</h2>
+          <p class="mx-auto mt-5 max-w-xl text-offwhite/75">Connect with our team to review available plots, project details and site visit options.</p>
+          <div class="mt-9 flex flex-wrap justify-center gap-4">
+            {brochure && <Button enquire data-project={p.name} data-cta="Download Brochure" data-download={brochure.file} variant="accent" size="lg" icon="lucide:download">Download Brochure</Button>}
+            <Button enquire data-project={p.name} data-cta="Schedule a Visit" variant="outline-light" size="lg">Schedule a Visit</Button>
+          </div>
+        </div>
+      </section>
+    </>
+  )}
+</Layout>
+
+<script>
+  const fade = (nodes: NodeListOf<HTMLElement>, n: number) => nodes.forEach((s, i) => { s.classList.toggle("opacity-100", i === n); s.classList.toggle("opacity-0", i !== n); });
+
+  // Hero carousel
+  const slides = document.querySelectorAll<HTMLElement>("[data-slide]");
+  const dots = document.querySelectorAll<HTMLButtonElement>("[data-dot]");
+  if (slides.length > 1) {
+    let cur = 0;
+    const show = (n: number) => {
+      fade(slides, n);
+      dots.forEach((d, i) => { d.classList.toggle("w-8", i === n); d.classList.toggle("bg-brown-lightest", i === n); d.classList.toggle("w-4", i !== n); d.classList.toggle("bg-offwhite/40", i !== n); });
+      cur = n;
+    };
+    dots.forEach((d, i) => d.addEventListener("click", () => show(i)));
+    setInterval(() => show((cur + 1) % slides.length), 5000);
+  }
+
+  // Scope carousel
+  const scope = document.querySelectorAll<HTMLElement>("[data-scope-slide]");
+  if (scope.length > 1) { let c = 0; setInterval(() => { c = (c + 1) % scope.length; fade(scope, c); }, 4500); }
+
+  // Gallery category tabs
+  const catBtns = document.querySelectorAll<HTMLButtonElement>("[data-cat]");
+  const catPanels = document.querySelectorAll<HTMLElement>("[data-cat-panel]");
+  catBtns.forEach((b) => b.addEventListener("click", () => {
+    const n = b.dataset.cat;
+    catBtns.forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+    catPanels.forEach((pnl) => (pnl.hidden = pnl.dataset.catPanel !== n));
+  }));
+
+  // Progress report — coming soon note
+  document.querySelector("[data-progress-report]")?.addEventListener("click", () => {
+    const note = document.querySelector<HTMLElement>("[data-progress-note]");
+    if (note) note.hidden = false;
+  });
+</script>

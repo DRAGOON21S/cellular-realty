@@ -1,0 +1,20 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Button from "../components/ui/Button.astro";
+---
+
+<Layout title="Page Not Found — Cellular Realty" noindex={true}>
+  <section class="flex min-h-[70vh] items-center bg-offwhite py-24">
+    <div class="container-content text-center">
+      <p class="font-display text-[120px] leading-none text-brown-200 lg:text-[180px]">404</p>
+      <h1 class="mt-4 font-display text-4xl text-brown-dark lg:text-5xl">This address doesn't exist yet.</h1>
+      <p class="mx-auto mt-4 max-w-md text-ink-soft">
+        The page you're looking for may have moved. Let's get you back on plan.
+      </p>
+      <div class="mt-9 flex flex-wrap justify-center gap-4">
+        <Button href="/" variant="accent" size="lg">Back to Home</Button>
+        <Button href="/projects" variant="outline" size="lg">Explore Projects</Button>
+      </div>
+    </div>
+  </section>
+</Layout>

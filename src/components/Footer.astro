@@ -1,0 +1,126 @@
+---
+import { site, footerColumns } from "../data/global";
+import { Icon } from "astro-icon/components";
+
+export interface Props {
+  /** Show the "Be the First to Know What's Next" newsletter band above the footer */
+  newsletter?: boolean;
+}
+const { newsletter = false } = Astro.props;
+const year = 2026;
+---
+
+{
+  newsletter && (
+    <section class="relative overflow-hidden bg-brown-900 text-offwhite">
+      <img
+        src="/media/homepage/section-images/cellular-realty-brand-pillar-long-term-value.webp"
+        alt=""
+        class="absolute inset-y-0 right-0 hidden h-full w-[45%] object-cover opacity-25 lg:block"
+        loading="lazy"
+      />
+      <div class="absolute inset-0 bg-gradient-to-r from-brown-900 via-brown-900 to-brown-900/50" />
+      <div class="container-content relative py-20 lg:py-24">
+        <h2 class="max-w-xl font-display text-4xl leading-[1.08] lg:text-[52px]">
+          Be the First to Know What's Next
+        </h2>
+        <p class="mt-5 max-w-md text-[15px] leading-relaxed text-offwhite/70">
+          Receive project updates, location insights and carefully curated information from Cellular Realty.
+        </p>
+        <form data-newsletter class="mt-8 max-w-2xl">
+          <label class="text-[12px] font-bold uppercase tracking-[0.14em] text-brown-300">Email Address</label>
+          <div class="mt-3 flex flex-col gap-3 sm:flex-row">
+            <input
+              type="email"
+              name="email"
+              required
+              placeholder="Enter your email address"
+              class="flex-1 rounded-[3px] border border-offwhite/25 bg-brown-900/40 px-5 py-4 text-offwhite placeholder:text-offwhite/40 focus:border-brown-lightest focus:outline-none"
+            />
+            <button
+              type="submit"
+              class="rounded-[3px] bg-brown-lightest px-8 py-4 text-[13px] font-semibold uppercase tracking-[0.12em] text-brown-dark transition-colors hover:bg-brown-300"
+            >
+              Subscribe to Updates
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+  )
+}
+
+<footer class="bg-[#3a2a1c] text-offwhite">
+  <div class="container-content py-16 lg:py-20">
+    <div class="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1.3fr]">
+      <!-- Brand + socials -->
+      <div>
+        <p class="font-display text-3xl leading-[1.1] text-offwhite">Cellular<br />Realty</p>
+        <p class="mt-5 text-[15px] leading-relaxed text-offwhite/70">Building Communities<br />Enabling Growth.</p>
+        <ul class="mt-6 space-y-3 text-[14px] text-offwhite/70">
+          <li>
+            <a href={site.social.instagram.url} target="_blank" rel="noopener" class="flex items-center gap-3 hover:text-brown-lightest">
+              <Icon name="lucide:instagram" class="h-4 w-4" /> {site.social.instagram.handle}
+            </a>
+          </li>
+          <li>
+            <a href={site.social.facebook.url} target="_blank" rel="noopener" class="flex items-center gap-3 hover:text-brown-lightest">
+              <Icon name="lucide:facebook" class="h-4 w-4" /> {site.social.facebook.handle}
+            </a>
+          </li>
+          <li>
+            <a href={site.social.youtube.url} target="_blank" rel="noopener" class="flex items-center gap-3 hover:text-brown-lightest">
+              <Icon name="lucide:youtube" class="h-4 w-4" /> @CellularRealty
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Link columns -->
+      {
+        footerColumns.map((col) => (
+          <div>
+            <h4 class="font-display text-xl text-offwhite/90">{col.title}</h4>
+            <ul class="mt-5 space-y-3">
+              {col.links.map((l) => (
+                <li>
+                  <a href={l.href} class="text-[15px] text-offwhite/65 hover:text-brown-lightest">{l.label}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+
+      <!-- HQ Contact -->
+      <div>
+        <h4 class="font-display text-xl text-offwhite/90">HQ Contact</h4>
+        <ul class="mt-5 space-y-4 text-[15px] text-offwhite/70">
+          <li class="flex gap-3">
+            <Icon name="lucide:map-pin" class="mt-0.5 h-4 w-4 shrink-0 text-brown-lightest" />
+            <span>{site.office.lines[0]},<br />{site.office.lines[1]}</span>
+          </li>
+          <li class="flex gap-3">
+            <Icon name="lucide:phone" class="mt-0.5 h-4 w-4 shrink-0 text-brown-lightest" />
+            <span>
+              {site.phones.map((p) => (
+                <a href={`tel:${p.tel}`} class="block hover:text-brown-lightest">{p.display}</a>
+              ))}
+            </span>
+          </li>
+          <li class="flex gap-3">
+            <Icon name="lucide:mail" class="mt-0.5 h-4 w-4 shrink-0 text-brown-lightest" />
+            <a href={`mailto:${site.email}`} class="hover:text-brown-lightest">{site.email}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="border-t border-offwhite/10">
+    <div class="container-content flex flex-col items-start justify-between gap-2 py-6 text-[13px] text-offwhite/55 sm:flex-row sm:items-center">
+      <p>© {year} Cellular Realty. All Rights Reserved.</p>
+      <p class="italic">Planned for lasting value.</p>
+    </div>
+  </div>
+</footer>

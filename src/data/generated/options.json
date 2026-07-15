@@ -1,0 +1,33 @@
+{
+  "Project Status": [
+    "Delivered",
+    "Ongoing",
+    "Upcoming"
+  ],
+  "Boolean": [
+    "Yes",
+    "No",
+    "Optional"
+  ],
+  "Amenity/Timeline Status": [
+    "Confirmed",
+    "Planned",
+    "Not Applicable",
+    "To be updated"
+  ],
+  "Category": [
+    "Security",
+    "Infrastructure",
+    "Landscape",
+    "Lifestyle",
+    "Convenience",
+    "Transport",
+    "Highway",
+    "Employment",
+    "Healthcare",
+    "Education",
+    "City",
+    "Airport",
+    "Leisure"
+  ]
+}

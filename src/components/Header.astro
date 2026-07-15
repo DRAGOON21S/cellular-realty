@@ -1,0 +1,175 @@
+---
+import { nav, site } from "../data/global";
+
+export interface Props {
+  transparent?: boolean;
+}
+const { transparent = false } = Astro.props;
+const current = Astro.url.pathname.replace(/\/$/, "") || "/";
+const isActive = (href: string) =>
+  href === "/" ? current === "/" : current.startsWith(href);
+---
+
+<header
+  data-header
+  data-transparent={transparent ? "true" : "false"}
+  class:list={[
+    "fixed inset-x-0 top-0 z-40 transition-colors duration-300",
+    transparent
+      ? "bg-transparent text-offwhite"
+      : "bg-offwhite/95 text-brown-dark backdrop-blur-sm border-b border-[color:var(--color-line)]",
+  ]}
+>
+  <div class="container-content flex h-[76px] items-center justify-between gap-6 lg:h-[88px]">
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-3 shrink-0" aria-label={`${site.brand} — home`}>
+      <img
+        src="/brand/cellular-realty-symbol.svg"
+        alt=""
+        width="44"
+        height="44"
+        class="h-10 w-auto lg:h-11"
+        data-logo-symbol
+      />
+      <span class="sr-only">{site.brand}</span>
+    </a>
+
+    <!-- Desktop nav -->
+    <nav class="hidden items-center gap-8 lg:flex" aria-label="Primary">
+      {
+        nav.map((item) => (
+          <a
+            href={item.href}
+            class:list={[
+              "relative text-[15px] font-medium tracking-wide transition-opacity hover:opacity-100",
+              isActive(item.href) ? "opacity-100" : "opacity-70",
+            ]}
+            aria-current={isActive(item.href) ? "page" : undefined}
+          >
+            {item.label}
+            {isActive(item.href) && (
+              <span class="absolute -bottom-1.5 left-0 h-0.5 w-full bg-brown-lightest" />
+            )}
+          </a>
+        ))
+      }
+    </nav>
+
+    <!-- Right cluster -->
+    <div class="flex items-center gap-4">
+      <!-- Language toggle (EN active; Hindi phase 2) -->
+      <div class="hidden items-center gap-2 text-[13px] font-semibold tracking-wider sm:flex">
+        <button type="button" class="text-brown-lightest" aria-pressed="true">EN</button>
+        <span aria-hidden="true" class="opacity-40">—</span>
+        <button
+          type="button"
+          class="opacity-50 hover:opacity-80"
+          title="हिन्दी — coming soon"
+          data-hindi-toggle
+        >हिं</button>
+      </div>
+
+      <span class="hidden h-6 w-px bg-current/20 sm:block" aria-hidden="true"></span>
+
+      <!-- Schedule a Visit (opens Universal Enquiry modal) -->
+      <button
+        type="button"
+        data-enquire
+        data-cta="Schedule a Visit"
+        class="hidden rounded-[2px] bg-brown-dark px-6 py-3 text-[13px] font-semibold uppercase tracking-[0.12em] text-offwhite transition-colors hover:bg-brown-700 sm:inline-flex"
+      >
+        Schedule a Visit
+      </button>
+
+      <!-- Mobile menu toggle -->
+      <button
+        type="button"
+        data-menu-toggle
+        class="inline-flex items-center justify-center lg:hidden"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+          <path d="M3 6h18M3 12h18M3 18h18" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div
+    id="mobile-menu"
+    data-mobile-menu
+    hidden
+    class="lg:hidden border-t border-[color:var(--color-line)] bg-offwhite text-brown-dark"
+  >
+    <nav class="container-content flex flex-col py-4" aria-label="Mobile">
+      {
+        nav.map((item) => (
+          <a
+            href={item.href}
+            class:list={[
+              "border-b border-[color:var(--color-line)] py-3 text-[17px] font-medium",
+              isActive(item.href) ? "text-brown-dark" : "text-brown-light",
+            ]}
+          >
+            {item.label}
+          </a>
+        ))
+      }
+      <button
+        type="button"
+        data-enquire
+        data-cta="Schedule a Visit"
+        class="mt-4 rounded-[2px] bg-brown-dark px-6 py-3.5 text-[14px] font-semibold uppercase tracking-[0.12em] text-offwhite"
+      >
+        Schedule a Visit
+      </button>
+    </nav>
+  </div>
+</header>
+
+<!-- Spacer so fixed header doesn't overlap content on non-transparent pages -->
+{!transparent && <div class="h-[76px] lg:h-[88px]" aria-hidden="true"></div>}
+
+<script>
+  // Header: mobile menu + scroll state for transparent headers.
+  const header = document.querySelector<HTMLElement>("[data-header]");
+  const toggle = document.querySelector<HTMLButtonElement>("[data-menu-toggle]");
+  const menu = document.querySelector<HTMLElement>("[data-mobile-menu]");
+
+  toggle?.addEventListener("click", () => {
+    const open = menu?.hasAttribute("hidden");
+    if (open) {
+      menu?.removeAttribute("hidden");
+      toggle.setAttribute("aria-expanded", "true");
+      toggle.setAttribute("aria-label", "Close menu");
+    } else {
+      menu?.setAttribute("hidden", "");
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.setAttribute("aria-label", "Open menu");
+    }
+  });
+
+  // When a transparent header scrolls past the hero, give it a solid background.
+  if (header?.dataset.transparent === "true") {
+    const onScroll = () => {
+      const solid = window.scrollY > 80;
+      header.classList.toggle("bg-offwhite/95", solid);
+      header.classList.toggle("text-brown-dark", solid);
+      header.classList.toggle("backdrop-blur-sm", solid);
+      header.classList.toggle("text-offwhite", !solid);
+      header.classList.toggle("bg-transparent", !solid);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  }
+</script>
+
+<style is:global>
+  /* On a transparent (dark-hero) header, render the dark brand symbol in white. */
+  [data-header].text-offwhite [data-logo-symbol] {
+    filter: brightness(0) invert(1);
+  }
+</style>

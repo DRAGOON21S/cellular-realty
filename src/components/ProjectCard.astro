@@ -1,0 +1,108 @@
+---
+import { Icon } from "astro-icon/components";
+import type { Project } from "../lib/cms";
+
+export interface Props {
+  project: Project;
+  class?: string;
+}
+const { project: p, class: klass = "" } = Astro.props;
+
+const img = p.cardImage ?? p.heroImage ?? "/media/stock-images/stock-tree-lined-street.webp";
+const badge = p.launchTag ?? p.status;
+const badgeTone =
+  p.status === "Ongoing"
+    ? "bg-brown-lightest text-brown-dark"
+    : p.status === "Delivered"
+      ? "bg-brown-dark text-offwhite"
+      : "bg-brown-500 text-offwhite"; // Upcoming
+const href = `/projects/${p.slug}`;
+const locationFull = p.locationShort.includes(p.state) ? p.locationShort : `${p.locationShort}, ${p.state}`;
+---
+
+<article
+  class:list={[
+    "group flex flex-col overflow-hidden border border-[color:var(--color-line)] bg-offwhite transition-shadow duration-300 hover:shadow-[0_18px_50px_-24px_rgba(65,49,38,0.45)]",
+    klass,
+  ]}
+>
+  <!-- Image -->
+  <a href={href} class="relative block aspect-[16/10] overflow-hidden">
+    <img
+      src={img}
+      alt={p.name}
+      loading="lazy"
+      decoding="async"
+      class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+    />
+    <span
+      class:list={[
+        "absolute left-4 top-4 px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.1em]",
+        badgeTone,
+      ]}
+    >
+      {badge}
+    </span>
+  </a>
+
+  <!-- Body -->
+  <div class="flex flex-1 flex-col p-6 lg:p-8">
+    <h3 class="font-display text-[26px] leading-tight text-brown-dark lg:text-[30px]">
+      <a href={href} class="hover:text-brown-600">{p.name}</a>
+    </h3>
+    <p class="mt-2 flex items-center gap-1.5 text-[15px] text-brown-light">
+      <Icon name="lucide:map-pin" class="h-4 w-4 shrink-0" />
+      {locationFull}
+    </p>
+
+    {
+      p.comingSoon ? (
+        <p class="mt-5 text-[15px] italic text-brown-light">Details on launch.</p>
+      ) : (
+        <div class="mt-6 grid grid-cols-2 gap-4 border-t border-[color:var(--color-line)] pt-5">
+          <div class="border-l-2 border-brown-lightest pl-3">
+            <p class="text-[11px] font-semibold uppercase tracking-[0.1em] text-brown-light">Land Area</p>
+            <p class="mt-1 text-[17px] font-medium text-brown-dark">{p.landAreaDisplay ?? "—"}</p>
+          </div>
+          <div class="border-l-2 border-brown-lightest pl-3">
+            <p class="text-[11px] font-semibold uppercase tracking-[0.1em] text-brown-light">Plot Sizes</p>
+            <p class="mt-1 text-[17px] font-medium text-brown-dark">{p.plotSizes ?? "—"}</p>
+          </div>
+        </div>
+      )
+    }
+
+    <!-- CTAs -->
+    <div class="mt-6 flex gap-3 pt-1">
+      {
+        p.comingSoon ? (
+          <button
+            type="button"
+            data-enquire
+            data-project={p.name}
+            class="flex-1 rounded-[2px] bg-brown-dark px-4 py-3 text-[12px] font-semibold uppercase tracking-[0.1em] text-offwhite hover:bg-brown-700"
+          >
+            Register Interest
+          </button>
+        ) : (
+          <>
+            <button
+              type="button"
+              data-enquire
+              data-project={p.name}
+              class="flex-1 rounded-[2px] bg-brown-dark px-4 py-3 text-[12px] font-semibold uppercase tracking-[0.1em] text-offwhite hover:bg-brown-700"
+            >
+              Enquiry
+            </button>
+            <a
+              href={href}
+              class="flex-1 rounded-[2px] border border-brown-dark/30 px-4 py-3 text-center text-[12px] font-semibold uppercase tracking-[0.1em] text-brown-dark hover:bg-brown-dark hover:text-offwhite"
+            >
+              View Details
+            </a>
+          </>
+        )
+      }
+    </div>
+  </div>
+</article>

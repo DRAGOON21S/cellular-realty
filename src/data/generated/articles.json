@@ -1,0 +1,38 @@
+[
+  {
+    "id": "A001",
+    "title": "Jhajjar: NCR’s Next Growth Corridor",
+    "slug": "jhajjar-ncr-growth-corridor",
+    "category": "Location Insight",
+    "readTime": "5 min read",
+    "excerpt": "Bordering Delhi NCR and shaped by improving connectivity, industrial activity and planned regional development, Jhajjar is becoming a location buyers are watching closely.",
+    "image": "/media/homepage/insights/cellular-realty-insight-why-jhajjar.webp",
+    "relatedProjectId": "SCG",
+    "body": null,
+    "show": true
+  },
+  {
+    "id": "A002",
+    "title": "The MET City Effect on Housing Demand",
+    "slug": "met-city-effect-housing-demand",
+    "category": "Investment Guide",
+    "readTime": "4 min read",
+    "excerpt": "With Reliance MET City bringing industrial activity, global businesses and employment momentum to Jhajjar, the region is seeing a stronger case for planned residential and commercial infrastructure.",
+    "image": "/media/homepage/insights/cellular-realty-insight-met-city.webp",
+    "relatedProjectId": "SCG",
+    "body": null,
+    "show": true
+  },
+  {
+    "id": "A003",
+    "title": "Sector 36: The Address Taking Shape",
+    "slug": "sector-36-address-taking-shape",
+    "category": "Project Location",
+    "readTime": "7 min read",
+    "excerpt": "Positioned near key civic, rail and emerging road infrastructure, Sector 36 offers buyers a location story shaped by connectivity, planning and long-term regional growth.",
+    "image": "/media/homepage/insights/cellular-realty-insight-sector-36.webp",
+    "relatedProjectId": "SCG",
+    "body": null,
+    "show": true
+  }
+]

@@ -1,0 +1,55 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Button from "../../components/ui/Button.astro";
+import { articles, getProject, type Article } from "../../lib/cms";
+
+export function getStaticPaths() {
+  return articles.map((a) => ({ params: { slug: a.slug }, props: { article: a } }));
+}
+interface Props { article: Article; }
+const { article: a } = Astro.props;
+const related = a.relatedProjectId ? getProject(
+  { SCG: "south-city-greens", SC1: "south-city-1", SC2: "south-city-2", MKJ: "maruti-kunj", CC01: "cellular-city-01", CC02: "cellular-city-02" }[a.relatedProjectId] ?? ""
+) : undefined;
+---
+
+<Layout title={`${a.title} — Cellular Realty`} description={a.excerpt}>
+  <!-- HERO -->
+  <section class="relative flex min-h-[56vh] items-end overflow-hidden bg-brown-900 text-offwhite">
+    <img src={a.image ?? undefined} alt="" class="absolute inset-0 h-full w-full object-cover opacity-45" loading="eager" />
+    <div class="absolute inset-0 bg-gradient-to-t from-brown-900 via-brown-900/50 to-brown-900/40"></div>
+    <div class="container-content relative py-20 pt-40">
+      <p class="eyebrow text-brown-300">{a.category} • {a.readTime}</p>
+      <h1 class="mt-5 max-w-3xl font-display text-4xl leading-[1.1] lg:text-6xl">{a.title}</h1>
+    </div>
+  </section>
+
+  <!-- BODY -->
+  <section class="bg-offwhite py-20 lg:py-28">
+    <div class="container-narrow">
+      <p class="font-display text-2xl leading-relaxed text-brown-dark">{a.excerpt}</p>
+
+      <div class="mt-10 border-l-4 border-brown-lightest bg-brown-100/40 p-8">
+        <p class="text-[15px] leading-relaxed text-ink-soft">
+          The full article is being finalised by our editorial team. In the meantime, our advisors
+          can share detailed location and investment insights directly.
+        </p>
+        <div class="mt-6 flex flex-wrap gap-4">
+          <Button enquire variant="accent">Request a Call Back</Button>
+          <Button href="/why-jhajjar" variant="outline">Read: Why Jhajjar</Button>
+        </div>
+      </div>
+
+      {related && (
+        <a href={`/projects/${related.slug}`} class="group mt-14 flex items-center gap-6 border border-[color:var(--color-line)] p-6 hover:bg-brown-100/40">
+          <img src={related.cardImage ?? related.heroImage ?? undefined} alt={related.name} class="h-24 w-32 shrink-0 object-cover" />
+          <div>
+            <p class="text-[12px] font-semibold uppercase tracking-[0.1em] text-brown-light">Related Project</p>
+            <p class="mt-1 font-display text-2xl text-brown-dark group-hover:text-brown-600">{related.name}</p>
+            <p class="text-sm text-brown-light">{related.locationShort}</p>
+          </div>
+        </a>
+      )}
+    </div>
+  </section>
+</Layout>

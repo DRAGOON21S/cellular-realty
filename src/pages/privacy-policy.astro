@@ -1,0 +1,50 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { site } from "../data/global";
+const updated = "July 2026";
+---
+
+<Layout title="Privacy Policy — Cellular Realty" description="How Cellular Realty collects and uses your information." noindex={true}>
+  <section class="bg-offwhite py-16 lg:py-24">
+    <div class="container-narrow">
+      <p class="eyebrow">Legal</p>
+      <h1 class="mt-4 font-display text-4xl text-brown-dark lg:text-6xl">Privacy Policy</h1>
+      <p class="mt-3 text-sm text-brown-light">Last updated: {updated}</p>
+
+      <div class="mt-10 space-y-8 text-[16px] leading-relaxed text-ink-soft">
+        <div>
+          <h2 class="font-display text-2xl text-brown-dark">Information we collect</h2>
+          <p class="mt-3">
+            When you submit an enquiry, request a call back, download a brochure or subscribe to
+            updates, we collect the details you provide — typically your name, phone number, email
+            address, project of interest and any message.
+          </p>
+        </div>
+        <div>
+          <h2 class="font-display text-2xl text-brown-dark">How we use your information</h2>
+          <p class="mt-3">
+            We use your information to respond to your enquiry, share project information you have
+            requested, and contact you about {site.brand} projects and services. We do not sell your
+            personal information.
+          </p>
+        </div>
+        <div>
+          <h2 class="font-display text-2xl text-brown-dark">Data retention & security</h2>
+          <p class="mt-3">
+            We retain enquiry data only for as long as necessary to serve you and to meet legitimate
+            business and legal requirements, and we apply reasonable safeguards to protect it.
+          </p>
+        </div>
+        <div>
+          <h2 class="font-display text-2xl text-brown-dark">Contact</h2>
+          <p class="mt-3">
+            For any privacy request, contact us at
+            <a href={`mailto:${site.email}`} class="text-brown-dark underline">{site.email}</a> or at
+            our Corporate Office: {site.office.full}.
+          </p>
+        </div>
+        <p class="text-sm">This is a general template and should be reviewed and approved by legal counsel before publication.</p>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,133 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Button from "../../components/ui/Button.astro";
+import ProjectCard from "../../components/ProjectCard.astro";
+import { Icon } from "astro-icon/components";
+import { projectTabs, projectsByStatus } from "../../lib/cms";
+
+// Ongoing first (content-spec: live focus), then Delivered, then Upcoming.
+const tabs = projectTabs.filter((t) => projectsByStatus(t.key).length > 0);
+---
+
+<Layout
+  title="Projects — Cellular Realty"
+  description="Explore Cellular Realty's DDJAY plotted developments across Jhajjar, Gurugram and Rewari — ongoing, delivered and upcoming."
+  newsletter={true}
+>
+  <section class="bg-offwhite py-16 lg:py-24">
+    <div class="container-content">
+      <!-- Header -->
+      <div class="max-w-4xl">
+        <p class="eyebrow">Our Portfolio</p>
+        <h1 class="mt-4 font-display text-5xl leading-[1.05] text-brown-dark lg:text-[64px]">
+          Plotted Developments Designed for Growth
+        </h1>
+        <p class="mt-5 text-[17px] leading-relaxed text-ink-soft">
+          Explore Cellular Realty's planned plotted communities, developed with internal roads,
+          green avenues, parks, amenities and long-term ownership value in mind.
+        </p>
+      </div>
+
+      <!-- Tabs + view toggle -->
+      <div class="mt-12 flex flex-wrap items-center justify-between gap-6 border-b border-[color:var(--color-line)]">
+        <div class="flex gap-8" role="tablist" data-tabs>
+          {
+            tabs.map((t, i) => (
+              <button
+                type="button"
+                role="tab"
+                data-tab={t.key}
+                aria-selected={i === 0 ? "true" : "false"}
+                class:list={[
+                  "relative -mb-px border-b-2 pb-4 text-[19px] font-medium transition-colors",
+                  i === 0
+                    ? "border-brown-lightest text-brown-dark"
+                    : "border-transparent text-brown-light hover:text-brown-dark",
+                ]}
+              >
+                {t.label}
+              </button>
+            ))
+          }
+        </div>
+        <div class="mb-3 hidden items-center gap-1 rounded-[3px] border border-[color:var(--color-line)] p-1 sm:flex">
+          <button
+            type="button"
+            data-view="grid"
+            aria-pressed="true"
+            class="flex items-center gap-2 rounded-[2px] bg-brown-dark px-4 py-2 text-[12px] font-semibold uppercase tracking-wide text-offwhite"
+          >
+            <Icon name="lucide:layout-grid" class="h-4 w-4" /> Grid
+          </button>
+          <button
+            type="button"
+            data-view="map"
+            aria-pressed="false"
+            class="flex items-center gap-2 rounded-[2px] px-4 py-2 text-[12px] font-semibold uppercase tracking-wide text-brown-light hover:text-brown-dark"
+          >
+            <Icon name="lucide:map" class="h-4 w-4" /> Map
+          </button>
+        </div>
+      </div>
+
+      <!-- Panels -->
+      {
+        tabs.map((t, i) => (
+          <div data-panel={t.key} hidden={i !== 0}>
+            <div class="mt-12 grid gap-8 md:grid-cols-2">
+              {projectsByStatus(t.key).map((p) => (
+                <ProjectCard project={p} />
+              ))}
+            </div>
+          </div>
+        ))
+      }
+
+      <!-- Map view placeholder (interactive map wired in Phase 4) -->
+      <div data-map-view hidden class="mt-12 flex min-h-[420px] items-center justify-center border border-[color:var(--color-line)] bg-brown-100/40 text-center">
+        <p class="max-w-sm text-brown-light">
+          Interactive map view — showing project locations across Jhajjar, Gurugram &amp; Rewari.
+          <span class="mt-2 block text-sm">Coming soon.</span>
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  // Tabs
+  const tabButtons = document.querySelectorAll<HTMLButtonElement>("[data-tab]");
+  const panels = document.querySelectorAll<HTMLElement>("[data-panel]");
+  const mapView = document.querySelector<HTMLElement>("[data-map-view]");
+  tabButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const key = btn.dataset.tab;
+      tabButtons.forEach((b) => {
+        const on = b === btn;
+        b.setAttribute("aria-selected", String(on));
+        b.classList.toggle("border-brown-lightest", on);
+        b.classList.toggle("text-brown-dark", on);
+        b.classList.toggle("border-transparent", !on);
+        b.classList.toggle("text-brown-light", !on);
+      });
+      panels.forEach((p) => (p.hidden = p.dataset.panel !== key));
+    });
+  });
+
+  // Grid / Map toggle
+  const viewButtons = document.querySelectorAll<HTMLButtonElement>("[data-view]");
+  viewButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const isMap = btn.dataset.view === "map";
+      viewButtons.forEach((b) => {
+        const on = b === btn;
+        b.setAttribute("aria-pressed", String(on));
+        b.classList.toggle("bg-brown-dark", on);
+        b.classList.toggle("text-offwhite", on);
+        b.classList.toggle("text-brown-light", !on);
+      });
+      panels.forEach((p) => (p.style.display = isMap ? "none" : ""));
+      if (mapView) mapView.hidden = !isMap;
+    });
+  });
+</script>

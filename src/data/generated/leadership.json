@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Mr Manoj Bansal",
+    "designation": "Chairman & Managing Director",
+    "bio": "A postgraduate in science with a doctorate in business entrepreneurship, and over two decades across finance, logistics and infrastructure. He oversees the group’s financial structure and overall strategic direction.",
+    "image": "/media/about-us/leadership-photos/cellular-realty-leadership-manoj-bansal.webp",
+    "order": 1,
+    "show": true
+  },
+  {
+    "name": "Mr Rahul Bansal",
+    "designation": "Chief Executive Officer",
+    "bio": "A Business Administration graduate with an MBA in International Business Management and over a decade across commerce, finance, licensing and liaisoning. He directs the organisation’s commercial strategy and growth.",
+    "image": "/media/about-us/leadership-photos/cellular-realty-leadership-rahul-bansal.webp",
+    "order": 2,
+    "show": true
+  },
+  {
+    "name": "Mr Purushotam Das Bansal",
+    "designation": "Chief Operating Officer",
+    "bio": "Over two decades in infrastructure development, central to the group’s road and highway work. He leads day-to-day operations and project execution across the organisation.",
+    "image": "/media/about-us/leadership-photos/cellular-realty-leadership-pd-bansal.webp",
+    "order": 3,
+    "show": true
+  },
+  {
+    "name": "Mr Parvesh Bansal",
+    "designation": "Chief Development Officer",
+    "bio": "Civil Engineering from RIT Bangalore, with a PG diploma from NICMAR Pune, and over a decade of planning experience with Wave Group and Shapoorji Pallonji. He leads project development and planning.",
+    "image": "/media/about-us/leadership-photos/cellular-realty-leadership-parvesh-bansal.webp",
+    "order": 4,
+    "show": true
+  },
+  {
+    "name": "Mr Yogesh Bansal",
+    "designation": "Director of Sales",
+    "bio": "A commerce graduate with more than fifteen years in construction and infrastructure. He leads the company’s sales function and customer engagement.",
+    "image": "/media/about-us/leadership-photos/cellular-realty-leadership-yogesh-bansal.webp",
+    "order": 5,
+    "show": true
+  }
+]

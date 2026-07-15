@@ -1,0 +1,57 @@
+---
+import { Icon } from "astro-icon/components";
+
+export interface Props {
+  href?: string;
+  variant?: "solid" | "accent" | "outline" | "outline-light";
+  size?: "md" | "lg";
+  icon?: string;
+  enquire?: boolean; // renders as an enquiry-modal trigger button
+  class?: string;
+  type?: "button" | "submit";
+  target?: string;
+  rel?: string;
+  download?: boolean;
+}
+
+const {
+  href,
+  variant = "solid",
+  size = "md",
+  icon,
+  enquire = false,
+  class: klass = "",
+  type = "button",
+  target,
+  rel,
+  download,
+} = Astro.props;
+
+const base =
+  "inline-flex items-center justify-center gap-2.5 rounded-[2px] font-semibold uppercase tracking-[0.12em] transition-colors duration-200 whitespace-nowrap";
+const sizes = {
+  md: "px-6 py-3 text-[13px]",
+  lg: "px-8 py-4 text-[14px]",
+};
+const variants = {
+  solid: "bg-brown-dark text-offwhite hover:bg-brown-700",
+  accent: "bg-brown-lightest text-brown-dark hover:bg-brown-300",
+  outline: "border border-brown-dark/30 text-brown-dark hover:bg-brown-dark hover:text-offwhite",
+  "outline-light": "border border-offwhite/40 text-offwhite hover:bg-offwhite/10",
+};
+const cls = `${base} ${sizes[size]} ${variants[variant]} ${klass}`;
+const Tag = href ? "a" : "button";
+---
+
+<Tag
+  class={cls}
+  href={href}
+  type={href ? undefined : type}
+  target={target}
+  rel={rel}
+  data-enquire={enquire ? "" : undefined}
+  download={download ? "" : undefined}
+>
+  <slot />
+  {icon && <Icon name={icon} class="h-[1.05em] w-[1.05em]" />}
+</Tag>

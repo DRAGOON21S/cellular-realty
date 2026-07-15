@@ -1,0 +1,2332 @@
+[
+  {
+    "id": "SCG",
+    "name": "South City Greens",
+    "slug": "south-city-greens",
+    "status": "Ongoing",
+    "launchTag": "Just Launching",
+    "locationShort": "Sector 36, Jhajjar",
+    "city": "Jhajjar",
+    "state": "Haryana",
+    "projectType": "Plotted Development",
+    "scheme": "Deen Dayal Jan Awas Yojana",
+    "landAreaDisplay": "20 Acres",
+    "landAreaExact": "19.99375 acres",
+    "totalPlots": "380",
+    "plotSizes": "90–180 Sq. Yd.",
+    "dtcpLicence": "84 of 2026",
+    "reraNumber": "Registration confirmed; RERA number awaited",
+    "reraQr": null,
+    "verificationStatus": "RERA registration CONFIRMED, number not yet received (user 2026-07-15). HARD GATE: site go-live is blocked until the SCG RERA number + QR are in. Fill RERA Number (P) and RERA QR (Q) before publish.",
+    "legalNotes": "Crown project. Largest single-licence plotted development claim to be verified. 75m road is approx. 2-minute drive, not directly connected. | Brochure link points to CURRENT brochure (south-city-greens-brochure.pdf) as interim; final revised copy to be swapped into the SAME filename when ready (2026-07-15). WARNING: current file is ~217MB - MUST be compressed before web publish.",
+    "cardDescription": "A planned plotted community with developed internal roads, green avenues, parks and lifestyle amenities.",
+    "heroTitle": "South City Greens",
+    "heroSubtitle": "A Complete Plotted Community in Sector 36, Jhajjar",
+    "heroDescription": "Developed with internal roads, green avenues, parks and amenities for confident long-term ownership.",
+    "section01Title": "Jhajjar’s Largest Single-Licence Plotted Development",
+    "section01Body": "South City Greens is a premium plotted residential township in Sector 36, Jhajjar, developed under the Deen Dayal Jan Awas Yojana. Spread across 20 acres, it stands as the largest single-licence plotted development in Jhajjar and is located just a 2-minute drive from the upcoming 75-metre-wide road proposed under the Government of Haryana’s Master Plan 2031. Featuring wide 9-metre internal roads, thoughtfully designed green pockets and modern infrastructure, the township offers well-planned residential plots for families and investors seeking a peaceful, well-connected and future-ready address in Jhajjar.",
+    "primaryCta": "Schedule a Visit",
+    "secondaryCta": "Download Brochure",
+    "brochureLink": "/media/projects/south-city-greens/brochures/south-city-greens-brochure.pdf",
+    "progressReportLink": null,
+    "view3dLink": "/media/projects/south-city-greens/3d-renders/south-city-greens-3d-aerial.webp",
+    "layoutPlanLink": "/media/projects/south-city-greens/layout-plan/south-city-greens-layout-plan.pdf",
+    "heroImage": "/media/projects/south-city-greens/hero/south-city-greens-hero-entrance-gate.webp",
+    "cardImage": "/media/projects/south-city-greens/gallery/south-city-greens-central-park.webp",
+    "ogImage": "/media/projects/south-city-greens/hero/south-city-greens-hero-entrance-gate.webp",
+    "seoTitle": "South City Greens, Sector 36 Jhajjar | Cellular Realty",
+    "seoDescription": "Discover South City Greens, a 20-acre DDJAY plotted development in Sector 36, Jhajjar with internal roads, green spaces, parks and amenities.",
+    "published": true,
+    "displayOrder": 1,
+    "comingSoon": false,
+    "amenities": [
+      {
+        "projectId": "SCG",
+        "amenity": "Gated Complex / Community",
+        "category": "Security",
+        "label": "Gated Community",
+        "icon": "gate",
+        "status": "Confirmed",
+        "order": 1,
+        "show": "yes"
+      },
+      {
+        "projectId": "SCG",
+        "amenity": "24×7 Security",
+        "category": "Security",
+        "label": "24×7 Security",
+        "icon": "shield",
+        "status": "Confirmed",
+        "order": 2,
+        "show": "yes"
+      },
+      {
+        "projectId": "SCG",
+        "amenity": "Yoga & Central Lawn",
+        "category": "Lifestyle",
+        "label": "Yoga & Central Lawn",
+        "icon": "leaf",
+        "status": "Confirmed",
+        "order": 3,
+        "show": "yes"
+      },
+      {
+        "projectId": "SCG",
+        "amenity": "Jogging Track",
+        "category": "Lifestyle",
+        "label": "Jogging Track",
+        "icon": "activity",
+        "status": "Confirmed",
+        "order": 4,
+        "show": "yes"
+      },
+      {
+        "projectId": "SCG",
+        "amenity": "Kids Play Area",
+        "category": "Lifestyle",
+        "label": "Kids’ Play Area",
+        "icon": "play",
+        "status": "Confirmed",
+        "order": 5,
+        "show": "yes"
+      },
+      {
+        "projectId": "SCG",
+        "amenity": "Commercial Space",
+        "category": "Convenience",
+        "label": "Commercial Space",
+        "icon": "store",
+        "status": "Confirmed",
+        "order": 6,
+        "show": "yes"
+      },
+      {
+        "projectId": "SCG",
+        "amenity": "Fresh Water Supply",
+        "category": "Infrastructure",
+        "label": "Fresh Water Supply",
+        "icon": "water",
+        "status": "Confirmed",
+        "order": 7,
+        "show": "yes"
+      },
+      {
+        "projectId": "SCG",
+        "amenity": "Lush Green Multiple Pockets",
+        "category": "Landscape",
+        "label": "Green Pockets",
+        "icon": "trees",
+        "status": "Confirmed",
+        "order": 8,
+        "show": "yes"
+      },
+      {
+        "projectId": "SCG",
+        "amenity": "Milk & Vegetable Booth",
+        "category": "Convenience",
+        "label": "Milk & Vegetable Booth",
+        "icon": "shopping-bag",
+        "status": "Confirmed",
+        "order": 9,
+        "show": "yes"
+      },
+      {
+        "projectId": "SCG",
+        "amenity": "Underground Electricity Lines",
+        "category": "Infrastructure",
+        "label": "Underground Utilities",
+        "icon": "zap",
+        "status": "Confirmed",
+        "order": 10,
+        "show": "yes"
+      },
+      {
+        "projectId": "SCG",
+        "amenity": "Wide Internal Roads",
+        "category": "Infrastructure",
+        "label": "Wide Internal Roads",
+        "icon": "road",
+        "status": "Confirmed",
+        "order": 11,
+        "show": "yes"
+      },
+      {
+        "projectId": "SCG",
+        "amenity": "STP & WTP",
+        "category": "Infrastructure",
+        "label": "WTP & STP",
+        "icon": "droplets",
+        "status": "Confirmed",
+        "order": 12,
+        "show": "yes"
+      },
+      {
+        "projectId": "SCG",
+        "amenity": "Rainwater Harvesting",
+        "category": "Infrastructure",
+        "label": "Rainwater Harvesting",
+        "icon": "cloud-rain",
+        "status": "Confirmed",
+        "order": 13,
+        "show": "yes"
+      },
+      {
+        "projectId": "SCG",
+        "amenity": "Badminton Court",
+        "category": "Lifestyle",
+        "label": "Badminton Court",
+        "icon": "racket",
+        "status": "Confirmed",
+        "order": 14,
+        "show": "yes"
+      },
+      {
+        "projectId": "SCG",
+        "amenity": "~2-acre Community Facility",
+        "category": "Lifestyle",
+        "label": "Approx. 2-Acre Community Facility",
+        "icon": "map",
+        "status": "Confirmed",
+        "order": 15,
+        "show": "yes"
+      }
+    ],
+    "connectivity": [
+      {
+        "projectId": "SCG",
+        "category": "Transport",
+        "place": "Jhajjar city / railway",
+        "distance": "2–5 min",
+        "description": "Nearby city and rail access",
+        "order": 1,
+        "show": "yes"
+      },
+      {
+        "projectId": "SCG",
+        "category": "Highway",
+        "place": "NH-71 Rewari–Rohtak Highway",
+        "distance": "2–5 min",
+        "description": "Regional highway access",
+        "order": 2,
+        "show": "yes"
+      },
+      {
+        "projectId": "SCG",
+        "category": "Highway",
+        "place": "Proposed 75-metre Sector Road",
+        "distance": "2-minute drive",
+        "description": "Marked in Haryana Master Plan; not directly connected",
+        "order": 3,
+        "show": "yes"
+      },
+      {
+        "projectId": "SCG",
+        "category": "Highway",
+        "place": "Proposed Gurugram–Jhajjar Greenfield Expressway",
+        "distance": "1.5 km",
+        "description": "Proposed regional corridor",
+        "order": 4,
+        "show": "yes"
+      },
+      {
+        "projectId": "SCG",
+        "category": "Employment",
+        "place": "Reliance MET City",
+        "distance": "10–15 min",
+        "description": "Industrial, business and employment activity in the region",
+        "order": 5,
+        "show": "yes"
+      },
+      {
+        "projectId": "SCG",
+        "category": "Employment",
+        "place": "Indospace Industrial Park, Badli",
+        "distance": "10–15 min",
+        "description": "Industrial and employment hub",
+        "order": 6,
+        "show": "yes"
+      },
+      {
+        "projectId": "SCG",
+        "category": "Highway",
+        "place": "KMP Expressway",
+        "distance": "10–15 min",
+        "description": "Regional expressway connectivity",
+        "order": 7,
+        "show": "yes"
+      },
+      {
+        "projectId": "SCG",
+        "category": "Healthcare",
+        "place": "AIIMS, Badsa",
+        "distance": "15–20 min",
+        "description": "Healthcare and institutional landmark",
+        "order": 8,
+        "show": "yes"
+      },
+      {
+        "projectId": "SCG",
+        "category": "City",
+        "place": "Gurugram via green corridor",
+        "distance": "20–25 min",
+        "description": "Future corridor travel estimate",
+        "order": 9,
+        "show": "yes"
+      },
+      {
+        "projectId": "SCG",
+        "category": "Airport",
+        "place": "IGI Airport",
+        "distance": "50–55 min",
+        "description": "Airport access estimate",
+        "order": 10,
+        "show": "yes"
+      }
+    ],
+    "gallery": [
+      {
+        "projectId": "SCG",
+        "type": "Hero",
+        "title": "Hero Aerial / Video Poster",
+        "src": "/media/projects/south-city-greens/hero/south-city-greens-hero-entrance-gate.webp",
+        "alt": "Grand entrance gate of South City Greens at dusk, Sector 36, Jhajjar",
+        "caption": "Hero poster / final master frame",
+        "sourceType": "Generated / Render",
+        "order": 1,
+        "show": "yes"
+      },
+      {
+        "projectId": "SCG",
+        "type": "Infrastructure",
+        "title": "Infrastructure",
+        "src": null,
+        "alt": "Internal roads and plotted infrastructure at South City Greens in Jhajjar",
+        "caption": "Developed roads and plotted layout",
+        "sourceType": "Real / Render",
+        "order": 2,
+        "show": "yes"
+      },
+      {
+        "projectId": "SCG",
+        "type": "Amenities",
+        "title": "Amenities",
+        "src": "/media/projects/south-city-greens/amenities/south-city-greens-park-play-area.webp",
+        "alt": "Central green park with children's play area and seating at South City Greens",
+        "caption": "Community amenities and green pockets",
+        "sourceType": "Render / 3D",
+        "order": 3,
+        "show": "yes"
+      },
+      {
+        "projectId": "SCG",
+        "type": "Progress",
+        "title": "Site Progress",
+        "src": null,
+        "alt": "Site development progress showing plotted roads and infrastructure work at South City Greens",
+        "caption": "Development progress",
+        "sourceType": "Real Construction",
+        "order": 4,
+        "show": "yes"
+      },
+      {
+        "projectId": "SCG",
+        "type": "3D",
+        "title": "3D Master Plan",
+        "src": "/media/projects/south-city-greens/3d-renders/south-city-greens-3d-aerial.webp",
+        "alt": "3D master plan showing South City Greens roads, plots and amenities",
+        "caption": "Interactive 3D project view",
+        "sourceType": "3D Render",
+        "order": 5,
+        "show": "yes"
+      },
+      {
+        "projectId": "SCG",
+        "type": "Layout",
+        "title": "Project Layout",
+        "src": "/media/projects/south-city-greens/layout-plan/south-city-greens-layout-plan.pdf",
+        "alt": "South City Greens project layout plan with plots and internal roads",
+        "caption": "Approved project layout",
+        "sourceType": "Plan / Layout",
+        "order": 6,
+        "show": "yes"
+      },
+      {
+        "projectId": "SCG",
+        "type": "Location Map",
+        "title": "Location & Connectivity Map",
+        "src": "/media/projects/south-city-greens/location-map/south-city-greens-location-connectivity-map.webp",
+        "alt": "South City Greens location and connectivity map (50 km radius), Sector 36, Jhajjar",
+        "caption": "Location & connectivity",
+        "sourceType": "Infographic",
+        "order": 7,
+        "show": "yes"
+      },
+      {
+        "projectId": "SCG",
+        "type": "Landscape",
+        "title": "Central Park",
+        "src": "/media/projects/south-city-greens/gallery/south-city-greens-central-park.webp",
+        "alt": "Landscaped central park with circular flower gardens and yoga lawn at South City Greens",
+        "caption": "Central park & gardens",
+        "sourceType": "Render",
+        "order": 8,
+        "show": "yes"
+      },
+      {
+        "projectId": "SCG",
+        "type": "Amenities",
+        "title": "Jogging Track",
+        "src": "/media/projects/south-city-greens/amenities/south-city-greens-jogging-track.webp",
+        "alt": "Jogging track winding through landscaped gardens with water feature at South City Greens",
+        "caption": "Jogging track",
+        "sourceType": "Render",
+        "order": 9,
+        "show": "yes"
+      },
+      {
+        "projectId": "SCG",
+        "type": "Amenities",
+        "title": "Sports Court",
+        "src": "/media/projects/south-city-greens/amenities/south-city-greens-sports-court.webp",
+        "alt": "Sports court set in landscaped grounds at South City Greens",
+        "caption": "Sports court",
+        "sourceType": "Render",
+        "order": 10,
+        "show": "yes"
+      },
+      {
+        "projectId": "SCG",
+        "type": "Convenience",
+        "title": "Convenience Shopping",
+        "src": "/media/projects/south-city-greens/amenities/south-city-greens-convenience-shopping.webp",
+        "alt": "Convenience shopping street with grocery store and cafe at South City Greens",
+        "caption": "Convenience shopping",
+        "sourceType": "Render",
+        "order": 11,
+        "show": "yes"
+      }
+    ],
+    "timeline": [
+      {
+        "projectId": "SCG",
+        "phase": "Phase 01",
+        "title": "Land Levelling",
+        "status": "To be updated",
+        "targetDate": null,
+        "proof": null,
+        "description": "Site preparation and land levelling update.",
+        "order": 1,
+        "show": "yes"
+      },
+      {
+        "projectId": "SCG",
+        "phase": "Phase 02",
+        "title": "Road Network",
+        "status": "To be updated",
+        "targetDate": null,
+        "proof": null,
+        "description": "Internal road development and base work update.",
+        "order": 2,
+        "show": "yes"
+      },
+      {
+        "projectId": "SCG",
+        "phase": "Phase 03",
+        "title": "Utilities & Green Infrastructure",
+        "status": "To be updated",
+        "targetDate": null,
+        "proof": null,
+        "description": "Utilities, green pockets and infrastructure update.",
+        "order": 3,
+        "show": "yes"
+      },
+      {
+        "projectId": "SCG",
+        "phase": "Phase 04",
+        "title": "Final Handover",
+        "status": "To be updated",
+        "targetDate": null,
+        "proof": null,
+        "description": "Final development and handover update.",
+        "order": 4,
+        "show": "yes"
+      }
+    ],
+    "downloads": [
+      {
+        "projectId": "SCG",
+        "type": "Brochure",
+        "title": "South City Greens Brochure",
+        "file": "/media/projects/south-city-greens/brochures/south-city-greens-brochure.pdf",
+        "available": true,
+        "gated": true,
+        "modalTitle": "Download Project Brochure",
+        "modalBody": "Enter your details to receive the South City Greens brochure with project highlights, plot sizes, amenities and location information.",
+        "buttonText": "DOWNLOAD BROCHURE",
+        "show": "yes"
+      },
+      {
+        "projectId": "SCG",
+        "type": "Progress Report",
+        "title": "South City Greens Progress Report",
+        "file": null,
+        "available": false,
+        "gated": true,
+        "modalTitle": "View Development Progress",
+        "modalBody": "Share your details to access the latest South City Greens development update and progress report.",
+        "buttonText": "VIEW PROGRESS REPORT",
+        "show": "yes"
+      },
+      {
+        "projectId": "SCG",
+        "type": "3D View",
+        "title": "South City Greens 3D Master Plan",
+        "file": "/media/projects/south-city-greens/3d-renders/south-city-greens-3d-aerial.webp",
+        "available": true,
+        "gated": true,
+        "modalTitle": "Access the 3D Project View",
+        "modalBody": "Share your details to explore the South City Greens master plan, plot layout, internal roads, green spaces and amenities.",
+        "buttonText": "VIEW 3D MASTER PLAN",
+        "show": "yes"
+      },
+      {
+        "projectId": "SCG",
+        "type": "Layout Plan",
+        "title": "South City Greens Layout Plan",
+        "file": "/media/projects/south-city-greens/layout-plan/south-city-greens-layout-plan.pdf",
+        "available": true,
+        "gated": true,
+        "modalTitle": "View Project Layout",
+        "modalBody": "Share your details to access the South City Greens layout plan and project information.",
+        "buttonText": "VIEW LAYOUT",
+        "show": "optional"
+      }
+    ],
+    "neighbourhood": [
+      {
+        "region": "Jhajjar",
+        "category": "Walking Distance",
+        "landmark": "Pratapgarh Farms",
+        "distance": "7.5 km · 14 mins",
+        "show": "yes"
+      },
+      {
+        "region": "Jhajjar",
+        "category": "Education",
+        "landmark": "R E D School, Jhajjar",
+        "distance": "9.0 km · 16 mins",
+        "show": "yes"
+      },
+      {
+        "region": "Jhajjar",
+        "category": "Education",
+        "landmark": "PSM Defence Academy",
+        "distance": "6.0 km · 12 mins",
+        "show": "yes"
+      },
+      {
+        "region": "Jhajjar",
+        "category": "Education",
+        "landmark": "BDM College of Pharmacy",
+        "distance": "12.0 km · 20 mins",
+        "show": "yes"
+      },
+      {
+        "region": "Jhajjar",
+        "category": "Education",
+        "landmark": "DAV Public School",
+        "distance": "5.0 km · 10 mins",
+        "show": "yes"
+      },
+      {
+        "region": "Jhajjar",
+        "category": "Education",
+        "landmark": "Royal Public School",
+        "distance": "6.0 km · 12 mins",
+        "show": "yes"
+      },
+      {
+        "region": "Jhajjar",
+        "category": "Education",
+        "landmark": "New Era High School",
+        "distance": "7.0 km · 14 mins",
+        "show": "yes"
+      },
+      {
+        "region": "Jhajjar",
+        "category": "Education",
+        "landmark": "G D Goenka Public School",
+        "distance": "6.5 km · 13 mins",
+        "show": "yes"
+      },
+      {
+        "region": "Jhajjar",
+        "category": "Education",
+        "landmark": "XLRI University",
+        "distance": "6.0 km · 12 mins",
+        "show": "yes"
+      },
+      {
+        "region": "Jhajjar",
+        "category": "Healthcare",
+        "landmark": "AIIMS, Badsa Jhajjar",
+        "distance": "18.0 km · 25 mins",
+        "show": "yes"
+      },
+      {
+        "region": "Jhajjar",
+        "category": "Healthcare",
+        "landmark": "Sukhdeva Hospital",
+        "distance": "5.0 km · 10 mins",
+        "show": "yes"
+      },
+      {
+        "region": "Jhajjar",
+        "category": "Healthcare",
+        "landmark": "Sant Hospital",
+        "distance": "5.0 km · 10 mins",
+        "show": "yes"
+      },
+      {
+        "region": "Jhajjar",
+        "category": "Healthcare",
+        "landmark": "Advanta Hospital",
+        "distance": "6.0 km · 12 mins",
+        "show": "yes"
+      },
+      {
+        "region": "Jhajjar",
+        "category": "Healthcare",
+        "landmark": "Oscar Super Speciality Hospital & Trauma Center",
+        "distance": "4.5 km · 9 mins",
+        "show": "yes"
+      },
+      {
+        "region": "Jhajjar",
+        "category": "Healthcare",
+        "landmark": "Civil Hospital, Jhajjar",
+        "distance": "5.0 km · 10 mins",
+        "show": "yes"
+      }
+    ]
+  },
+  {
+    "id": "SC1",
+    "name": "South City 1",
+    "slug": "south-city-1",
+    "status": "Delivered",
+    "launchTag": "Completed",
+    "locationShort": "Sector 36, Jhajjar",
+    "city": "Jhajjar",
+    "state": "Haryana",
+    "projectType": "Plotted Development",
+    "scheme": "DDJAY",
+    "landAreaDisplay": "9.606 acres",
+    "landAreaExact": "9.606 acres",
+    "totalPlots": "172",
+    "plotSizes": "90–180 Sq. Yd.",
+    "dtcpLicence": "82 of 2023",
+    "reraNumber": "HRERA-PKL-JJR-572-2024",
+    "reraQr": "/media/projects/south-city-1/rera-dtcp/south-city-1-rera-qr.jpeg",
+    "verificationStatus": "Verify before publish",
+    "legalNotes": "Existing details from old pack; confirm RERA association/project specificity.",
+    "cardDescription": "Delivered DDJAY plotted community in Sector 36, Jhajjar.",
+    "heroTitle": "South City 1",
+    "heroSubtitle": "Delivered Plotted Community in Sector 36, Jhajjar",
+    "heroDescription": "A DDJAY plotted development with planned community infrastructure.",
+    "section01Title": "Project Overview",
+    "section01Body": "South City 1 is a completed plotted residential township in Sector 36, Jhajjar, developed under the Deen Dayal Jan Awas Yojana. Spread across 9.6 acres with 172 residential plots, it is a fully delivered gated community in the fast-developing Sector 36 belt, within easy reach of Jhajjar city and railway, the Reliance MET City industrial hub and the KMP Expressway. Featuring wide internal roads, thoughtfully designed green pockets and complete core infrastructure, the township offers ready, well-planned residential plots for families and investors seeking a peaceful, well-connected and future-ready address in Jhajjar.",
+    "primaryCta": "View Details",
+    "secondaryCta": "Enquire Now",
+    "brochureLink": "/media/projects/south-city-1/brochures/south-city-1-brochure.pdf",
+    "progressReportLink": null,
+    "view3dLink": "/media/projects/south-city-1/3d-renders/south-city-1-3d-aerial.webp",
+    "layoutPlanLink": "/media/projects/south-city-1/layout-plan/south-city-1-project-plan.pdf",
+    "heroImage": "/media/projects/south-city-1/hero/south-city-1-hero-entrance-avenue.webp",
+    "cardImage": "/media/projects/south-city-1/hero/south-city-1-hero-central-plaza.webp",
+    "ogImage": "/media/projects/south-city-1/hero/south-city-1-hero-park-aerial.webp",
+    "seoTitle": "South City 1, Jhajjar | Cellular Realty",
+    "seoDescription": "Explore South City 1, a delivered plotted development in Sector 36, Jhajjar by Cellular Realty.",
+    "published": false,
+    "displayOrder": 2,
+    "comingSoon": false,
+    "amenities": [
+      {
+        "projectId": "SC1",
+        "amenity": "Gated Complex / Community",
+        "category": "Security",
+        "label": "Gated Community",
+        "icon": "gate",
+        "status": "Confirmed",
+        "order": 1,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC1",
+        "amenity": "24×7 Security",
+        "category": "Security",
+        "label": "24×7 Security",
+        "icon": "shield",
+        "status": "Confirmed",
+        "order": 2,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC1",
+        "amenity": "Yoga & Central Lawn",
+        "category": "Lifestyle",
+        "label": "Yoga & Central Lawn",
+        "icon": "leaf",
+        "status": "Confirmed",
+        "order": 3,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC1",
+        "amenity": "Jogging Track",
+        "category": "Lifestyle",
+        "label": "Jogging Track",
+        "icon": "activity",
+        "status": "Confirmed",
+        "order": 4,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC1",
+        "amenity": "Kids Play Area",
+        "category": "Lifestyle",
+        "label": "Kids’ Play Area",
+        "icon": "play",
+        "status": "Confirmed",
+        "order": 5,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC1",
+        "amenity": "Commercial Space",
+        "category": "Convenience",
+        "label": "Commercial Space",
+        "icon": "store",
+        "status": "Confirmed",
+        "order": 6,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC1",
+        "amenity": "Fresh Water Supply",
+        "category": "Infrastructure",
+        "label": "Fresh Water Supply",
+        "icon": "water",
+        "status": "Confirmed",
+        "order": 7,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC1",
+        "amenity": "Lush Green Multiple Pockets",
+        "category": "Landscape",
+        "label": "Green Pockets",
+        "icon": "trees",
+        "status": "Confirmed",
+        "order": 8,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC1",
+        "amenity": "Milk & Vegetable Booth",
+        "category": "Convenience",
+        "label": "Milk & Vegetable Booth",
+        "icon": "shopping-bag",
+        "status": "Confirmed",
+        "order": 9,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC1",
+        "amenity": "Underground Electricity Lines",
+        "category": "Infrastructure",
+        "label": "Underground Utilities",
+        "icon": "zap",
+        "status": "Confirmed",
+        "order": 10,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC1",
+        "amenity": "Wide Internal Roads",
+        "category": "Infrastructure",
+        "label": "Wide Internal Roads",
+        "icon": "road",
+        "status": "Confirmed",
+        "order": 11,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC1",
+        "amenity": "STP & WTP",
+        "category": "Infrastructure",
+        "label": "WTP & STP",
+        "icon": "droplets",
+        "status": "Confirmed",
+        "order": 12,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC1",
+        "amenity": "Rainwater Harvesting",
+        "category": "Infrastructure",
+        "label": "Rainwater Harvesting",
+        "icon": "cloud-rain",
+        "status": "Confirmed",
+        "order": 13,
+        "show": "yes"
+      }
+    ],
+    "connectivity": [
+      {
+        "projectId": "SC1",
+        "category": "Transport",
+        "place": "Jhajjar city / railway / bus stand",
+        "distance": "2–5 min",
+        "description": "Nearby civic and transport access",
+        "order": 1,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC1",
+        "category": "Highway",
+        "place": "NH-71 Rewari–Rohtak Highway",
+        "distance": "2–5 min",
+        "description": "Regional highway access",
+        "order": 2,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC1",
+        "category": "Employment",
+        "place": "Indospace Industrial Park, Badli",
+        "distance": "10–15 min",
+        "description": "Industrial and employment hub",
+        "order": 3,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC1",
+        "category": "Employment",
+        "place": "Reliance MET City",
+        "distance": "10–15 min",
+        "description": "Industrial and business activity in the region",
+        "order": 4,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC1",
+        "category": "Highway",
+        "place": "KMP Expressway",
+        "distance": "10–15 min",
+        "description": "Regional expressway connectivity",
+        "order": 5,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC1",
+        "category": "Healthcare",
+        "place": "AIIMS, Badsa",
+        "distance": "15–20 min",
+        "description": "Healthcare and institutional landmark",
+        "order": 6,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC1",
+        "category": "Leisure",
+        "place": "Sultanpur Bird Sanctuary",
+        "distance": "20–25 min",
+        "description": "Regional leisure landmark",
+        "order": 7,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC1",
+        "category": "Highway",
+        "place": "Dwarka Expressway",
+        "distance": "30–35 min",
+        "description": "Regional connectivity route",
+        "order": 8,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC1",
+        "category": "City",
+        "place": "Gurugram",
+        "distance": "40–45 min",
+        "description": "Major NCR employment and commercial centre",
+        "order": 9,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC1",
+        "category": "Airport",
+        "place": "IGI Airport",
+        "distance": "50–55 min",
+        "description": "Airport access estimate",
+        "order": 10,
+        "show": "yes"
+      }
+    ],
+    "gallery": [
+      {
+        "projectId": "SC1",
+        "type": "Landscape",
+        "title": "Central Park (Aerial)",
+        "src": "/media/projects/south-city-1/gallery/south-city-1-central-park-aerial.webp",
+        "alt": "Aerial view of the landscaped central park at South City 1, Sector 36, Jhajjar",
+        "caption": "Central landscaped park",
+        "sourceType": "Real Photo",
+        "order": 1,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC1",
+        "type": "Entrance",
+        "title": "Entrance Gate",
+        "src": "/media/projects/south-city-1/gallery/south-city-1-entrance-gate.webp",
+        "alt": "Main entrance gate at South City 1, Sector 36, Jhajjar",
+        "caption": "Project entrance gate",
+        "sourceType": "Real Photo",
+        "order": 2,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC1",
+        "type": "Marketing",
+        "title": "Central Park Collage",
+        "src": "/media/projects/south-city-1/gallery/south-city-1-central-park-collage.webp",
+        "alt": "Landscaped central park marketing collage for South City 1",
+        "caption": "Premium living collage",
+        "sourceType": "Marketing",
+        "order": 3,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC1",
+        "type": "Landscape",
+        "title": "Park Fountain",
+        "src": "/media/projects/south-city-1/gallery/south-city-1-park-fountain.webp",
+        "alt": "Central park fountain at South City 1",
+        "caption": "Park fountain",
+        "sourceType": "Real Photo",
+        "order": 4,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC1",
+        "type": "Landscape",
+        "title": "Central Park Plaza",
+        "src": "/media/projects/south-city-1/gallery/south-city-1-central-park-plaza.webp",
+        "alt": "Circular paver plaza in the central park at South City 1",
+        "caption": "Central plaza",
+        "sourceType": "Real Photo",
+        "order": 5,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC1",
+        "type": "Landscape",
+        "title": "Park Seating Area",
+        "src": "/media/projects/south-city-1/gallery/south-city-1-park-seating-area.webp",
+        "alt": "Stone seating area in the central park at South City 1",
+        "caption": "Seating area",
+        "sourceType": "Real Photo",
+        "order": 6,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC1",
+        "type": "Landscape",
+        "title": "Central Green",
+        "src": "/media/projects/south-city-1/gallery/south-city-1-park-central-green.webp",
+        "alt": "Central green and pathways at South City 1",
+        "caption": "Central green",
+        "sourceType": "Real Photo",
+        "order": 7,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC1",
+        "type": "Landscape",
+        "title": "Park Pathway",
+        "src": "/media/projects/south-city-1/gallery/south-city-1-park-pathway-landscaping.webp",
+        "alt": "Landscaped park pathway at South City 1",
+        "caption": "Park pathway",
+        "sourceType": "Real Photo",
+        "order": 8,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC1",
+        "type": "Landscape",
+        "title": "Park Pathway (Monsoon)",
+        "src": "/media/projects/south-city-1/gallery/south-city-1-park-pathway-monsoon.webp",
+        "alt": "Park pathway beside the central lawn at South City 1",
+        "caption": "Park pathway",
+        "sourceType": "Real Photo",
+        "order": 9,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC1",
+        "type": "Landscape",
+        "title": "Landscaped Garden at Sunset",
+        "src": "/media/projects/south-city-1/gallery/south-city-1-landscaped-garden-sunset.webp",
+        "alt": "Landscaped garden with palm trees at sunset, South City 1",
+        "caption": "Garden at sunset",
+        "sourceType": "Real Photo",
+        "order": 10,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC1",
+        "type": "Landscape",
+        "title": "Boundary Wall Plantation",
+        "src": "/media/projects/south-city-1/gallery/south-city-1-boundary-wall-plantation.webp",
+        "alt": "Plantation along the boundary wall footpath at South City 1",
+        "caption": "Boundary plantation",
+        "sourceType": "Real Photo",
+        "order": 11,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC1",
+        "type": "Infrastructure",
+        "title": "Internal Road",
+        "src": "/media/projects/south-city-1/gallery/south-city-1-internal-road.webp",
+        "alt": "Developed internal road at South City 1",
+        "caption": "Internal road",
+        "sourceType": "Real Photo",
+        "order": 12,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC1",
+        "type": "Infrastructure",
+        "title": "Boundary Wall Lighting (Dusk)",
+        "src": "/media/projects/south-city-1/gallery/south-city-1-boundary-wall-lighting-dusk.webp",
+        "alt": "Illuminated boundary wall at dusk, South City 1",
+        "caption": "Facade lighting",
+        "sourceType": "Real Photo",
+        "order": 13,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC1",
+        "type": "Infrastructure",
+        "title": "Boundary Wall Lighting (Evening)",
+        "src": "/media/projects/south-city-1/gallery/south-city-1-boundary-wall-lighting-evening.webp",
+        "alt": "Illuminated boundary wall and internal road in the evening, South City 1",
+        "caption": "Evening lighting",
+        "sourceType": "Real Photo",
+        "order": 14,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC1",
+        "type": "Infrastructure",
+        "title": "Entrance Forecourt",
+        "src": "/media/projects/south-city-1/gallery/south-city-1-entrance-forecourt.webp",
+        "alt": "Concrete forecourt near the main entrance gate at South City 1",
+        "caption": "Entrance forecourt",
+        "sourceType": "Real Photo",
+        "order": 15,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC1",
+        "type": "Infrastructure",
+        "title": "Open Plot / Court",
+        "src": "/media/projects/south-city-1/gallery/south-city-1-open-plot-court.webp",
+        "alt": "Open concrete court within South City 1",
+        "caption": "Open court",
+        "sourceType": "Real Photo",
+        "order": 16,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC1",
+        "type": "Infrastructure",
+        "title": "Utility Room",
+        "src": "/media/projects/south-city-1/gallery/south-city-1-utility-room.webp",
+        "alt": "Utility / pump room within South City 1",
+        "caption": "Utility room",
+        "sourceType": "Real Photo",
+        "order": 17,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC1",
+        "type": "Video",
+        "title": "Site Walkthrough Video",
+        "src": "/media/projects/south-city-1/gallery/south-city-1-gallery-video.mp4",
+        "alt": "Site walkthrough video of South City 1",
+        "caption": "Site walkthrough",
+        "sourceType": "Real Video",
+        "order": 18,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC1",
+        "type": "Location Map",
+        "title": "Location & Connectivity Map",
+        "src": "/media/projects/south-city-1/location-map/south-city-1-location-connectivity-map.webp",
+        "alt": "South City 1 location and connectivity map, Sector 36, Jhajjar",
+        "caption": "Location & connectivity",
+        "sourceType": "Infographic",
+        "order": 19,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC1",
+        "type": "3D",
+        "title": "3D Master Plan Render",
+        "src": "/media/projects/south-city-1/3d-renders/south-city-1-3d-aerial.webp",
+        "alt": "3D aerial master plan render of South City 1 showing plots, roads, clubhouse and green spaces",
+        "caption": "3D project view",
+        "sourceType": "3D Render",
+        "order": 20,
+        "show": "yes"
+      }
+    ],
+    "timeline": [],
+    "downloads": [
+      {
+        "projectId": "SC1",
+        "type": "Brochure",
+        "title": "South City 1 Brochure",
+        "file": "/media/projects/south-city-1/brochures/south-city-1-brochure.pdf",
+        "available": true,
+        "gated": true,
+        "modalTitle": "Download Project Brochure",
+        "modalBody": "Enter your details to receive the South City 1 brochure with project highlights, plot sizes, amenities and location information.",
+        "buttonText": "DOWNLOAD BROCHURE",
+        "show": "yes"
+      }
+    ],
+    "neighbourhood": [
+      {
+        "region": "Jhajjar",
+        "category": "Walking Distance",
+        "landmark": "Pratapgarh Farms",
+        "distance": "7.5 km · 14 mins",
+        "show": "yes"
+      },
+      {
+        "region": "Jhajjar",
+        "category": "Education",
+        "landmark": "R E D School, Jhajjar",
+        "distance": "9.0 km · 16 mins",
+        "show": "yes"
+      },
+      {
+        "region": "Jhajjar",
+        "category": "Education",
+        "landmark": "PSM Defence Academy",
+        "distance": "6.0 km · 12 mins",
+        "show": "yes"
+      },
+      {
+        "region": "Jhajjar",
+        "category": "Education",
+        "landmark": "BDM College of Pharmacy",
+        "distance": "12.0 km · 20 mins",
+        "show": "yes"
+      },
+      {
+        "region": "Jhajjar",
+        "category": "Education",
+        "landmark": "DAV Public School",
+        "distance": "5.0 km · 10 mins",
+        "show": "yes"
+      },
+      {
+        "region": "Jhajjar",
+        "category": "Education",
+        "landmark": "Royal Public School",
+        "distance": "6.0 km · 12 mins",
+        "show": "yes"
+      },
+      {
+        "region": "Jhajjar",
+        "category": "Education",
+        "landmark": "New Era High School",
+        "distance": "7.0 km · 14 mins",
+        "show": "yes"
+      },
+      {
+        "region": "Jhajjar",
+        "category": "Education",
+        "landmark": "G D Goenka Public School",
+        "distance": "6.5 km · 13 mins",
+        "show": "yes"
+      },
+      {
+        "region": "Jhajjar",
+        "category": "Education",
+        "landmark": "XLRI University",
+        "distance": "6.0 km · 12 mins",
+        "show": "yes"
+      },
+      {
+        "region": "Jhajjar",
+        "category": "Healthcare",
+        "landmark": "AIIMS, Badsa Jhajjar",
+        "distance": "18.0 km · 25 mins",
+        "show": "yes"
+      },
+      {
+        "region": "Jhajjar",
+        "category": "Healthcare",
+        "landmark": "Sukhdeva Hospital",
+        "distance": "5.0 km · 10 mins",
+        "show": "yes"
+      },
+      {
+        "region": "Jhajjar",
+        "category": "Healthcare",
+        "landmark": "Sant Hospital",
+        "distance": "5.0 km · 10 mins",
+        "show": "yes"
+      },
+      {
+        "region": "Jhajjar",
+        "category": "Healthcare",
+        "landmark": "Advanta Hospital",
+        "distance": "6.0 km · 12 mins",
+        "show": "yes"
+      },
+      {
+        "region": "Jhajjar",
+        "category": "Healthcare",
+        "landmark": "Oscar Super Speciality Hospital & Trauma Center",
+        "distance": "4.5 km · 9 mins",
+        "show": "yes"
+      },
+      {
+        "region": "Jhajjar",
+        "category": "Healthcare",
+        "landmark": "Civil Hospital, Jhajjar",
+        "distance": "5.0 km · 10 mins",
+        "show": "yes"
+      }
+    ]
+  },
+  {
+    "id": "MKJ",
+    "name": "Maruti Kunj",
+    "slug": "maruti-kunj",
+    "status": "Delivered",
+    "launchTag": "Completed",
+    "locationShort": "Sector 3, Farrukhnagar",
+    "city": "Gurugram",
+    "state": "Haryana",
+    "projectType": "Plotted Development",
+    "scheme": "DDJAY",
+    "landAreaDisplay": "12.85625 acres",
+    "landAreaExact": "12.85625 acres",
+    "totalPlots": "242",
+    "plotSizes": "90–180 Sq. Yd.",
+    "dtcpLicence": "18 of 2017",
+    "reraNumber": "127 of 2017 dated 28.08.2017",
+    "reraQr": "/media/projects/maruti-kunj/rera-dtcp/maruti-kunj-rera-qr.png",
+    "verificationStatus": "Needs confirmation",
+    "legalNotes": "Developer: Silver Lake Buildtech Pvt. Ltd. (per DTCP licence/zoning doc; user-confirmed 2026-07-15 over the earlier 'Sadaa Infratech' reference). Plot count (242, corrected from 270 on 2026-07-15) and RERA (127 of 2017 dated 28.08.2017) user-confirmed 2026-07-15. | Completed project: NO sales brochure exists (user-confirmed 2026-07-15) - brochure CTA hidden. | Hero/Card/OG use STOCK images by decision (real MKJ photos not feasible, user-confirmed 2026-07-15) - final, not pending. | 3D render is a representative/illustrative aerial (add 'representative image' disclaimer on page).",
+    "cardDescription": "Delivered plotted community in Farrukhnagar, Gurugram.",
+    "heroTitle": "Maruti Kunj",
+    "heroSubtitle": "Delivered Plotted Community in Farrukhnagar",
+    "heroDescription": "A DDJAY plotted development near Gurugram with community infrastructure.",
+    "section01Title": "Project Overview",
+    "section01Body": "Maruti Kunj is a completed plotted residential township in Sector 3, Farrukhnagar, Gurugram, developed under the Deen Dayal Jan Awas Yojana. Spread across 12.85 acres with 242 residential plots, it was specially planned as a community for Maruti employees, who formed close to 80 percent of its buyers, and sits in the emerging Farrukhnagar growth corridor with strategic connectivity to key areas of Gurugram. Featuring wide internal roads, thoughtfully designed green spaces and full core infrastructure, the township offers ready, well-planned residential plots for families and investors seeking a peaceful, well-connected and future-ready address near Gurugram.",
+    "primaryCta": "View Details",
+    "secondaryCta": "Enquire Now",
+    "brochureLink": null,
+    "progressReportLink": null,
+    "view3dLink": "/media/projects/maruti-kunj/3d-renders/maruti-kunj-3d-aerial.webp",
+    "layoutPlanLink": "/media/projects/maruti-kunj/layout-plan/maruti-kunj-layout-plan.pdf",
+    "heroImage": "/media/stock-images/stock-entrance-gate.webp",
+    "cardImage": "/media/stock-images/stock-tree-lined-street.webp",
+    "ogImage": "/media/stock-images/stock-entrance-gate.webp",
+    "seoTitle": "Maruti Kunj, Farrukhnagar | Cellular Realty",
+    "seoDescription": "Explore Maruti Kunj, a delivered plotted development in Farrukhnagar, Gurugram by Cellular Realty.",
+    "published": false,
+    "displayOrder": 3,
+    "comingSoon": false,
+    "amenities": [
+      {
+        "projectId": "MKJ",
+        "amenity": "Gated Complex / Community",
+        "category": "Security",
+        "label": "Gated Community",
+        "icon": "gate",
+        "status": "Confirmed",
+        "order": 1,
+        "show": "yes"
+      },
+      {
+        "projectId": "MKJ",
+        "amenity": "24×7 Security",
+        "category": "Security",
+        "label": "24×7 Security",
+        "icon": "shield",
+        "status": "Confirmed",
+        "order": 2,
+        "show": "yes"
+      },
+      {
+        "projectId": "MKJ",
+        "amenity": "Commercial Space",
+        "category": "Convenience",
+        "label": "Commercial Space",
+        "icon": "store",
+        "status": "Confirmed",
+        "order": 6,
+        "show": "yes"
+      },
+      {
+        "projectId": "MKJ",
+        "amenity": "Fresh Water Supply",
+        "category": "Infrastructure",
+        "label": "Fresh Water Supply",
+        "icon": "water",
+        "status": "Confirmed",
+        "order": 7,
+        "show": "yes"
+      },
+      {
+        "projectId": "MKJ",
+        "amenity": "Lush Green Multiple Pockets",
+        "category": "Landscape",
+        "label": "Green Pockets",
+        "icon": "trees",
+        "status": "Confirmed",
+        "order": 8,
+        "show": "yes"
+      },
+      {
+        "projectId": "MKJ",
+        "amenity": "Underground Electricity Lines",
+        "category": "Infrastructure",
+        "label": "Underground Utilities",
+        "icon": "zap",
+        "status": "Confirmed",
+        "order": 10,
+        "show": "yes"
+      },
+      {
+        "projectId": "MKJ",
+        "amenity": "Wide Internal Roads",
+        "category": "Infrastructure",
+        "label": "Wide Internal Roads",
+        "icon": "road",
+        "status": "Confirmed",
+        "order": 11,
+        "show": "yes"
+      },
+      {
+        "projectId": "MKJ",
+        "amenity": "STP & WTP",
+        "category": "Infrastructure",
+        "label": "WTP & STP",
+        "icon": "droplets",
+        "status": "Confirmed",
+        "order": 12,
+        "show": "yes"
+      }
+    ],
+    "connectivity": [
+      {
+        "projectId": "MKJ",
+        "category": "Highway",
+        "place": "Gurugram–Jhajjar Highway",
+        "distance": "On Site / On Highway",
+        "description": "Project fronts the Gurugram–Jhajjar Highway",
+        "order": 1,
+        "show": "yes"
+      },
+      {
+        "projectId": "MKJ",
+        "category": "Transport",
+        "place": "Farrukhnagar Railway Station",
+        "distance": "1 km",
+        "description": "Nearest railway station",
+        "order": 2,
+        "show": "yes"
+      },
+      {
+        "projectId": "MKJ",
+        "category": "Highway",
+        "place": "KMP Expressway",
+        "distance": "3 km",
+        "description": "Regional expressway access",
+        "order": 3,
+        "show": "yes"
+      },
+      {
+        "projectId": "MKJ",
+        "category": "Convenience",
+        "place": "Farrukhnagar Market",
+        "distance": "1 km",
+        "description": "Local market",
+        "order": 4,
+        "show": "yes"
+      },
+      {
+        "projectId": "MKJ",
+        "category": "Leisure",
+        "place": "Sultanpur Bird Sanctuary",
+        "distance": "5 km",
+        "description": "Regional leisure landmark",
+        "order": 5,
+        "show": "yes"
+      },
+      {
+        "projectId": "MKJ",
+        "category": "Employment",
+        "place": "IMT Manesar",
+        "distance": "15 km",
+        "description": "Industrial and employment hub",
+        "order": 6,
+        "show": "yes"
+      },
+      {
+        "projectId": "MKJ",
+        "category": "City",
+        "place": "Rajeev Chowk, Gurugram",
+        "distance": "20 km",
+        "description": "Central Gurugram junction",
+        "order": 7,
+        "show": "yes"
+      }
+    ],
+    "gallery": [
+      {
+        "projectId": "MKJ",
+        "type": "Location Map",
+        "title": "Location & Connectivity Map",
+        "src": "/media/projects/maruti-kunj/location-map/maruti-kunj-location-connectivity-map.webp",
+        "alt": "Maruti Kunj location and connectivity map (20 km radius), Farrukhnagar",
+        "caption": "Location & connectivity",
+        "sourceType": "Infographic",
+        "order": 1,
+        "show": "yes"
+      }
+    ],
+    "timeline": [],
+    "downloads": [],
+    "neighbourhood": []
+  },
+  {
+    "id": "SC2",
+    "name": "South City 2",
+    "slug": "south-city-2",
+    "status": "Ongoing",
+    "launchTag": "80% Complete",
+    "locationShort": "Sector 37, Jhajjar",
+    "city": "Jhajjar",
+    "state": "Haryana",
+    "projectType": "Plotted Development",
+    "scheme": "DDJAY",
+    "landAreaDisplay": "10.681 acres",
+    "landAreaExact": "10.681 acres",
+    "totalPlots": "210",
+    "plotSizes": "90–180 Sq. Yd.",
+    "dtcpLicence": "98 of 2024",
+    "reraNumber": "HRERA-PKL-JJR-637-2024",
+    "reraQr": "/media/projects/south-city-2/rera-dtcp/south-city-2-hrera-qr.png",
+    "verificationStatus": "Verify before publish",
+    "legalNotes": "Confirm current status and construction images.",
+    "cardDescription": "Ongoing DDJAY plotted development in Sector 37, Jhajjar.",
+    "heroTitle": "South City 2",
+    "heroSubtitle": "Ongoing Plotted Development in Sector 37, Jhajjar",
+    "heroDescription": "A planned plotted community with roads, green spaces and amenities.",
+    "section01Title": "Project Overview",
+    "section01Body": "South City 2 is a plotted residential township in Sector 37, Jhajjar, developed under the Deen Dayal Jan Awas Yojana. Spread across 10.68 acres with 210 residential plots, this ongoing development is planned as a gated community in the fast-growing Sector 37 belt, well connected to Jhajjar city and railway, the Reliance MET City industrial hub and the KMP Expressway. Featuring wide internal roads, thoughtfully designed green pockets and modern infrastructure, the township offers well-planned residential plots for families and investors seeking a peaceful, well-connected and future-ready address in Jhajjar.",
+    "primaryCta": "View Details",
+    "secondaryCta": "Enquire Now",
+    "brochureLink": "/media/projects/south-city-2/brochures/south-city-2-brochure.pdf",
+    "progressReportLink": null,
+    "view3dLink": "/media/projects/south-city-2/3d-renders/south-city-2-3d-aerial.webp",
+    "layoutPlanLink": "/media/projects/south-city-2/layout-plan/south-city-2-project-plan.pdf",
+    "heroImage": "/media/projects/south-city-2/hero/south-city-2-hero-entrance-gate.webp",
+    "cardImage": "/media/projects/south-city-2/hero/south-city-2-hero-entrance-gate.webp",
+    "ogImage": "/media/projects/south-city-2/hero/south-city-2-hero-entrance-gate.webp",
+    "seoTitle": "South City 2, Jhajjar | Cellular Realty",
+    "seoDescription": "Explore South City 2, an ongoing plotted development in Sector 37, Jhajjar by Cellular Realty.",
+    "published": false,
+    "displayOrder": 4,
+    "comingSoon": false,
+    "amenities": [
+      {
+        "projectId": "SC2",
+        "amenity": "Gated Complex / Community",
+        "category": "Security",
+        "label": "Gated Community",
+        "icon": "gate",
+        "status": "Confirmed",
+        "order": 1,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC2",
+        "amenity": "24×7 Security",
+        "category": "Security",
+        "label": "24×7 Security",
+        "icon": "shield",
+        "status": "Confirmed",
+        "order": 2,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC2",
+        "amenity": "Yoga & Central Lawn",
+        "category": "Lifestyle",
+        "label": "Yoga & Central Lawn",
+        "icon": "leaf",
+        "status": "Confirmed",
+        "order": 3,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC2",
+        "amenity": "Jogging Track",
+        "category": "Lifestyle",
+        "label": "Jogging Track",
+        "icon": "activity",
+        "status": "Confirmed",
+        "order": 4,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC2",
+        "amenity": "Kids Play Area",
+        "category": "Lifestyle",
+        "label": "Kids’ Play Area",
+        "icon": "play",
+        "status": "Confirmed",
+        "order": 5,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC2",
+        "amenity": "Commercial Space",
+        "category": "Convenience",
+        "label": "Commercial Space",
+        "icon": "store",
+        "status": "Confirmed",
+        "order": 6,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC2",
+        "amenity": "Fresh Water Supply",
+        "category": "Infrastructure",
+        "label": "Fresh Water Supply",
+        "icon": "water",
+        "status": "Confirmed",
+        "order": 7,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC2",
+        "amenity": "Lush Green Multiple Pockets",
+        "category": "Landscape",
+        "label": "Green Pockets",
+        "icon": "trees",
+        "status": "Confirmed",
+        "order": 8,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC2",
+        "amenity": "Milk & Vegetable Booth",
+        "category": "Convenience",
+        "label": "Milk & Vegetable Booth",
+        "icon": "shopping-bag",
+        "status": "Confirmed",
+        "order": 9,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC2",
+        "amenity": "Underground Electricity Lines",
+        "category": "Infrastructure",
+        "label": "Underground Utilities",
+        "icon": "zap",
+        "status": "Confirmed",
+        "order": 10,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC2",
+        "amenity": "Wide Internal Roads",
+        "category": "Infrastructure",
+        "label": "Wide Internal Roads",
+        "icon": "road",
+        "status": "Confirmed",
+        "order": 11,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC2",
+        "amenity": "STP & WTP",
+        "category": "Infrastructure",
+        "label": "WTP & STP",
+        "icon": "droplets",
+        "status": "Confirmed",
+        "order": 12,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC2",
+        "amenity": "Rainwater Harvesting",
+        "category": "Infrastructure",
+        "label": "Rainwater Harvesting",
+        "icon": "cloud-rain",
+        "status": "Confirmed",
+        "order": 13,
+        "show": "yes"
+      }
+    ],
+    "connectivity": [
+      {
+        "projectId": "SC2",
+        "category": "Transport",
+        "place": "Jhajjar city / railway / bus stand",
+        "distance": "2–5 min",
+        "description": "Nearby civic and transport access",
+        "order": 1,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC2",
+        "category": "Highway",
+        "place": "NH-71 Rewari–Rohtak Highway",
+        "distance": "2–5 min",
+        "description": "Regional highway access",
+        "order": 2,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC2",
+        "category": "Employment",
+        "place": "Indospace Industrial Park, Badli",
+        "distance": "10–15 min",
+        "description": "Industrial and employment hub",
+        "order": 3,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC2",
+        "category": "Employment",
+        "place": "Reliance MET City",
+        "distance": "10–15 min",
+        "description": "Industrial and business activity in the region",
+        "order": 4,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC2",
+        "category": "Highway",
+        "place": "KMP Expressway",
+        "distance": "10–15 min",
+        "description": "Regional expressway connectivity",
+        "order": 5,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC2",
+        "category": "Healthcare",
+        "place": "AIIMS, Badsa",
+        "distance": "15–20 min",
+        "description": "Healthcare and institutional landmark",
+        "order": 6,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC2",
+        "category": "Leisure",
+        "place": "Sultanpur Bird Sanctuary",
+        "distance": "20–25 min",
+        "description": "Regional leisure landmark",
+        "order": 7,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC2",
+        "category": "Highway",
+        "place": "Dwarka Expressway",
+        "distance": "30–35 min",
+        "description": "Regional connectivity route",
+        "order": 8,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC2",
+        "category": "City",
+        "place": "Gurugram",
+        "distance": "40–45 min",
+        "description": "Major NCR employment and commercial centre",
+        "order": 9,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC2",
+        "category": "Airport",
+        "place": "IGI Airport",
+        "distance": "50–55 min",
+        "description": "Airport access estimate",
+        "order": 10,
+        "show": "yes"
+      }
+    ],
+    "gallery": [
+      {
+        "projectId": "SC2",
+        "type": "Entrance",
+        "title": "Entrance Gate",
+        "src": "/media/projects/south-city-2/gallery/south-city-2-entrance-gate.webp",
+        "alt": "Main entrance gateway at South City 2, Sector 37, Jhajjar",
+        "caption": "Project entrance gate",
+        "sourceType": "Real Photo",
+        "order": 1,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC2",
+        "type": "Entrance",
+        "title": "Entrance Road",
+        "src": "/media/projects/south-city-2/gallery/south-city-2-entrance-road-flags.webp",
+        "alt": "Flag-lined entrance road at South City 2",
+        "caption": "Entrance road",
+        "sourceType": "Real Photo",
+        "order": 2,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC2",
+        "type": "Infrastructure",
+        "title": "Internal Road",
+        "src": "/media/projects/south-city-2/gallery/south-city-2-internal-road.webp",
+        "alt": "Developed internal road at South City 2",
+        "caption": "Internal road",
+        "sourceType": "Real Photo",
+        "order": 3,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC2",
+        "type": "Infrastructure",
+        "title": "Internal Road (Street Lights)",
+        "src": "/media/projects/south-city-2/gallery/south-city-2-internal-road-street-lights.webp",
+        "alt": "Internal road with street lighting at South City 2",
+        "caption": "Street lighting",
+        "sourceType": "Real Photo",
+        "order": 4,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC2",
+        "type": "Infrastructure",
+        "title": "Internal Road with Plantation",
+        "src": "/media/projects/south-city-2/gallery/south-city-2-internal-road-plantation.webp",
+        "alt": "Internal road with roadside plantation at South City 2",
+        "caption": "Roadside plantation",
+        "sourceType": "Real Photo",
+        "order": 5,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC2",
+        "type": "Infrastructure",
+        "title": "Internal Road (Site Office)",
+        "src": "/media/projects/south-city-2/gallery/south-city-2-internal-road-site-office.webp",
+        "alt": "Internal road toward the site office at South City 2",
+        "caption": "Toward site office",
+        "sourceType": "Real Photo",
+        "order": 6,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC2",
+        "type": "Progress",
+        "title": "Road Development",
+        "src": "/media/projects/south-city-2/gallery/south-city-2-internal-road-development.webp",
+        "alt": "Internal road development in progress at South City 2",
+        "caption": "Road development",
+        "sourceType": "Real Construction",
+        "order": 7,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC2",
+        "type": "Location Map",
+        "title": "Location & Connectivity Map",
+        "src": "/media/projects/south-city-2/location-map/south-city-2-location-connectivity-map.webp",
+        "alt": "South City 2 location and connectivity map, Sector 37, Jhajjar",
+        "caption": "Location & connectivity",
+        "sourceType": "Infographic",
+        "order": 8,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC2",
+        "type": "Amenities",
+        "title": "Park, Play Area & Open Gym",
+        "src": "/media/projects/south-city-2/amenities/south-city-2-amenities-park.webp",
+        "alt": "Landscaped park with children's play area and open-air gym at South City 2, Sector 37, Jhajjar",
+        "caption": "Amenities & landscaped park",
+        "sourceType": "Render",
+        "order": 9,
+        "show": "optional"
+      },
+      {
+        "projectId": "SC2",
+        "type": "Landscape",
+        "title": "Tree-Lined Avenue",
+        "src": "/media/projects/south-city-2/gallery/south-city-2-tree-lined-avenue.webp",
+        "alt": "Tree-lined internal avenue at sunset, South City 2, Sector 37, Jhajjar",
+        "caption": "Internal avenue",
+        "sourceType": "Render",
+        "order": 10,
+        "show": "optional"
+      },
+      {
+        "projectId": "SC2",
+        "type": "Entrance",
+        "title": "Entrance Avenue",
+        "src": "/media/projects/south-city-2/gallery/south-city-2-entrance-avenue.webp",
+        "alt": "Flag-lined entrance avenue at sunset, South City 2, Sector 37, Jhajjar",
+        "caption": "Entrance boulevard",
+        "sourceType": "Render",
+        "order": 11,
+        "show": "optional"
+      }
+    ],
+    "timeline": [],
+    "downloads": [
+      {
+        "projectId": "SC2",
+        "type": "Brochure",
+        "title": "South City 2 Brochure",
+        "file": "/media/projects/south-city-2/brochures/south-city-2-brochure.pdf",
+        "available": true,
+        "gated": true,
+        "modalTitle": "Download Project Brochure",
+        "modalBody": "Enter your details to receive the South City 2 brochure with project highlights, plot sizes, amenities and location information.",
+        "buttonText": "DOWNLOAD BROCHURE",
+        "show": "yes"
+      }
+    ],
+    "neighbourhood": [
+      {
+        "region": "Jhajjar",
+        "category": "Walking Distance",
+        "landmark": "Pratapgarh Farms",
+        "distance": "7.5 km · 14 mins",
+        "show": "yes"
+      },
+      {
+        "region": "Jhajjar",
+        "category": "Education",
+        "landmark": "R E D School, Jhajjar",
+        "distance": "9.0 km · 16 mins",
+        "show": "yes"
+      },
+      {
+        "region": "Jhajjar",
+        "category": "Education",
+        "landmark": "PSM Defence Academy",
+        "distance": "6.0 km · 12 mins",
+        "show": "yes"
+      },
+      {
+        "region": "Jhajjar",
+        "category": "Education",
+        "landmark": "BDM College of Pharmacy",
+        "distance": "12.0 km · 20 mins",
+        "show": "yes"
+      },
+      {
+        "region": "Jhajjar",
+        "category": "Education",
+        "landmark": "DAV Public School",
+        "distance": "5.0 km · 10 mins",
+        "show": "yes"
+      },
+      {
+        "region": "Jhajjar",
+        "category": "Education",
+        "landmark": "Royal Public School",
+        "distance": "6.0 km · 12 mins",
+        "show": "yes"
+      },
+      {
+        "region": "Jhajjar",
+        "category": "Education",
+        "landmark": "New Era High School",
+        "distance": "7.0 km · 14 mins",
+        "show": "yes"
+      },
+      {
+        "region": "Jhajjar",
+        "category": "Education",
+        "landmark": "G D Goenka Public School",
+        "distance": "6.5 km · 13 mins",
+        "show": "yes"
+      },
+      {
+        "region": "Jhajjar",
+        "category": "Education",
+        "landmark": "XLRI University",
+        "distance": "6.0 km · 12 mins",
+        "show": "yes"
+      },
+      {
+        "region": "Jhajjar",
+        "category": "Healthcare",
+        "landmark": "AIIMS, Badsa Jhajjar",
+        "distance": "18.0 km · 25 mins",
+        "show": "yes"
+      },
+      {
+        "region": "Jhajjar",
+        "category": "Healthcare",
+        "landmark": "Sukhdeva Hospital",
+        "distance": "5.0 km · 10 mins",
+        "show": "yes"
+      },
+      {
+        "region": "Jhajjar",
+        "category": "Healthcare",
+        "landmark": "Sant Hospital",
+        "distance": "5.0 km · 10 mins",
+        "show": "yes"
+      },
+      {
+        "region": "Jhajjar",
+        "category": "Healthcare",
+        "landmark": "Advanta Hospital",
+        "distance": "6.0 km · 12 mins",
+        "show": "yes"
+      },
+      {
+        "region": "Jhajjar",
+        "category": "Healthcare",
+        "landmark": "Oscar Super Speciality Hospital & Trauma Center",
+        "distance": "4.5 km · 9 mins",
+        "show": "yes"
+      },
+      {
+        "region": "Jhajjar",
+        "category": "Healthcare",
+        "landmark": "Civil Hospital, Jhajjar",
+        "distance": "5.0 km · 10 mins",
+        "show": "yes"
+      }
+    ]
+  },
+  {
+    "id": "CC01",
+    "name": "Cellular City 01",
+    "slug": "cellular-city-01",
+    "status": "Upcoming",
+    "launchTag": null,
+    "locationShort": "Sector 23, Rewari",
+    "city": "Rewari",
+    "state": "Haryana",
+    "projectType": "Plotted Development",
+    "scheme": null,
+    "landAreaDisplay": null,
+    "landAreaExact": null,
+    "totalPlots": null,
+    "plotSizes": null,
+    "dtcpLicence": null,
+    "reraNumber": null,
+    "reraQr": null,
+    "verificationStatus": "Approved: Coming Soon teaser publish (user-directed 2026-07-15)",
+    "legalNotes": "Under land procurement. PUBLISHED as a Coming Soon teaser by user direction (2026-07-15): all project specifics (scheme, land, plots, sizes, DTCP, RERA, links, downloads) intentionally masked as 'Coming Soon' until launch. Hero/Card/OG use a PLACEHOLDER stock image - replace with a branded 'Cellular City - Coming Soon' banner before or at launch. Real facts retained: name, sector location, city, state, project type.",
+    "cardDescription": null,
+    "heroTitle": "Cellular City 01",
+    "heroSubtitle": null,
+    "heroDescription": null,
+    "section01Title": "Project Overview",
+    "section01Body": null,
+    "primaryCta": "Register Interest",
+    "secondaryCta": "Contact Us",
+    "brochureLink": null,
+    "progressReportLink": null,
+    "view3dLink": null,
+    "layoutPlanLink": null,
+    "heroImage": "/media/stock-images/stock-tree-lined-street.webp",
+    "cardImage": "/media/stock-images/stock-tree-lined-street.webp",
+    "ogImage": "/media/stock-images/stock-tree-lined-street.webp",
+    "seoTitle": "Cellular City 01, Rewari | Cellular Realty",
+    "seoDescription": "Register interest for Cellular City 01, an upcoming plotted development in Rewari by Cellular Realty.",
+    "published": true,
+    "displayOrder": 5,
+    "comingSoon": true,
+    "amenities": [
+      {
+        "projectId": "CC01",
+        "amenity": "Gated Complex / Community",
+        "category": "Security",
+        "label": "Gated Community",
+        "icon": "gate",
+        "status": "Planned",
+        "order": 1,
+        "show": "yes"
+      },
+      {
+        "projectId": "CC01",
+        "amenity": "24×7 Security",
+        "category": "Security",
+        "label": "24×7 Security",
+        "icon": "shield",
+        "status": "Planned",
+        "order": 2,
+        "show": "yes"
+      },
+      {
+        "projectId": "CC01",
+        "amenity": "Yoga & Central Lawn",
+        "category": "Lifestyle",
+        "label": "Yoga & Central Lawn",
+        "icon": "leaf",
+        "status": "Planned",
+        "order": 3,
+        "show": "yes"
+      },
+      {
+        "projectId": "CC01",
+        "amenity": "Jogging Track",
+        "category": "Lifestyle",
+        "label": "Jogging Track",
+        "icon": "activity",
+        "status": "Planned",
+        "order": 4,
+        "show": "yes"
+      },
+      {
+        "projectId": "CC01",
+        "amenity": "Kids Play Area",
+        "category": "Lifestyle",
+        "label": "Kids’ Play Area",
+        "icon": "play",
+        "status": "Planned",
+        "order": 5,
+        "show": "yes"
+      },
+      {
+        "projectId": "CC01",
+        "amenity": "Commercial Space",
+        "category": "Convenience",
+        "label": "Commercial Space",
+        "icon": "store",
+        "status": "Planned",
+        "order": 6,
+        "show": "yes"
+      },
+      {
+        "projectId": "CC01",
+        "amenity": "Fresh Water Supply",
+        "category": "Infrastructure",
+        "label": "Fresh Water Supply",
+        "icon": "water",
+        "status": "Planned",
+        "order": 7,
+        "show": "yes"
+      },
+      {
+        "projectId": "CC01",
+        "amenity": "Lush Green Multiple Pockets",
+        "category": "Landscape",
+        "label": "Green Pockets",
+        "icon": "trees",
+        "status": "Planned",
+        "order": 8,
+        "show": "yes"
+      },
+      {
+        "projectId": "CC01",
+        "amenity": "Milk & Vegetable Booth",
+        "category": "Convenience",
+        "label": "Milk & Vegetable Booth",
+        "icon": "shopping-bag",
+        "status": "Planned",
+        "order": 9,
+        "show": "yes"
+      },
+      {
+        "projectId": "CC01",
+        "amenity": "Underground Electricity Lines",
+        "category": "Infrastructure",
+        "label": "Underground Utilities",
+        "icon": "zap",
+        "status": "Planned",
+        "order": 10,
+        "show": "yes"
+      },
+      {
+        "projectId": "CC01",
+        "amenity": "Wide Internal Roads",
+        "category": "Infrastructure",
+        "label": "Wide Internal Roads",
+        "icon": "road",
+        "status": "Planned",
+        "order": 11,
+        "show": "yes"
+      },
+      {
+        "projectId": "CC01",
+        "amenity": "STP & WTP",
+        "category": "Infrastructure",
+        "label": "WTP & STP",
+        "icon": "droplets",
+        "status": "Planned",
+        "order": 12,
+        "show": "yes"
+      },
+      {
+        "projectId": "CC01",
+        "amenity": "Rainwater Harvesting",
+        "category": "Infrastructure",
+        "label": "Rainwater Harvesting",
+        "icon": "cloud-rain",
+        "status": "Planned",
+        "order": 13,
+        "show": "yes"
+      },
+      {
+        "projectId": "CC01",
+        "amenity": "Badminton Court",
+        "category": "Lifestyle",
+        "label": "Badminton Court",
+        "icon": "racket",
+        "status": "Planned",
+        "order": 14,
+        "show": "yes"
+      },
+      {
+        "projectId": "CC01",
+        "amenity": "~2-acre Community Facility",
+        "category": "Lifestyle",
+        "label": "Approx. 2-Acre Community Facility",
+        "icon": "map",
+        "status": "Planned",
+        "order": 15,
+        "show": "yes"
+      }
+    ],
+    "connectivity": [],
+    "gallery": [],
+    "timeline": [],
+    "downloads": [],
+    "neighbourhood": []
+  },
+  {
+    "id": "CC02",
+    "name": "Cellular City 02",
+    "slug": "cellular-city-02",
+    "status": "Upcoming",
+    "launchTag": null,
+    "locationShort": "Sector 32, Rewari",
+    "city": "Rewari",
+    "state": "Haryana",
+    "projectType": "Plotted Development",
+    "scheme": null,
+    "landAreaDisplay": null,
+    "landAreaExact": null,
+    "totalPlots": null,
+    "plotSizes": null,
+    "dtcpLicence": null,
+    "reraNumber": null,
+    "reraQr": null,
+    "verificationStatus": "Approved: Coming Soon teaser publish (user-directed 2026-07-15)",
+    "legalNotes": "Under land procurement. PUBLISHED as a Coming Soon teaser by user direction (2026-07-15): all project specifics (scheme, land, plots, sizes, DTCP, RERA, links, downloads) intentionally masked as 'Coming Soon' until launch. Hero/Card/OG use a PLACEHOLDER stock image - replace with a branded 'Cellular City - Coming Soon' banner before or at launch. Real facts retained: name, sector location, city, state, project type.",
+    "cardDescription": null,
+    "heroTitle": "Cellular City 02",
+    "heroSubtitle": null,
+    "heroDescription": null,
+    "section01Title": "Project Overview",
+    "section01Body": null,
+    "primaryCta": "Register Interest",
+    "secondaryCta": "Contact Us",
+    "brochureLink": null,
+    "progressReportLink": null,
+    "view3dLink": null,
+    "layoutPlanLink": null,
+    "heroImage": "/media/stock-images/stock-tree-lined-street.webp",
+    "cardImage": "/media/stock-images/stock-tree-lined-street.webp",
+    "ogImage": "/media/stock-images/stock-tree-lined-street.webp",
+    "seoTitle": "Cellular City 02, Rewari | Cellular Realty",
+    "seoDescription": "Register interest for Cellular City 02, an upcoming plotted development in Rewari by Cellular Realty.",
+    "published": true,
+    "displayOrder": 6,
+    "comingSoon": true,
+    "amenities": [
+      {
+        "projectId": "CC02",
+        "amenity": "Gated Complex / Community",
+        "category": "Security",
+        "label": "Gated Community",
+        "icon": "gate",
+        "status": "Planned",
+        "order": 1,
+        "show": "yes"
+      },
+      {
+        "projectId": "CC02",
+        "amenity": "24×7 Security",
+        "category": "Security",
+        "label": "24×7 Security",
+        "icon": "shield",
+        "status": "Planned",
+        "order": 2,
+        "show": "yes"
+      },
+      {
+        "projectId": "CC02",
+        "amenity": "Yoga & Central Lawn",
+        "category": "Lifestyle",
+        "label": "Yoga & Central Lawn",
+        "icon": "leaf",
+        "status": "Planned",
+        "order": 3,
+        "show": "yes"
+      },
+      {
+        "projectId": "CC02",
+        "amenity": "Jogging Track",
+        "category": "Lifestyle",
+        "label": "Jogging Track",
+        "icon": "activity",
+        "status": "Planned",
+        "order": 4,
+        "show": "yes"
+      },
+      {
+        "projectId": "CC02",
+        "amenity": "Kids Play Area",
+        "category": "Lifestyle",
+        "label": "Kids’ Play Area",
+        "icon": "play",
+        "status": "Planned",
+        "order": 5,
+        "show": "yes"
+      },
+      {
+        "projectId": "CC02",
+        "amenity": "Commercial Space",
+        "category": "Convenience",
+        "label": "Commercial Space",
+        "icon": "store",
+        "status": "Planned",
+        "order": 6,
+        "show": "yes"
+      },
+      {
+        "projectId": "CC02",
+        "amenity": "Fresh Water Supply",
+        "category": "Infrastructure",
+        "label": "Fresh Water Supply",
+        "icon": "water",
+        "status": "Planned",
+        "order": 7,
+        "show": "yes"
+      },
+      {
+        "projectId": "CC02",
+        "amenity": "Lush Green Multiple Pockets",
+        "category": "Landscape",
+        "label": "Green Pockets",
+        "icon": "trees",
+        "status": "Planned",
+        "order": 8,
+        "show": "yes"
+      },
+      {
+        "projectId": "CC02",
+        "amenity": "Milk & Vegetable Booth",
+        "category": "Convenience",
+        "label": "Milk & Vegetable Booth",
+        "icon": "shopping-bag",
+        "status": "Planned",
+        "order": 9,
+        "show": "yes"
+      },
+      {
+        "projectId": "CC02",
+        "amenity": "Underground Electricity Lines",
+        "category": "Infrastructure",
+        "label": "Underground Utilities",
+        "icon": "zap",
+        "status": "Planned",
+        "order": 10,
+        "show": "yes"
+      },
+      {
+        "projectId": "CC02",
+        "amenity": "Wide Internal Roads",
+        "category": "Infrastructure",
+        "label": "Wide Internal Roads",
+        "icon": "road",
+        "status": "Planned",
+        "order": 11,
+        "show": "yes"
+      },
+      {
+        "projectId": "CC02",
+        "amenity": "STP & WTP",
+        "category": "Infrastructure",
+        "label": "WTP & STP",
+        "icon": "droplets",
+        "status": "Planned",
+        "order": 12,
+        "show": "yes"
+      },
+      {
+        "projectId": "CC02",
+        "amenity": "Rainwater Harvesting",
+        "category": "Infrastructure",
+        "label": "Rainwater Harvesting",
+        "icon": "cloud-rain",
+        "status": "Planned",
+        "order": 13,
+        "show": "yes"
+      },
+      {
+        "projectId": "CC02",
+        "amenity": "Badminton Court",
+        "category": "Lifestyle",
+        "label": "Badminton Court",
+        "icon": "racket",
+        "status": "Planned",
+        "order": 14,
+        "show": "yes"
+      },
+      {
+        "projectId": "CC02",
+        "amenity": "~2-acre Community Facility",
+        "category": "Lifestyle",
+        "label": "Approx. 2-Acre Community Facility",
+        "icon": "map",
+        "status": "Planned",
+        "order": 15,
+        "show": "yes"
+      }
+    ],
+    "connectivity": [],
+    "gallery": [],
+    "timeline": [],
+    "downloads": [],
+    "neighbourhood": []
+  }
+]

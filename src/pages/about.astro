@@ -1,0 +1,195 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Button from "../components/ui/Button.astro";
+import BrandPillars from "../components/BrandPillars.tsx";
+import LeadershipCarousel, { type LeaderItem } from "../components/LeadershipCarousel.tsx";
+import { Icon } from "astro-icon/components";
+import { site } from "../data/global";
+import { leadership, articles } from "../lib/cms";
+import { pillars } from "../data/pillars";
+
+const leaders: LeaderItem[] = leadership.map((l) => ({ name: l.name, designation: l.designation, bio: l.bio, image: l.image }));
+---
+
+<Layout
+  title="About Us — Cellular Realty"
+  description="Cellular Realty is the real estate arm of Aditi Infrabuild & Services Limited (est. 2005) — building compliant, well-planned plotted communities across Delhi NCR."
+  transparentHeader={true}
+>
+  <!-- HERO -->
+  <section class="relative flex min-h-[70vh] items-center overflow-hidden bg-brown-900 text-offwhite">
+    <img src="/media/homepage/section-images/cellular-realty-brand-pillar-market-expertise.webp" alt="" class="absolute inset-0 h-full w-full object-cover opacity-30" loading="eager" />
+    <div class="absolute inset-0 bg-gradient-to-t from-brown-900 via-brown-900/60 to-brown-900/70"></div>
+    <div class="container-content relative py-40">
+      <p class="eyebrow text-brown-300">Established Heritage</p>
+      <h1 class="mt-6 max-w-4xl font-display text-5xl leading-[1.05] lg:text-7xl">
+        Engineering Excellence into Every Square Foot.
+      </h1>
+      <p class="mt-6 max-w-2xl text-lg text-offwhite/80">
+        Built on an infrastructure-led foundation, Cellular Realty brings planning discipline,
+        execution quality and long-term thinking to plotted community development.
+      </p>
+    </div>
+  </section>
+
+  <!-- ENGINEERING DISCIPLINE -->
+  <section class="bg-offwhite py-24 lg:py-32">
+    <div class="container-content grid gap-14 lg:grid-cols-2 lg:gap-20">
+      <div class="relative">
+        <img src="/media/stock-images/stock-tree-lined-street.webp" alt="Infrastructure-led development" class="w-full object-cover grayscale lg:aspect-[4/5]" loading="lazy" />
+      </div>
+      <div>
+        <h2 class="font-display text-4xl leading-tight text-brown-dark lg:text-[46px]">Engineering Discipline on Every Plot</h2>
+        <p class="mt-6 text-[16px] leading-[1.8] text-ink-soft">
+          Cellular Realty is a modern real estate development company built on a simple yet
+          meaningful vision — creating thoughtfully planned communities that people are proud to call
+          home. In a rapidly expanding landscape, we transform land into thriving communities,
+          offering homebuyers and investors the confidence to build their future in destinations
+          with strong growth potential.
+        </p>
+        <div class="mt-8 space-y-6">
+          <div class="border-l-2 border-brown-lightest pl-5">
+            <p class="eyebrow">Our Vision</p>
+            <p class="mt-2 text-[16px] leading-relaxed text-brown-dark">
+              To be a trusted name in real estate, construction and infrastructure across India,
+              creating well-planned, compliant developments that support modern urban living and lasting value.
+            </p>
+          </div>
+          <div class="border-l-2 border-brown-lightest pl-5">
+            <p class="eyebrow">Our Mission</p>
+            <p class="mt-2 text-[16px] leading-relaxed text-brown-dark">
+              To plan and deliver plotted communities and infrastructure through sound construction and
+              reliable execution — while building durable relationships with customers, partners and institutions.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRAND PILLARS -->
+  <section class="bg-brown-100/40 py-24 lg:py-32">
+    <div class="container-content">
+      <h2 class="text-center font-display text-4xl text-brown-dark lg:text-[52px]">Brand Pillars</h2>
+      <div class="mt-14">
+        <BrandPillars pillars={pillars} variant="center" client:visible />
+      </div>
+    </div>
+  </section>
+
+  <!-- GROWTH STORY + ARTICLES -->
+  <section class="bg-offwhite py-24 lg:py-32">
+    <div class="container-content grid gap-14 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
+      <div>
+        <p class="eyebrow">Location Advantage</p>
+        <h2 class="mt-4 font-display text-4xl leading-tight text-brown-dark lg:text-[46px]">Jhajjar's Infrastructure-Led Growth Story</h2>
+        <div class="mt-6 space-y-5 text-[16px] leading-[1.8] text-ink-soft">
+          <p>
+            Bordering the national capital and neighbouring Reliance MET City — home to
+            <strong class="font-medium text-brown-dark">600+ companies from 11+ countries</strong> and
+            generating more than <strong class="font-medium text-brown-dark">40,000 jobs</strong> — Jhajjar
+            is positioned to benefit from sustained residential demand.
+          </p>
+          <p>
+            The proposed six-lane <strong class="font-medium text-brown-dark">Gurugram–Jhajjar Green Corridor</strong>
+            will bring Gurugram within ~20–25 minutes and IGI Airport within ~40–55 minutes, while the
+            KMP Expressway and Haryana Orbital Rail Corridor strengthen regional connectivity across North India.
+          </p>
+          <p>
+            Sectors 36 and 37 are Jhajjar's prime residential sectors, connected to the corridor via the
+            proposed 75-metre sector road — making the area an exceptional destination for modern living
+            and long-term investment.
+          </p>
+        </div>
+        <div class="mt-8"><Button href="/why-jhajjar" variant="outline">Read: Why Jhajjar</Button></div>
+      </div>
+      <div class="space-y-6">
+        {
+          articles.map((a) => (
+            <a href={`/insights/${a.slug}`} class="group flex gap-5 border-b border-[color:var(--color-line)] pb-6">
+              <img src={a.image ?? undefined} alt={a.title} class="h-24 w-32 shrink-0 object-cover" loading="lazy" />
+              <div>
+                <p class="text-[11px] font-semibold uppercase tracking-[0.12em] text-brown-lightest">{a.category} • {a.readTime}</p>
+                <h3 class="mt-1.5 font-display text-xl leading-snug text-brown-dark group-hover:text-brown-600">{a.title}</h3>
+                <span class="mt-2 inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-brown-dark">Read Article <Icon name="lucide:arrow-right" class="h-3.5 w-3.5" /></span>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- VERTICALS OF EXCELLENCE -->
+  <section class="bg-brown-100/40 py-24 lg:py-32">
+    <div class="container-content">
+      <div class="grid gap-8 lg:grid-cols-[1fr_1.4fr] lg:items-end">
+        <div>
+          <p class="eyebrow">Core Expertise</p>
+          <h2 class="mt-4 font-display text-4xl text-brown-dark lg:text-[52px]">Verticals of Excellence</h2>
+        </div>
+        <p class="text-[16px] leading-relaxed text-ink-soft lg:text-right">
+          From the first layer of soil to the final streetlamp, our expertise covers the entire
+          spectrum of infrastructure development.
+        </p>
+      </div>
+
+      <div class="mt-12 grid gap-6 lg:grid-cols-2">
+        <!-- Plotted Townships (feature) -->
+        <div class="relative flex min-h-[420px] items-end overflow-hidden">
+          <img src="/media/projects/south-city-greens/hero/south-city-greens-hero-entrance-gate.webp" alt="Plotted Townships" class="absolute inset-0 h-full w-full object-cover" loading="lazy" />
+          <div class="absolute inset-0 bg-gradient-to-t from-brown-900/85 to-transparent"></div>
+          <div class="relative p-8 text-offwhite">
+            <h3 class="font-display text-4xl">Plotted Townships</h3>
+            <p class="mt-2 max-w-sm text-offwhite/80">Licensed, well-planned DDJAY plotted communities built for long-term ownership.</p>
+          </div>
+        </div>
+        <!-- Right column -->
+        <div class="grid gap-6">
+          <div class="relative flex min-h-[200px] items-end overflow-hidden">
+            <img src="/media/stock-images/stock-tree-lined-street.webp" alt="Roads & Highways" class="absolute inset-0 h-full w-full object-cover" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-brown-900/85 to-transparent"></div>
+            <div class="relative p-7 text-offwhite">
+              <h3 class="font-display text-2xl">Roads &amp; Highways</h3>
+              <p class="mt-1.5 text-sm text-offwhite/80">Our foundation in heavy civil engineering.</p>
+            </div>
+          </div>
+          <div class="grid gap-6 sm:grid-cols-2">
+            <div class="bg-brown-lightest/30 p-7">
+              <p class="text-[12px] font-bold uppercase tracking-[0.12em] text-brown-dark">Urban Infrastructure</p>
+              <p class="mt-2 text-sm leading-relaxed text-ink-soft">Sewerage, drainage and smart utility grids.</p>
+            </div>
+            <div class="bg-brown-200/60 p-7">
+              <p class="text-[12px] font-bold uppercase tracking-[0.12em] text-brown-dark">Landform Development</p>
+              <p class="mt-2 text-sm leading-relaxed text-ink-soft">Artful contouring and sustainable earthworks.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEADERSHIP -->
+  <section class="bg-brown-900 py-24 text-offwhite lg:py-32">
+    <div class="container-content">
+      <p class="eyebrow text-brown-300">The Visionaries</p>
+      <h2 class="mt-4 font-display text-4xl lg:text-[52px]">Leadership at the Helm</h2>
+      <div class="mt-14">
+        <LeadershipCarousel leaders={leaders} client:visible />
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-offwhite py-24 text-center">
+    <div class="container-content">
+      <h2 class="mx-auto max-w-2xl font-display text-4xl leading-tight text-brown-dark lg:text-[56px]">
+        Build your future on planned foundations
+      </h2>
+      <div class="mt-9 flex flex-wrap justify-center gap-4">
+        <Button href="/projects" variant="accent" size="lg">View Projects</Button>
+        <Button href="/media/downloads/company-profile/cellular-realty-corporate-brochure.pdf" target="_blank" variant="outline" size="lg" icon="lucide:download">Download Company Portfolio</Button>
+      </div>
+    </div>
+  </section>
+</Layout>

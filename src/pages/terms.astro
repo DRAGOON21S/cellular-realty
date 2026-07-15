@@ -1,0 +1,46 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { site } from "../data/global";
+const updated = "July 2026";
+---
+
+<Layout title="Terms of Service — Cellular Realty" description="Terms governing the use of the Cellular Realty website." noindex={true}>
+  <section class="bg-offwhite py-16 lg:py-24">
+    <div class="container-narrow">
+      <p class="eyebrow">Legal</p>
+      <h1 class="mt-4 font-display text-4xl text-brown-dark lg:text-6xl">Terms of Service</h1>
+      <p class="mt-3 text-sm text-brown-light">Last updated: {updated}</p>
+
+      <div class="mt-10 space-y-8 text-[16px] leading-relaxed text-ink-soft">
+        <p>
+          By accessing and using this website, you agree to these terms. If you do not agree, please
+          do not use the site.
+        </p>
+        <div>
+          <h2 class="font-display text-2xl text-brown-dark">Use of content</h2>
+          <p class="mt-3">
+            All content on this website — including text, logos, images, renders and plans — is the
+            property of {site.brand} / {site.parentEntity} and may not be reproduced without prior
+            written permission.
+          </p>
+        </div>
+        <div>
+          <h2 class="font-display text-2xl text-brown-dark">No offer</h2>
+          <p class="mt-3">
+            The content of this website does not constitute an offer or a legally binding contract.
+            Project details, plot sizes, distances, timelines and specifications are indicative and
+            subject to the approved layout and applicable approvals. Pricing is shared on request.
+          </p>
+        </div>
+        <div>
+          <h2 class="font-display text-2xl text-brown-dark">Governing law</h2>
+          <p class="mt-3">
+            These terms are governed by the laws of India, with courts at Gurugram, Haryana having
+            jurisdiction.
+          </p>
+        </div>
+        <p class="text-sm">This is a general template and should be reviewed and approved by legal counsel before publication.</p>
+      </div>
+    </div>
+  </section>
+</Layout>

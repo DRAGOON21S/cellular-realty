@@ -1,0 +1,132 @@
+@import "tailwindcss";
+
+/* ============================================================
+   Cellular Realty — Design tokens
+   Palette = BROWN brand system (brand-colours.md). The Figma
+   mockup's green/gold is dropped; dark surfaces -> brown-dark,
+   gold accents -> brown-lightest. Off-white base is kept.
+   ============================================================ */
+@theme {
+  /* Brand core */
+  --color-offwhite: #FCFDF5;   /* base surface */
+  --color-brown-lightest: #B49F78; /* accent / highlight / buttons */
+  --color-brown-light: #9A7D5E;    /* secondary text, borders, dividers */
+  --color-brown-dark: #413126;     /* primary text, headings, dark surfaces */
+
+  /* Derived shades for depth (dark-brown family) */
+  --color-brown-900: #2C211A;  /* deepest surface (footer base) */
+  --color-brown-800: #413126;  /* = brown-dark */
+  --color-brown-700: #574334;
+  --color-brown-600: #6E5642;
+  --color-brown-500: #9A7D5E;  /* = brown-light */
+  --color-brown-400: #B49F78;  /* = brown-lightest */
+  --color-brown-300: #C9B896;
+  --color-brown-200: #E2D9C5;
+  --color-brown-100: #F0EBDF;
+
+  /* Semantic aliases */
+  --color-ink: #413126;            /* body text */
+  --color-ink-soft: #6E5642;       /* secondary text on light */
+  --color-cream: #FCFDF5;
+  --color-line: rgba(154, 125, 94, 0.28); /* hairline borders */
+
+  /* Typography */
+  --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-sans: "TT Hoves", "Hanken Grotesk", "Segoe UI", system-ui, sans-serif;
+
+  /* Layout — Figma canvas is 1920 with ~120px gutters (1680 content) */
+  --container-content: 1680px;
+}
+
+/* ---------- Fonts ---------- */
+@font-face {
+  font-family: "Playfair Display";
+  src: url("/fonts/playfair-display-variable.ttf") format("truetype-variations");
+  font-weight: 400 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Playfair Display";
+  src: url("/fonts/playfair-display-italic-variable.ttf") format("truetype-variations");
+  font-weight: 400 900;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "TT Hoves";
+  src: url("/fonts/tt-hoves-regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "TT Hoves";
+  src: url("/fonts/tt-hoves-medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "TT Hoves";
+  src: url("/fonts/tt-hoves-demibold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "TT Hoves";
+  src: url("/fonts/tt-hoves-bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---------- Base ---------- */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background-color: var(--color-offwhite);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+  }
+  ::selection {
+    background: var(--color-brown-lightest);
+    color: var(--color-offwhite);
+  }
+}
+
+/* ---------- Reusable utilities ---------- */
+@layer components {
+  .container-content {
+    width: 100%;
+    max-width: var(--container-content);
+    margin-inline: auto;
+    padding-inline: clamp(1.25rem, 5vw, 120px);
+  }
+  /* Narrower reading container for text-heavy pages */
+  .container-narrow {
+    width: 100%;
+    max-width: 1100px;
+    margin-inline: auto;
+    padding-inline: clamp(1.25rem, 5vw, 2rem);
+  }
+  /* Eyebrow label — uppercase tracked, seen across every Figma section */
+  .eyebrow {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 0.8125rem;
+    color: var(--color-brown-light);
+  }
+}

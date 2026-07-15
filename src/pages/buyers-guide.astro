@@ -1,0 +1,101 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Button from "../components/ui/Button.astro";
+import EmiCalculator from "../components/EmiCalculator.tsx";
+
+// Four approved Q&As, shown open in a 2-column layout (per the new board).
+const faqs = [
+  {
+    q: "What is the Deen Dayal Jan Awas Yojana (DDJAY)?",
+    a: "DDJAY is a 2016 affordable-housing policy of the Government of Haryana that enables licensed, well-planned plotted colonies with essential infrastructure. All our plotted townships are developed under this scheme, with DTCP licences and RERA registration where applicable, and bank loans available from nationalised banks.",
+  },
+  {
+    q: "Are the projects RERA and DTCP approved?",
+    a: "Yes. Each project carries its DTCP licence and, where registered, a RERA number — both shown on the project page. Approval and licensing documents are available for inspection at our Corporate Office.",
+  },
+  {
+    q: "Can I get a home or plot loan?",
+    a: "Loan availability depends on the buyer's eligibility and the policies of the lending institution. Bank loan assistance may be available for eligible buyers. Our team can guide you through the basic process and required documentation.",
+  },
+  {
+    q: "Where are your projects located?",
+    a: "Cellular Realty has developed and planned communities across key locations in Haryana, including Jhajjar, Farrukhnagar and Rewari. South City Greens is located in Sector 36, Jhajjar.",
+  },
+];
+---
+
+<Layout
+  title="Buyers' Guide — Cellular Realty"
+  description="Your roadmap to buying a DDJAY plot: EMI calculator, RERA & DDJAY FAQs, and the buying process — from Cellular Realty."
+  transparentHeader={true}
+>
+  <!-- HERO -->
+  <section class="relative flex min-h-[62vh] items-center overflow-hidden bg-brown-900 text-offwhite">
+    <img src="/media/stock-images/stock-landscaped-garden.webp" alt="" class="absolute inset-0 h-full w-full object-cover opacity-40" loading="eager" />
+    <div class="absolute inset-0 bg-gradient-to-t from-brown-900 via-brown-900/55 to-brown-900/60"></div>
+    <div class="container-content relative py-36">
+      <p class="eyebrow text-brown-300">Buyers' Guide</p>
+      <h1 class="mt-6 max-w-3xl font-display text-5xl leading-[1.05] lg:text-7xl">
+        Invest with <em class="italic text-brown-300">confidence.</em>
+      </h1>
+      <p class="mt-6 max-w-xl text-lg text-offwhite/80">
+        A practical guide to understanding plotted developments, legal documentation, payment
+        planning and location factors before you make your decision.
+      </p>
+      <div class="mt-9 flex flex-wrap gap-4">
+        <Button href="#planner" variant="accent" size="lg">Payment Planner</Button>
+        <Button href="#knowledge" variant="outline-light" size="lg">Legal Checklist</Button>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLOT PAYMENT PLANNER -->
+  <section id="planner" class="scroll-mt-24 bg-offwhite py-24 lg:py-32">
+    <div class="container-content">
+      <div class="max-w-2xl">
+        <p class="eyebrow">Financial Planning</p>
+        <h2 class="mt-4 font-display text-4xl text-brown-dark lg:text-[52px]">Plot Payment Planner</h2>
+        <p class="mt-5 text-[17px] leading-relaxed text-ink-soft">
+          Estimate your monthly commitment by adjusting the loan amount, tenure and interest rate.
+          This tool is for planning purposes only; final terms may vary by bank or lender.
+        </p>
+      </div>
+      <div class="mt-14">
+        <EmiCalculator client:visible />
+      </div>
+    </div>
+  </section>
+
+  <!-- KNOWLEDGE BASE -->
+  <section id="knowledge" class="scroll-mt-24 bg-offwhite py-24 lg:py-32">
+    <div class="container-content">
+      <p class="eyebrow text-center">Knowledge Base</p>
+      <h2 class="mt-4 text-center font-display text-4xl text-brown-dark lg:text-[52px]">Your Questions, Answered</h2>
+      <div class="mx-auto mt-14 grid max-w-5xl gap-x-16 gap-y-12 md:grid-cols-2">
+        {faqs.map((item) => (
+          <div>
+            <h3 class="font-display text-2xl leading-snug text-brown-dark">Q. {item.q}</h3>
+            <p class="mt-3 text-[16px] leading-relaxed text-ink-soft">A. {item.a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-brown-100/40 py-24 text-center">
+    <div class="container-content">
+      <h2 class="mx-auto max-w-2xl font-display text-4xl leading-tight text-brown-dark lg:text-[56px]">
+        Take the Next Step with Clarity
+      </h2>
+      <p class="mx-auto mt-5 max-w-lg text-ink-soft">
+        Connect with our team to understand project details, available plot options, documentation
+        and site visit planning.
+      </p>
+      <div class="mt-9 flex flex-wrap justify-center gap-4">
+        <Button enquire data-cta="Schedule a Call" variant="accent" size="lg">Schedule a Call</Button>
+        <Button href="/media/downloads/company-profile/cellular-realty-corporate-brochure.pdf" target="_blank" variant="outline" size="lg" icon="lucide:download">Download Buyer's Guide</Button>
+      </div>
+    </div>
+  </section>
+</Layout>

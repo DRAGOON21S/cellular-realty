@@ -1,0 +1,58 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Button from "../components/ui/Button.astro";
+import { Icon } from "astro-icon/components";
+
+const points = [
+  { icon: "lucide:factory", title: "Reliance MET City", body: "600+ companies from 11+ countries and 40,000+ jobs, set to house 10–40 lakh residents — driving vast, sustained housing demand next door." },
+  { icon: "lucide:route", title: "Gurugram–Jhajjar Green Corridor", body: "A proposed six-lane corridor bringing Gurugram within ~20–25 minutes and IGI Airport within ~40–55 minutes." },
+  { icon: "lucide:hospital", title: "World-class amenities", body: "AIIMS at Bhadsa and an upcoming International Cricket Stadium anchor the region's civic infrastructure." },
+  { icon: "lucide:train-front", title: "KMP & HORC", body: "The KMP Expressway and Haryana Orbital Rail Corridor form a major economic and freight loop across North India." },
+  { icon: "lucide:landmark", title: "A self-sufficient city", body: "District Headquarters and a Police Commissionerate ensure strong law and order and civic administration." },
+  { icon: "lucide:trending-up", title: "The wealth corridor", body: "Sectors 36 & 37 are Jhajjar's prime residential sectors, connected to the corridor via the proposed 75-metre sector road passing near South City Greens." },
+];
+---
+
+<Layout
+  title="Why Jhajjar — Cellular Realty"
+  description="Bordering the national capital and neighbouring Reliance MET City, Jhajjar is becoming one of Delhi NCR's most active growth corridors."
+  transparentHeader={true}
+>
+  <section class="relative flex min-h-[60vh] items-center overflow-hidden bg-brown-900 text-offwhite">
+    <img src="/media/homepage/insights/cellular-realty-insight-why-jhajjar.webp" alt="" class="absolute inset-0 h-full w-full object-cover opacity-40" loading="eager" />
+    <div class="absolute inset-0 bg-gradient-to-t from-brown-900 via-brown-900/55 to-brown-900/60"></div>
+    <div class="container-content relative py-36">
+      <p class="eyebrow text-brown-300">Location Insight</p>
+      <h1 class="mt-6 max-w-3xl font-display text-5xl leading-[1.05] lg:text-7xl">Why Jhajjar</h1>
+      <p class="mt-6 max-w-2xl text-lg text-offwhite/80">
+        Bordering the national capital and neighbouring Reliance MET City, Jhajjar is set to become
+        one of Delhi NCR's most active growth corridors over the coming two decades.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-offwhite py-24 lg:py-32">
+    <div class="container-content grid gap-x-10 gap-y-14 md:grid-cols-2 lg:grid-cols-3">
+      {points.map((p, i) => (
+        <div class="border-t-2 border-brown-lightest pt-6">
+          <div class="flex items-center gap-4">
+            <Icon name={p.icon} class="h-8 w-8 text-brown-lightest" />
+            <span class="font-display text-4xl text-brown-200">0{i + 1}</span>
+          </div>
+          <h3 class="mt-5 font-display text-2xl text-brown-dark">{p.title}</h3>
+          <p class="mt-3 text-[16px] leading-relaxed text-ink-soft">{p.body}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="bg-brown-900 py-20 text-center text-offwhite">
+    <div class="container-content">
+      <h2 class="mx-auto max-w-2xl font-display text-3xl lg:text-4xl">Own a plot in Jhajjar's prime sectors.</h2>
+      <div class="mt-8 flex flex-wrap justify-center gap-4">
+        <Button href="/projects/south-city-greens" variant="accent" size="lg">Explore South City Greens</Button>
+        <Button enquire variant="outline-light" size="lg">Request a Call Back</Button>
+      </div>
+    </div>
+  </section>
+</Layout>

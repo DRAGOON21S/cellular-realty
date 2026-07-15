@@ -1,0 +1,90 @@
+[
+  {
+    "id": "T001",
+    "projectId": "SC2",
+    "name": "Shashank, Gurugram",
+    "role": "Investor",
+    "quote": "I appreciated their responsiveness and professionalism. They made the entire process straightforward and easy to navigate.",
+    "rating": 5,
+    "image": "https://drive.google.com/open?id=11uXGMkNHcol5dW9oITl16Dg2ZdyVRhrW",
+    "order": 1,
+    "show": true
+  },
+  {
+    "id": "T002",
+    "projectId": "SC2",
+    "name": "Mukesh, Gurgaon",
+    "role": "Investor",
+    "quote": "Ease of investment and good return.",
+    "rating": 5,
+    "image": null,
+    "order": 2,
+    "show": true
+  },
+  {
+    "id": "T003",
+    "projectId": "SC1",
+    "name": "Prem, Gurgaon",
+    "role": "Home-buyer",
+    "quote": "Nice people who support & guide fully at every level.",
+    "rating": 5,
+    "image": "https://drive.google.com/open?id=11lpu04lJ25mgcKDHwId_5NFxGX-2ktHo",
+    "order": 3,
+    "show": true
+  },
+  {
+    "id": "T004",
+    "projectId": "SC1",
+    "name": "Varun, Noida",
+    "role": "Investor",
+    "quote": "Transparency in payment and expediting of the registry process.",
+    "rating": 4,
+    "image": null,
+    "order": 4,
+    "show": true
+  },
+  {
+    "id": "T005",
+    "projectId": "SC1",
+    "name": "Pankaj, Delhi",
+    "role": "Home-buyer",
+    "quote": "Excellent.",
+    "rating": 5,
+    "image": null,
+    "order": 5,
+    "show": true
+  },
+  {
+    "id": "T006",
+    "projectId": "SC1",
+    "name": "Deepak, Bhiwani",
+    "role": "Home-buyer",
+    "quote": "Very cooperative group.",
+    "rating": 5,
+    "image": null,
+    "order": 6,
+    "show": true
+  },
+  {
+    "id": "T007",
+    "projectId": "SC2",
+    "name": "Ranjana, Bhiwani",
+    "role": "Investor",
+    "quote": "I valued Cellular Realty's professionalism and clear communication throughout the process. They were responsive, transparent, and made the experience smooth and stress-free.",
+    "rating": 4,
+    "image": "https://drive.google.com/open?id=1E4DnHS7REKcf0gL6iOkoyAsdqS5izWZT",
+    "order": 7,
+    "show": true
+  },
+  {
+    "id": "T008",
+    "projectId": "SC2",
+    "name": "Bobby, New Delhi",
+    "role": "Home-buyer",
+    "quote": "Staff is cooperative with nice behaviour.",
+    "rating": 5,
+    "image": null,
+    "order": 8,
+    "show": true
+  }
+]
