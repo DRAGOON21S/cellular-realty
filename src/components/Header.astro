@@ -22,16 +22,23 @@ const isActive = (href: string) =>
 >
   <div class="container-content flex h-[76px] items-center justify-between gap-6 lg:h-[88px]">
     <!-- Logo -->
-    <a href="/" class="flex items-center gap-3 shrink-0" aria-label={`${site.brand} — home`}>
+    <a href="/" class="flex shrink-0 items-center" aria-label={`${site.brand} home`}>
       <img
-        src="/brand/cellular-realty-symbol.svg"
-        alt=""
-        width="44"
-        height="44"
-        class="h-10 w-auto lg:h-11"
-        data-logo-symbol
+        src="/brand/cellular-realty-logo-black.webp"
+        alt={site.brand}
+        width="1219"
+        height="320"
+        class="h-8 w-auto lg:h-9"
+        data-logo-black
       />
-      <span class="sr-only">{site.brand}</span>
+      <img
+        src="/brand/cellular-realty-logo-white.webp"
+        alt={site.brand}
+        width="1219"
+        height="320"
+        class="h-8 w-auto lg:h-9"
+        data-logo-white
+      />
     </a>
 
     <!-- Desktop nav -->
@@ -60,11 +67,11 @@ const isActive = (href: string) =>
       <!-- Language toggle (EN active; Hindi phase 2) -->
       <div class="hidden items-center gap-2 text-[13px] font-semibold tracking-wider sm:flex">
         <button type="button" class="text-brown-lightest" aria-pressed="true">EN</button>
-        <span aria-hidden="true" class="opacity-40">—</span>
+        <span aria-hidden="true" class="opacity-40">·</span>
         <button
           type="button"
           class="opacity-50 hover:opacity-80"
-          title="हिन्दी — coming soon"
+          title="हिन्दी (coming soon)"
           data-hindi-toggle
         >हिं</button>
       </div>
@@ -168,8 +175,15 @@ const isActive = (href: string) =>
 </script>
 
 <style is:global>
-  /* On a transparent (dark-hero) header, render the dark brand symbol in white. */
-  [data-header].text-offwhite [data-logo-symbol] {
-    filter: brightness(0) invert(1);
+  /* Default (solid/light header): show the black logo, hide the white one. */
+  [data-header] [data-logo-white] {
+    display: none;
+  }
+  /* Transparent (dark-hero) header: show the white logo instead. */
+  [data-header].text-offwhite [data-logo-black] {
+    display: none;
+  }
+  [data-header].text-offwhite [data-logo-white] {
+    display: block;
   }
 </style>

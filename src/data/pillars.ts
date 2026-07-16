@@ -22,7 +22,7 @@ export const pillars: Pillar[] = [
     num: "02",
     tag: "Insight Led",
     title: "Insight Before Action",
-    body: "Every opportunity is assessed through location, connectivity, infrastructure and demand — so decisions are grounded in evidence, not assumption.",
+    body: "Every opportunity is assessed through location, connectivity, infrastructure and demand, so decisions are grounded in evidence, not assumption.",
     image: img("insight-led"),
   },
   {
