@@ -196,7 +196,11 @@ Current opportunities begin above ₹50 lakh, with final pricing dependent on pl
 
 Buyers should review the latest official project documentation, approved plans, licence details, RERA status and current development progress before committing.
 
-*South City Greens project layout. The proposed 75-metre road shown alongside the development is a planning provision and is not represented as currently operational.*
+<figure class="article-figure">
+  <img src="/media/projects/south-city-greens/layout-plan/south-city-greens-project-plan.webp" alt="South City Greens layout plan, Sector 36, Jhajjar" loading="lazy" />
+  <figcaption>South City Greens project layout. The proposed 75-metre road shown alongside the development is a planning provision and is not represented as currently operational.</figcaption>
+  <a class="figure-link" href="/media/projects/south-city-greens/layout-plan/south-city-greens-project-plan.pdf" target="_blank" rel="noopener">Open the project layout (PDF)</a>
+</figure>
 
 ## An address taking shape, not a finished neighbourhood
 

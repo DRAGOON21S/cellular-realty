@@ -133,7 +133,11 @@ For investors, road hierarchy, planned access and commercial positioning can inf
 
 The layout should be displayed as a project-planning visual. Any legal claim concerning final approval, total area, plot entitlement or development obligation must be checked against the applicable DTCP licence, approved layout and RERA disclosures.
 
-*Current layout plan supplied for South City Greens, Sector 36, Jhajjar. Buyers should verify the applicable approved layout, DTCP licence and RERA disclosures before making a decision.*
+<figure class="article-figure">
+  <img src="/media/projects/south-city-greens/layout-plan/south-city-greens-project-plan.webp" alt="South City Greens layout plan, Sector 36, Jhajjar" loading="lazy" />
+  <figcaption>Current layout plan supplied for South City Greens, Sector 36, Jhajjar. Buyers should verify the applicable approved layout, DTCP licence and RERA disclosures before making a decision.</figcaption>
+  <a class="figure-link" href="/media/projects/south-city-greens/layout-plan/south-city-greens-project-plan.pdf" target="_blank" rel="noopener">Open the project layout (PDF)</a>
+</figure>
 
 ## Connectivity Today, and the Catalysts Still to Come
 

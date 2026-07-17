@@ -204,7 +204,11 @@ For investors, project planning, road hierarchy, commercial positioning and deli
 
 The layout should be understood as part of the project’s planning material. Buyers must verify the applicable approved layout, DTCP licence, RERA record, plot dimensions, development obligations and current on-ground status before making a commitment.
 
-*Current South City Greens layout supplied for Sector 36, Jhajjar. Buyers should independently verify the applicable approved layout, DTCP licence and RERA disclosures.*
+<figure class="article-figure">
+  <img src="/media/projects/south-city-greens/layout-plan/south-city-greens-project-plan.webp" alt="South City Greens layout plan, Sector 36, Jhajjar" loading="lazy" />
+  <figcaption>Current South City Greens layout supplied for Sector 36, Jhajjar. Buyers should independently verify the applicable approved layout, DTCP licence and RERA disclosures.</figcaption>
+  <a class="figure-link" href="/media/projects/south-city-greens/layout-plan/south-city-greens-project-plan.pdf" target="_blank" rel="noopener">Open the project layout (PDF)</a>
+</figure>
 
 ## A Growth Corridor in Formation, not a Finished Market
 
