@@ -32,10 +32,25 @@
 
   /* Typography */
   --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
-  --font-sans: "TT Hoves", "Hanken Grotesk", "Segoe UI", system-ui, sans-serif;
+  --font-sans: "Plus Jakarta Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
 
   /* Layout — Figma canvas is 1920 with ~120px gutters (1680 content) */
   --container-content: 1680px;
+}
+
+/* Hindi (/hi) pages: swap to the Devanagari type pairing (serif display + sans body),
+   with the Latin fonts as fallback for brand names / numerals. Scoped to lang so the
+   English site is untouched. */
+html[lang="hi"] {
+  --font-display: "Noto Serif Devanagari", "Playfair Display", Georgia, serif;
+  --font-sans: "Noto Sans Devanagari", "Plus Jakarta Sans", "Segoe UI", system-ui, sans-serif;
+}
+html[lang="hi"] h1,
+html[lang="hi"] h2,
+html[lang="hi"] h3,
+html[lang="hi"] h4,
+html[lang="hi"] .font-display {
+  line-height: 1.25;
 }
 
 /* ---------- Fonts ---------- */
@@ -53,33 +68,45 @@
   font-style: italic;
   font-display: swap;
 }
+/* Plus Jakarta Sans — self-hosted variable font (SIL OFL). Weights 400–700. */
 @font-face {
-  font-family: "TT Hoves";
-  src: url("/fonts/tt-hoves-regular.ttf") format("truetype");
-  font-weight: 400;
+  font-family: "Plus Jakarta Sans";
+  src: url("/fonts/plus-jakarta-sans-latin.woff2") format("woff2");
+  font-weight: 400 700;
   font-style: normal;
   font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
 }
 @font-face {
-  font-family: "TT Hoves";
-  src: url("/fonts/tt-hoves-medium.ttf") format("truetype");
-  font-weight: 500;
+  font-family: "Plus Jakarta Sans";
+  src: url("/fonts/plus-jakarta-sans-latin-ext.woff2") format("woff2");
+  font-weight: 400 700;
   font-style: normal;
   font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304,
+    U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0,
+    U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* Devanagari — self-hosted (SIL OFL). Used by the Hindi (/hi) pages. */
+@font-face {
+  font-family: "Noto Sans Devanagari";
+  src: url("/fonts/noto-sans-devanagari.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC,
+    U+A830-A839, U+A8E0-A8FF, U+11B00-11B09;
 }
 @font-face {
-  font-family: "TT Hoves";
-  src: url("/fonts/tt-hoves-demibold.ttf") format("truetype");
-  font-weight: 600;
+  font-family: "Noto Serif Devanagari";
+  src: url("/fonts/noto-serif-devanagari.woff2") format("woff2");
+  font-weight: 400 700;
   font-style: normal;
   font-display: swap;
-}
-@font-face {
-  font-family: "TT Hoves";
-  src: url("/fonts/tt-hoves-bold.ttf") format("truetype");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
+  unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC,
+    U+A830-A839, U+A8E0-A8FF, U+11B00-11B09;
 }
 
 /* ---------- Base ---------- */
@@ -129,4 +156,106 @@
     font-size: 0.8125rem;
     color: var(--color-brown-light);
   }
+}
+
+/* ---------- Insight article prose (long-form editorial body) ---------- */
+/* Global (unscoped) so it styles markdown-rendered HTML and the embedded
+   component blocks (.stat-strip, .status-block, .split-view, .article-figure). */
+.insight-body {
+  --measure: 44rem; /* comfortable editorial reading width */
+  font-size: 1.0625rem;
+  line-height: 1.85;
+  color: var(--color-ink-soft);
+}
+.insight-body > * {
+  max-width: var(--measure);
+  margin-inline: auto;
+}
+.insight-body > p { margin-top: 1.6em; }
+.insight-body > p:first-child { margin-top: 0; }
+.insight-body h2 {
+  max-width: var(--measure);
+  margin: 2.6em auto 0;
+  font-size: clamp(1.7rem, 3.2vw, 2.15rem);
+  line-height: 1.18;
+  color: var(--color-ink);
+  letter-spacing: -0.01em;
+}
+.insight-body h3 {
+  max-width: var(--measure);
+  margin: 2em auto 0;
+  font-size: 1.3rem;
+  line-height: 1.3;
+  color: var(--color-ink);
+}
+.insight-body h2 + p, .insight-body h3 + p { margin-top: 0.9em; }
+.insight-body strong { color: var(--color-ink); font-weight: 600; }
+.insight-body a { color: var(--color-brown-light); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+.insight-body a:hover { color: var(--color-ink); }
+.insight-body ul, .insight-body ol { margin: 1.4em auto; padding-left: 1.3em; }
+.insight-body li { margin-top: 0.5em; padding-left: 0.3em; }
+.insight-body ul > li { list-style: none; position: relative; }
+.insight-body ul > li::before {
+  content: ""; position: absolute; left: -1.05em; top: 0.7em;
+  width: 6px; height: 6px; border-radius: 9999px; background: var(--color-brown-lightest);
+}
+.insight-body hr {
+  max-width: var(--measure); margin: 3em auto; border: 0; height: 1px;
+  background: color-mix(in srgb, var(--color-ink) 14%, transparent);
+}
+
+/* Pull-quote / key figure — from markdown blockquotes */
+.insight-body blockquote {
+  max-width: var(--measure); margin: 2.4em auto;
+  border-left: 3px solid var(--color-brown-lightest);
+  background: color-mix(in srgb, var(--color-brown-lightest) 12%, transparent);
+  padding: 1.4rem 1.6rem; border-radius: 0 4px 4px 0;
+}
+.insight-body blockquote p { margin: 0.4em 0 0; color: var(--color-ink); }
+.insight-body blockquote p:first-child { margin-top: 0; }
+.insight-body blockquote strong { font-family: var(--font-display); font-weight: 500; }
+
+/* Three-card summary strip */
+.insight-body .stat-strip {
+  max-width: 60rem; margin: 2.6em auto; display: grid; gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+}
+.insight-body .stat-card {
+  display: flex; flex-direction: column; gap: 0.45rem; padding: 1.5rem 1.4rem;
+  border: 1px solid color-mix(in srgb, var(--color-ink) 12%, transparent);
+  background: color-mix(in srgb, var(--color-brown-lightest) 7%, transparent);
+  border-radius: 4px;
+}
+.insight-body .stat-label { font-family: var(--font-sans); font-weight: 700; font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-brown-light); }
+.insight-body .stat-value { font-family: var(--font-display); font-size: 1.65rem; line-height: 1.1; color: var(--color-ink); }
+.insight-body .stat-note { font-size: 0.9rem; line-height: 1.55; color: var(--color-ink-soft); }
+
+/* Infrastructure status block — never merges proposed with operational */
+.insight-body .status-block { max-width: var(--measure); margin: 2.4em auto; display: flex; flex-direction: column; gap: 0.75rem; }
+.insight-body .status-row {
+  display: grid; grid-template-columns: 160px 1fr; gap: 1rem; align-items: start;
+  padding: 1rem 1.1rem; border: 1px solid color-mix(in srgb, var(--color-ink) 10%, transparent); border-radius: 4px;
+}
+.insight-body .status-tag { align-self: start; font-family: var(--font-sans); font-weight: 700; font-size: 0.66rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.4rem 0.6rem; border-radius: 3px; text-align: center; }
+.insight-body .status-live { background: var(--color-brown-lightest); color: var(--color-ink); }
+.insight-body .status-progress { background: color-mix(in srgb, var(--color-ink) 9%, transparent); color: var(--color-ink); }
+.insight-body .status-plan, .insight-body .status-proposed { background: transparent; border: 1px solid color-mix(in srgb, var(--color-ink) 24%, transparent); color: var(--color-brown-light); }
+.insight-body .status-items { font-size: 0.95rem; line-height: 1.6; color: var(--color-ink-soft); }
+
+/* Two-column split (e.g. homeowner vs investor) */
+.insight-body .split-view { max-width: 60rem; margin: 2.6em auto; display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.insight-body .split-col { padding: 1.75rem 1.6rem; border: 1px solid color-mix(in srgb, var(--color-ink) 12%, transparent); border-radius: 4px; background: color-mix(in srgb, var(--color-brown-lightest) 5%, transparent); }
+.insight-body .split-col h4 { font-family: var(--font-display); font-size: 1.2rem; color: var(--color-ink); margin: 0 0 0.9rem; }
+.insight-body .split-col ul { margin: 0; }
+
+/* Figure — master plan / project layout, with caption */
+.insight-body .article-figure { max-width: 60rem; margin: 2.6em auto; }
+.insight-body .article-figure img { width: 100%; height: auto; display: block; border-radius: 4px; border: 1px solid color-mix(in srgb, var(--color-ink) 12%, transparent); }
+.insight-body .article-figure figcaption { margin-top: 0.85rem; font-size: 0.85rem; line-height: 1.55; color: var(--color-brown-light); font-style: italic; }
+.insight-body .article-figure .figure-link { display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 0.75rem; font-family: var(--font-sans); font-weight: 700; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-ink); text-decoration: none; }
+.insight-body .article-figure .figure-link:hover { color: var(--color-brown-light); }
+
+@media (max-width: 640px) {
+  .insight-body .status-row { grid-template-columns: 1fr; gap: 0.6rem; }
+  .insight-body .status-tag { justify-self: start; }
 }

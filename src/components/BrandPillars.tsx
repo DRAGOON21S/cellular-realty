@@ -4,11 +4,13 @@ import type { Pillar } from "../data/pillars";
 interface Props {
   pillars: Pillar[];
   variant?: "panel" | "center";
+  /** Localized word for "Pillar" (center variant caption). */
+  pillarLabel?: string;
 }
 
 const AUTOPLAY_MS = 5000;
 
-export default function BrandPillars({ pillars, variant = "panel" }: Props) {
+export default function BrandPillars({ pillars, variant = "panel", pillarLabel = "Pillar" }: Props) {
   const [i, setI] = useState(0);
   const [paused, setPaused] = useState(false);
   const touchX = useRef<number | null>(null);
@@ -78,7 +80,7 @@ export default function BrandPillars({ pillars, variant = "panel" }: Props) {
           </button>
         </div>
         <div class="mt-7 text-center">
-          <p class="text-[12px] font-semibold uppercase tracking-[0.16em] text-brown-light">Pillar {p.num} · {p.tag}</p>
+          <p class="text-[12px] font-semibold uppercase tracking-[0.16em] text-brown-light">{pillarLabel} {p.num} · {p.tag}</p>
           <h3 class="mt-2 font-display text-3xl text-brown-dark">{p.title}</h3>
           <p class="mx-auto mt-3 max-w-xl text-[16px] leading-relaxed text-ink-soft">{p.body}</p>
         </div>

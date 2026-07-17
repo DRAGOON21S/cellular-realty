@@ -1,20 +1,27 @@
 ---
-import { nav, site } from "../data/global";
+import { site } from "../data/global";
+import { Icon } from "astro-icon/components";
+import { useT, localizePath, switchLocalePath, toBasePath, type Locale } from "../lib/i18n";
 
 export interface Props {
   transparent?: boolean;
+  locale?: Locale;
 }
-const { transparent = false } = Astro.props;
-const current = Astro.url.pathname.replace(/\/$/, "") || "/";
-const isActive = (href: string) =>
-  href === "/" ? current === "/" : current.startsWith(href);
+const { transparent = false, locale = "en" } = Astro.props;
+const t = useT(locale);
+
+const currentBase = toBasePath(Astro.url.pathname.replace(/\/$/, "") || "/");
+const isActive = (href: string) => (href === "/" ? currentBase === "/" : currentBase.startsWith(href));
+const homeHref = localizePath("/", locale);
+const otherHref = switchLocalePath(Astro.url.pathname);
+const otherLangLabel = locale === "en" ? t.common.switchToHindi : t.common.englishFull;
 ---
 
 <header
   data-header
   data-transparent={transparent ? "true" : "false"}
   class:list={[
-    "fixed inset-x-0 top-0 z-40 transition-colors duration-300",
+    "fixed inset-x-0 top-0 z-50 transition-colors duration-300",
     transparent
       ? "bg-transparent text-offwhite"
       : "bg-offwhite/95 text-brown-dark backdrop-blur-sm border-b border-[color:var(--color-line)]",
@@ -22,31 +29,17 @@ const isActive = (href: string) =>
 >
   <div class="container-content flex h-[76px] items-center justify-between gap-6 lg:h-[88px]">
     <!-- Logo -->
-    <a href="/" class="flex shrink-0 items-center" aria-label={`${site.brand} home`}>
-      <img
-        src="/brand/cellular-realty-logo-black.webp"
-        alt={site.brand}
-        width="1219"
-        height="320"
-        class="h-8 w-auto lg:h-9"
-        data-logo-black
-      />
-      <img
-        src="/brand/cellular-realty-logo-white.webp"
-        alt={site.brand}
-        width="1219"
-        height="320"
-        class="h-8 w-auto lg:h-9"
-        data-logo-white
-      />
+    <a href={homeHref} class="flex shrink-0 items-center" aria-label={`${site.brand} home`}>
+      <img src="/brand/cellular-realty-logo-black.webp" alt={site.brand} width="1219" height="320" class="h-[52px] w-auto lg:h-[60px]" data-logo-black />
+      <img src="/brand/cellular-realty-logo-white.webp" alt={site.brand} width="1219" height="320" class="h-[52px] w-auto lg:h-[60px]" data-logo-white />
     </a>
 
     <!-- Desktop nav -->
-    <nav class="hidden items-center gap-8 lg:flex" aria-label="Primary">
+    <nav class="hidden items-center gap-8 lg:flex" aria-label={t.common.primaryNav}>
       {
-        nav.map((item) => (
+        t.nav.map((item) => (
           <a
-            href={item.href}
+            href={localizePath(item.href, locale)}
             class:list={[
               "relative text-[15px] font-medium tracking-wide transition-opacity hover:opacity-100",
               isActive(item.href) ? "opacity-100" : "opacity-70",
@@ -54,9 +47,7 @@ const isActive = (href: string) =>
             aria-current={isActive(item.href) ? "page" : undefined}
           >
             {item.label}
-            {isActive(item.href) && (
-              <span class="absolute -bottom-1.5 left-0 h-0.5 w-full bg-brown-lightest" />
-            )}
+            {isActive(item.href) && <span class="absolute -bottom-1.5 left-0 h-0.5 w-full bg-brown-lightest" />}
           </a>
         ))
       }
@@ -64,16 +55,21 @@ const isActive = (href: string) =>
 
     <!-- Right cluster -->
     <div class="flex items-center gap-4">
-      <!-- Language toggle (EN active; Hindi phase 2) -->
+      <!-- Language toggle (active locale = button; other = link to the twin page) -->
       <div class="hidden items-center gap-2 text-[13px] font-semibold tracking-wider sm:flex">
-        <button type="button" class="text-brown-lightest" aria-pressed="true">EN</button>
-        <span aria-hidden="true" class="opacity-40">·</span>
-        <button
-          type="button"
-          class="opacity-50 hover:opacity-80"
-          title="हिन्दी (coming soon)"
-          data-hindi-toggle
-        >हिं</button>
+        {locale === "en" ? (
+          <>
+            <button type="button" class="text-brown-lightest" aria-pressed="true">EN</button>
+            <span aria-hidden="true" class="opacity-40">·</span>
+            <a href={otherHref} class="opacity-50 hover:opacity-80" title={t.common.switchToHindi}>हिं</a>
+          </>
+        ) : (
+          <>
+            <a href={otherHref} class="opacity-50 hover:opacity-80" title={t.common.switchToEnglish}>EN</a>
+            <span aria-hidden="true" class="opacity-40">·</span>
+            <button type="button" class="text-brown-lightest" aria-pressed="true">हिं</button>
+          </>
+        )}
       </div>
 
       <span class="hidden h-6 w-px bg-current/20 sm:block" aria-hidden="true"></span>
@@ -85,15 +81,15 @@ const isActive = (href: string) =>
         data-cta="Schedule a Visit"
         class="hidden rounded-[2px] bg-brown-dark px-6 py-3 text-[13px] font-semibold uppercase tracking-[0.12em] text-offwhite transition-colors hover:bg-brown-700 sm:inline-flex"
       >
-        Schedule a Visit
+        {t.common.scheduleVisit}
       </button>
 
       <!-- Mobile menu toggle -->
       <button
         type="button"
-        data-menu-toggle
-        class="inline-flex items-center justify-center lg:hidden"
-        aria-label="Open menu"
+        data-menu-open
+        class="inline-flex touch-manipulation items-center justify-center lg:hidden"
+        aria-label={t.common.openMenu}
         aria-expanded="false"
         aria-controls="mobile-menu"
       >
@@ -104,36 +100,55 @@ const isActive = (href: string) =>
     </div>
   </div>
 
-  <!-- Mobile menu -->
-  <div
-    id="mobile-menu"
-    data-mobile-menu
-    hidden
-    class="lg:hidden border-t border-[color:var(--color-line)] bg-offwhite text-brown-dark"
-  >
-    <nav class="container-content flex flex-col py-4" aria-label="Mobile">
-      {
-        nav.map((item) => (
-          <a
-            href={item.href}
-            class:list={[
-              "border-b border-[color:var(--color-line)] py-3 text-[17px] font-medium",
-              isActive(item.href) ? "text-brown-dark" : "text-brown-light",
-            ]}
-          >
-            {item.label}
-          </a>
-        ))
-      }
-      <button
-        type="button"
-        data-enquire
-        data-cta="Schedule a Visit"
-        class="mt-4 rounded-[2px] bg-brown-dark px-6 py-3.5 text-[14px] font-semibold uppercase tracking-[0.12em] text-offwhite"
-      >
-        Schedule a Visit
+  <!-- Mobile menu — full-screen overlay (Figma 481-50) -->
+  <div id="mobile-menu" data-mobile-menu hidden style="display:none" class="fixed inset-0 z-50 flex flex-col overflow-y-auto bg-brown-900 text-offwhite lg:hidden">
+    <!-- top row: logo + close -->
+    <div class="flex items-center justify-between px-6 pt-6">
+      <a href={homeHref} class="flex items-center" aria-label={`${site.brand} home`}>
+        <img src="/brand/cellular-realty-logo-white.webp" alt={site.brand} width="1219" height="320" class="h-9 w-auto" />
+      </a>
+      <button type="button" data-menu-close aria-label={t.common.closeMenu} class="flex h-11 w-11 touch-manipulation items-center justify-center text-offwhite/90 hover:text-offwhite">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12" /></svg>
       </button>
+    </div>
+
+    <!-- nav -->
+    <nav class="flex flex-1 flex-col justify-center gap-1.5 px-6 py-8" aria-label={t.common.mobileNav}>
+      {
+        t.nav.map((item) => {
+          const active = isActive(item.href);
+          return (
+            <a
+              href={localizePath(item.href, locale)}
+              aria-current={active ? "page" : undefined}
+              class:list={[
+                "relative flex items-center py-1.5 pl-5 font-display text-[38px] leading-tight transition-colors",
+                active ? "text-offwhite" : "text-brown-light hover:text-offwhite",
+              ]}
+            >
+              {active && <span class="absolute left-0 top-1/2 h-9 w-[3px] -translate-y-1/2 bg-brown-lightest" aria-hidden="true" />}
+              {item.label}
+            </a>
+          );
+        })
+      }
+      <a href={otherHref} class="mt-5 pl-5 text-[13px] font-semibold uppercase tracking-[0.16em] text-brown-light transition-colors hover:text-offwhite">{otherLangLabel}</a>
     </nav>
+
+    <!-- HQ contact + socials -->
+    <div class="border-t border-offwhite/10 px-6 py-7 text-right">
+      <p class="text-[11px] font-semibold uppercase tracking-[0.16em] text-brown-lightest">{t.footer.hqContact}</p>
+      <p class="mt-3 text-[14px] leading-relaxed text-offwhite/70">{t.footer.officeLines[0]}, {t.footer.officeLines[1]}</p>
+      <a href={`mailto:${site.email}`} class="mt-3 block text-[14px] text-brown-lightest hover:text-brown-300">{site.email}</a>
+      <div class="mt-2 space-y-0.5 text-[14px] text-offwhite/85">
+        {site.phones.map((p) => <a href={`tel:${p.tel}`} class="block hover:text-offwhite">{p.display}</a>)}
+      </div>
+      <div class="mt-5 flex justify-end gap-3">
+        <a href={site.social.youtube.url} target="_blank" rel="noopener" aria-label="YouTube" class="flex h-10 w-10 items-center justify-center rounded-full bg-offwhite/10 text-offwhite transition-colors hover:bg-offwhite/20"><Icon name="lucide:youtube" class="h-[18px] w-[18px]" /></a>
+        <a href={site.social.facebook.url} target="_blank" rel="noopener" aria-label="Facebook" class="flex h-10 w-10 items-center justify-center rounded-full bg-offwhite/10 text-offwhite transition-colors hover:bg-offwhite/20"><Icon name="lucide:facebook" class="h-[18px] w-[18px]" /></a>
+        <a href={site.social.instagram.url} target="_blank" rel="noopener" aria-label="Instagram" class="flex h-10 w-10 items-center justify-center rounded-full bg-offwhite/10 text-offwhite transition-colors hover:bg-offwhite/20"><Icon name="lucide:instagram" class="h-[18px] w-[18px]" /></a>
+      </div>
+    </div>
   </div>
 </header>
 
@@ -141,25 +156,42 @@ const isActive = (href: string) =>
 {!transparent && <div class="h-[76px] lg:h-[88px]" aria-hidden="true"></div>}
 
 <script>
-  // Header: mobile menu + scroll state for transparent headers.
   const header = document.querySelector<HTMLElement>("[data-header]");
-  const toggle = document.querySelector<HTMLButtonElement>("[data-menu-toggle]");
+  const openBtn = document.querySelector<HTMLButtonElement>("[data-menu-open]");
+  const closeEls = document.querySelectorAll<HTMLElement>("[data-menu-close]");
   const menu = document.querySelector<HTMLElement>("[data-mobile-menu]");
 
-  toggle?.addEventListener("click", () => {
-    const open = menu?.hasAttribute("hidden");
-    if (open) {
-      menu?.removeAttribute("hidden");
-      toggle.setAttribute("aria-expanded", "true");
-      toggle.setAttribute("aria-label", "Close menu");
-    } else {
-      menu?.setAttribute("hidden", "");
-      toggle.setAttribute("aria-expanded", "false");
-      toggle.setAttribute("aria-label", "Open menu");
-    }
-  });
+  // Explicit open/close intents (not a DOM-inferred toggle). Visibility is driven by
+  // an inline `display` so it can never be overridden by the `flex`/`hidden` class
+  // cascade. A short debounce swallows the synthesized "ghost" click that touch
+  // browsers fire ~300ms after a real tap — without it, that ghost lands on the
+  // control now sitting in the same corner and flips the menu straight back, which
+  // reads as "the menu stopped working until I refresh".
+  let lastAt = 0;
+  const setMenu = (open: boolean) => {
+    if (!menu) return;
+    const now = Date.now();
+    if (now - lastAt < 350) return; // ignore rapid duplicate / ghost taps
+    lastAt = now;
+    menu.toggleAttribute("hidden", !open);
+    menu.style.display = open ? "flex" : "none";
+    document.body.style.overflow = open ? "hidden" : "";
+    openBtn?.setAttribute("aria-expanded", String(open));
+  };
 
-  // When a transparent header scrolls past the hero, give it a solid background.
+  openBtn?.addEventListener("click", () => setMenu(true));
+  closeEls.forEach((el) => el.addEventListener("click", () => setMenu(false)));
+  // A nav link closes the overlay (and releases the scroll lock) before it navigates.
+  menu?.querySelectorAll<HTMLAnchorElement>("a[href]").forEach((a) =>
+    a.addEventListener("click", () => {
+      menu.setAttribute("hidden", "");
+      menu.style.display = "none";
+      document.body.style.overflow = "";
+      openBtn?.setAttribute("aria-expanded", "false");
+    }),
+  );
+  document.addEventListener("keydown", (e) => e.key === "Escape" && setMenu(false));
+
   if (header?.dataset.transparent === "true") {
     const onScroll = () => {
       const solid = window.scrollY > 80;
@@ -175,15 +207,7 @@ const isActive = (href: string) =>
 </script>
 
 <style is:global>
-  /* Default (solid/light header): show the black logo, hide the white one. */
-  [data-header] [data-logo-white] {
-    display: none;
-  }
-  /* Transparent (dark-hero) header: show the white logo instead. */
-  [data-header].text-offwhite [data-logo-black] {
-    display: none;
-  }
-  [data-header].text-offwhite [data-logo-white] {
-    display: block;
-  }
+  [data-header] [data-logo-white] { display: none; }
+  [data-header].text-offwhite [data-logo-black] { display: none; }
+  [data-header].text-offwhite [data-logo-white] { display: block; }
 </style>

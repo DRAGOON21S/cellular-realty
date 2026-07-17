@@ -1,0 +1,11 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import LandingContent from "../../components/LandingContent.astro";
+import { useT } from "../../lib/i18n";
+
+const t = useT("hi");
+---
+
+<Layout title={`Cellular Realty | समुदायों का निर्माण, स्थायी मूल्य का सृजन`} description={t.seo.defaultDescription} transparentHeader={true} newsletter={true}>
+  <LandingContent />
+</Layout>

@@ -12,8 +12,8 @@ const leaders: LeaderItem[] = leadership.map((l) => ({ name: l.name, designation
 ---
 
 <Layout
-  title="About Us — Cellular Realty"
-  description="Cellular Realty is the real estate arm of Aditi Infrabuild & Services Limited (est. 2005) — building compliant, well-planned plotted communities across Delhi NCR."
+  title="About Us | Cellular Realty"
+  description="Cellular Realty (est. 2005) builds compliant, well-planned plotted communities across Delhi NCR: licensed DDJAY plotted townships in Jhajjar and beyond."
   transparentHeader={true}
 >
   <!-- HERO -->
@@ -42,7 +42,7 @@ const leaders: LeaderItem[] = leadership.map((l) => ({ name: l.name, designation
         <h2 class="font-display text-4xl leading-tight text-brown-dark lg:text-[46px]">Engineering Discipline on Every Plot</h2>
         <p class="mt-6 text-[16px] leading-[1.8] text-ink-soft">
           Cellular Realty is a modern real estate development company built on a simple yet
-          meaningful vision — creating thoughtfully planned communities that people are proud to call
+          meaningful vision, creating thoughtfully planned communities that people are proud to call
           home. In a rapidly expanding landscape, we transform land into thriving communities,
           offering homebuyers and investors the confidence to build their future in destinations
           with strong growth potential.
@@ -59,7 +59,7 @@ const leaders: LeaderItem[] = leadership.map((l) => ({ name: l.name, designation
             <p class="eyebrow">Our Mission</p>
             <p class="mt-2 text-[16px] leading-relaxed text-brown-dark">
               To plan and deliver plotted communities and infrastructure through sound construction and
-              reliable execution — while building durable relationships with customers, partners and institutions.
+              reliable execution, while building durable relationships with customers, partners and institutions.
             </p>
           </div>
         </div>
@@ -85,9 +85,9 @@ const leaders: LeaderItem[] = leadership.map((l) => ({ name: l.name, designation
         <h2 class="mt-4 font-display text-4xl leading-tight text-brown-dark lg:text-[46px]">Jhajjar's Infrastructure-Led Growth Story</h2>
         <div class="mt-6 space-y-5 text-[16px] leading-[1.8] text-ink-soft">
           <p>
-            Bordering the national capital and neighbouring Reliance MET City — home to
+            Bordering the national capital and neighbouring Reliance MET City (home to
             <strong class="font-medium text-brown-dark">600+ companies from 11+ countries</strong> and
-            generating more than <strong class="font-medium text-brown-dark">40,000 jobs</strong> — Jhajjar
+            generating more than <strong class="font-medium text-brown-dark">40,000 jobs</strong>), Jhajjar
             is positioned to benefit from sustained residential demand.
           </p>
           <p>
@@ -97,7 +97,7 @@ const leaders: LeaderItem[] = leadership.map((l) => ({ name: l.name, designation
           </p>
           <p>
             Sectors 36 and 37 are Jhajjar's prime residential sectors, connected to the corridor via the
-            proposed 75-metre sector road — making the area an exceptional destination for modern living
+            proposed 75-metre sector road, making the area an exceptional destination for modern living
             and long-term investment.
           </p>
         </div>
@@ -188,8 +188,34 @@ const leaders: LeaderItem[] = leadership.map((l) => ({ name: l.name, designation
       </h2>
       <div class="mt-9 flex flex-wrap justify-center gap-4">
         <Button href="/projects" variant="accent" size="lg">View Projects</Button>
-        <Button href="/media/downloads/company-profile/cellular-realty-corporate-brochure.pdf" target="_blank" variant="outline" size="lg" icon="lucide:download">Download Company Portfolio</Button>
+        <button
+          type="button"
+          data-corporate-profile
+          aria-describedby="corporate-profile-note"
+          class="inline-flex items-center justify-center gap-2.5 whitespace-nowrap rounded-[2px] border border-brown-dark/30 px-8 py-4 text-[14px] font-semibold uppercase tracking-[0.12em] text-brown-dark transition-colors duration-200 hover:bg-brown-dark hover:text-offwhite"
+        >
+          Corporate Profile
+          <Icon name="lucide:clock" class="h-[1.05em] w-[1.05em]" />
+        </button>
       </div>
+      <p
+        id="corporate-profile-note"
+        data-corporate-profile-note
+        hidden
+        aria-live="polite"
+        class="mt-5 text-[14px] italic text-brown-light"
+      >
+        Our corporate profile is currently being updated and will be available soon.
+      </p>
     </div>
   </section>
 </Layout>
+
+<script>
+  // Corporate profile is being updated — reveal an inline note instead of a dead download.
+  const btn = document.querySelector<HTMLButtonElement>("[data-corporate-profile]");
+  const note = document.querySelector<HTMLElement>("[data-corporate-profile-note]");
+  btn?.addEventListener("click", () => {
+    if (note) note.hidden = false;
+  });
+</script>

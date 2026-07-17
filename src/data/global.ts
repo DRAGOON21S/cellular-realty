@@ -4,6 +4,10 @@
 
 export const site = {
   brand: "Cellular Realty",
+  // ⚠️ DO NOT DISPLAY on the website. Kept as CMS/reference data only.
+  // The parent entity must NOT appear in any user-facing copy, meta, or structured
+  // data until the client explicitly approves showing it. Do not reference site.parentEntity
+  // in any page/component/layout.
   parentEntity: "Aditi Infrabuild & Services Limited",
   established: 2005,
   tagline: "Building Communities. Creating Lasting Value.",
@@ -25,7 +29,12 @@ export const site = {
     { display: "+91 99585 49955", tel: "+919958549955" },
     { display: "+91 92171 79219", tel: "+919217179219" },
   ],
-  email: "admin@cellularrealty.in",
+  // Public "talk to us / questions" address (Zoho aliases enquiries@ and info@ also
+  // funnel into this mailbox). This is the ONLY email shown on the site.
+  email: "hello@cellularrealty.in",
+  // Internal destination for lead-generation form submissions (never displayed).
+  // Wire the server-side/Zoho integration to route form leads here by CTA type.
+  salesEmail: "sales@cellularrealty.in",
   whatsapp: { number: "919958549955", url: "https://wa.me/919958549955" },
 
   social: {

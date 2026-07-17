@@ -1,0 +1,106 @@
+---
+import Button from "../ui/Button.astro";
+import EmiCalculator from "../EmiCalculator.tsx";
+import { getLocale, useT } from "../../lib/i18n";
+
+const locale = getLocale(Astro.url);
+const t = useT(locale);
+const s = {
+  en: {
+    eyebrow: "Buyers' Guide",
+    heroTitleHtml: 'Invest with <em class="italic text-brown-300">confidence.</em>',
+    heroSub: "A practical guide to understanding plotted developments, legal documentation, payment planning and location factors before you make your decision.",
+    paymentPlanner: "Payment Planner",
+    legalChecklist: "Legal Checklist",
+    emiEyebrow: "Financial Planning",
+    emiHeading: "Plot Payment Planner",
+    emiIntro: "Estimate your monthly commitment by adjusting the loan amount, tenure and interest rate. This tool is for planning purposes only; final terms may vary by bank or lender.",
+    kbEyebrow: "Knowledge Base",
+    kbHeading: "Your Questions, Answered",
+    q: "Q.",
+    a: "A.",
+    ctaHeading: "Take the Next Step with Clarity",
+    ctaPara: "Connect with our team to understand project details, available plot options, documentation and site visit planning.",
+    downloadGuide: "Download Buyer's Guide",
+    faqs: [
+      { q: "What is the Deen Dayal Jan Awas Yojana (DDJAY)?", a: "DDJAY is a 2016 affordable-housing policy of the Government of Haryana that enables licensed, well-planned plotted colonies with essential infrastructure. All our plotted townships are developed under this scheme, with DTCP licences and RERA registration where applicable, and bank loans available from nationalised banks." },
+      { q: "Are the projects RERA and DTCP approved?", a: "Yes. Each project carries its DTCP licence and, where registered, a RERA number, both shown on the project page. Approval and licensing documents are available for inspection at our Corporate Office." },
+      { q: "Can I get a home or plot loan?", a: "Loan availability depends on the buyer's eligibility and the policies of the lending institution. Bank loan assistance may be available for eligible buyers. Our team can guide you through the basic process and required documentation." },
+      { q: "Where are your projects located?", a: "Cellular Realty has developed and planned communities across key locations in Haryana, including Jhajjar, Farrukhnagar and Rewari. South City Greens is located in Sector 36, Jhajjar." },
+    ],
+  },
+  hi: {
+    eyebrow: "खरीदार गाइड",
+    heroTitleHtml: '<em class="italic text-brown-300">आत्मविश्वास</em> के साथ निवेश करें।',
+    heroSub: "निर्णय लेने से पहले प्लॉटेड विकास, कानूनी दस्तावेज़ीकरण, भुगतान योजना और स्थान संबंधी कारकों को समझने के लिए एक व्यावहारिक गाइड।",
+    paymentPlanner: "भुगतान योजनाकार",
+    legalChecklist: "कानूनी चेकलिस्ट",
+    emiEyebrow: "वित्तीय योजना",
+    emiHeading: "प्लॉट भुगतान योजनाकार",
+    emiIntro: "ऋण राशि, अवधि और ब्याज दर को समायोजित करके अपनी मासिक प्रतिबद्धता का अनुमान लगाएँ। यह उपकरण केवल योजना के उद्देश्य से है; अंतिम शर्तें बैंक या ऋणदाता के अनुसार भिन्न हो सकती हैं।",
+    kbEyebrow: "ज्ञान केंद्र",
+    kbHeading: "आपके प्रश्नों के उत्तर",
+    q: "प्र.",
+    a: "उ.",
+    ctaHeading: "स्पष्टता के साथ अगला कदम उठाएँ",
+    ctaPara: "परियोजना विवरण, उपलब्ध प्लॉट विकल्प, दस्तावेज़ीकरण और साइट विज़िट योजना को समझने के लिए हमारी टीम से जुड़ें।",
+    downloadGuide: "खरीदार गाइड डाउनलोड करें",
+    faqs: [
+      { q: "दीन दयाल जन आवास योजना (DDJAY) क्या है?", a: "DDJAY हरियाणा सरकार की 2016 की एक किफायती आवास नीति है जो आवश्यक बुनियादी ढाँचे के साथ लाइसेंस प्राप्त, सुनियोजित प्लॉटेड कॉलोनियों को सक्षम बनाती है। हमारी सभी प्लॉटेड टाउनशिप इसी योजना के तहत विकसित की गई हैं, जहाँ लागू हो वहाँ DTCP लाइसेंस और RERA पंजीकरण के साथ, और राष्ट्रीयकृत बैंकों से बैंक ऋण उपलब्ध हैं।" },
+      { q: "क्या परियोजनाएँ RERA और DTCP अनुमोदित हैं?", a: "हाँ। प्रत्येक परियोजना का DTCP लाइसेंस और, जहाँ पंजीकृत है, एक RERA नंबर होता है, दोनों परियोजना पृष्ठ पर दिखाए जाते हैं। अनुमोदन और लाइसेंसिंग दस्तावेज़ हमारे कॉर्पोरेट कार्यालय में निरीक्षण के लिए उपलब्ध हैं।" },
+      { q: "क्या मुझे होम या प्लॉट लोन मिल सकता है?", a: "ऋण की उपलब्धता खरीदार की पात्रता और ऋणदाता संस्थान की नीतियों पर निर्भर करती है। पात्र खरीदारों के लिए बैंक ऋण सहायता उपलब्ध हो सकती है। हमारी टीम आपको बुनियादी प्रक्रिया और आवश्यक दस्तावेज़ीकरण के बारे में मार्गदर्शन कर सकती है।" },
+      { q: "आपकी परियोजनाएँ कहाँ स्थित हैं?", a: "सेल्युलर रियल्टी ने हरियाणा के प्रमुख स्थानों में समुदाय विकसित और नियोजित किए हैं, जिनमें झज्जर, फर्रुखनगर और रेवाड़ी शामिल हैं। साउथ सिटी ग्रीन्स सेक्टर 36, झज्जर में स्थित है।" },
+    ],
+  },
+}[locale];
+---
+
+<!-- HERO -->
+<section class="relative flex min-h-[62vh] items-center overflow-hidden bg-brown-900 text-offwhite">
+  <img src="/media/stock-images/stock-landscaped-garden.webp" alt="" class="absolute inset-0 h-full w-full object-cover opacity-40" loading="eager" />
+  <div class="absolute inset-0 bg-gradient-to-t from-brown-900 via-brown-900/55 to-brown-900/60"></div>
+  <div class="container-content relative py-36">
+    <p class="eyebrow text-brown-300">{s.eyebrow}</p>
+    <h1 class="mt-6 max-w-3xl font-display text-5xl leading-[1.08] lg:text-7xl" set:html={s.heroTitleHtml} />
+    <p class="mt-6 max-w-xl text-lg text-offwhite/80">{s.heroSub}</p>
+    <div class="mt-9 flex flex-wrap gap-4">
+      <Button href="#planner" variant="accent" size="lg">{s.paymentPlanner}</Button>
+      <Button href="#knowledge" variant="outline-light" size="lg">{s.legalChecklist}</Button>
+    </div>
+  </div>
+</section>
+
+<!-- PLOT PAYMENT PLANNER -->
+<section id="planner" class="scroll-mt-24 bg-offwhite py-24 lg:py-32">
+  <div class="container-content">
+    <EmiCalculator eyebrow={s.emiEyebrow} heading={s.emiHeading} intro={s.emiIntro} labels={t.emi} client:visible />
+  </div>
+</section>
+
+<!-- KNOWLEDGE BASE -->
+<section id="knowledge" class="scroll-mt-24 bg-offwhite py-24 lg:py-32">
+  <div class="container-content">
+    <p class="eyebrow text-center">{s.kbEyebrow}</p>
+    <h2 class="mt-4 text-center font-display text-4xl text-brown-dark lg:text-[52px]">{s.kbHeading}</h2>
+    <div class="mx-auto mt-14 grid max-w-5xl gap-x-16 gap-y-12 md:grid-cols-2">
+      {s.faqs.map((item) => (
+        <div>
+          <h3 class="font-display text-2xl leading-snug text-brown-dark">{s.q} {item.q}</h3>
+          <p class="mt-3 text-[16px] leading-relaxed text-ink-soft">{s.a} {item.a}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="bg-brown-100/40 py-24 text-center">
+  <div class="container-content">
+    <h2 class="mx-auto max-w-2xl font-display text-4xl leading-tight text-brown-dark lg:text-[56px]">{s.ctaHeading}</h2>
+    <p class="mx-auto mt-5 max-w-lg text-ink-soft">{s.ctaPara}</p>
+    <div class="mt-9 flex flex-wrap justify-center gap-4">
+      <Button enquire data-cta="Schedule a Call" variant="accent" size="lg">{t.common.scheduleCall}</Button>
+      <Button href="/media/downloads/company-profile/cellular-realty-corporate-brochure.pdf" target="_blank" variant="outline" size="lg" icon="lucide:download">{s.downloadGuide}</Button>
+    </div>
+  </div>
+</section>

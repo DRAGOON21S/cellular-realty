@@ -24,7 +24,7 @@
     "heroSubtitle": "A Complete Plotted Community in Sector 36, Jhajjar",
     "heroDescription": "Developed with internal roads, green avenues, parks and amenities for confident long-term ownership.",
     "section01Title": "Jhajjar’s Largest Single-Licence Plotted Development",
-    "section01Body": "South City Greens is a premium plotted residential township in Sector 36, Jhajjar, developed under the Deen Dayal Jan Awas Yojana. Spread across 20 acres, it stands as the largest single-licence plotted development in Jhajjar and is located just a 2-minute drive from the upcoming 75-metre-wide road proposed under the Government of Haryana’s Master Plan 2031. Featuring wide 9-metre internal roads, thoughtfully designed green pockets and modern infrastructure, the township offers well-planned residential plots for families and investors seeking a peaceful, well-connected and future-ready address in Jhajjar.",
+    "section01Body": "South City Greens is a premium plotted residential township in Sector 36, Jhajjar, developed under the Deen Dayal Jan Awas Yojana. Spread across 20 acres, it stands as the largest single-licence plotted development in Jhajjar and is located directly alongside the upcoming 75-metre-wide road proposed under the Government of Haryana’s Master Plan 2031. Featuring wide 9-metre internal roads, thoughtfully designed green pockets and modern infrastructure, the township offers well-planned residential plots for families and investors seeking a peaceful, well-connected and future-ready address in Jhajjar.",
     "primaryCta": "Schedule a Visit",
     "secondaryCta": "Download Brochure",
     "brochureLink": "/media/projects/south-city-greens/brochures/south-city-greens-brochure.pdf",
@@ -214,7 +214,7 @@
         "projectId": "SCG",
         "category": "Highway",
         "place": "Proposed 75-metre Sector Road",
-        "distance": "2-minute drive",
+        "distance": "Directly Connected",
         "description": "Marked in Haryana Master Plan; not directly connected",
         "order": 3,
         "show": "yes"
@@ -223,7 +223,7 @@
         "projectId": "SCG",
         "category": "Highway",
         "place": "Proposed Gurugram–Jhajjar Greenfield Expressway",
-        "distance": "1.5 km",
+        "distance": "5 Minutes",
         "description": "Proposed regional corridor",
         "order": 4,
         "show": "yes"
@@ -411,10 +411,10 @@
         "projectId": "SCG",
         "phase": "Phase 01",
         "title": "Land Levelling",
-        "status": "To be updated",
+        "status": "Completed",
         "targetDate": null,
         "proof": null,
-        "description": "Site preparation and land levelling update.",
+        "description": "Site preparation and levelling complete.",
         "order": 1,
         "show": "yes"
       },
@@ -422,10 +422,10 @@
         "projectId": "SCG",
         "phase": "Phase 02",
         "title": "Road Network",
-        "status": "To be updated",
+        "status": "In Progress",
         "targetDate": null,
         "proof": null,
-        "description": "Internal road development and base work update.",
+        "description": "Under development.",
         "order": 2,
         "show": "yes"
       },
@@ -433,10 +433,10 @@
         "projectId": "SCG",
         "phase": "Phase 03",
         "title": "Utilities & Green Infrastructure",
-        "status": "To be updated",
+        "status": "Not Started",
         "targetDate": null,
         "proof": null,
-        "description": "Utilities, green pockets and infrastructure update.",
+        "description": "Yet to start.",
         "order": 3,
         "show": "yes"
       },
@@ -444,10 +444,10 @@
         "projectId": "SCG",
         "phase": "Phase 04",
         "title": "Final Handover",
-        "status": "To be updated",
+        "status": "Upcoming",
         "targetDate": null,
         "proof": null,
-        "description": "Final development and handover update.",
+        "description": "Planned.",
         "order": 4,
         "show": "yes"
       }
@@ -1096,7 +1096,52 @@
         "show": "yes"
       }
     ],
-    "timeline": [],
+    "timeline": [
+      {
+        "projectId": "SC1",
+        "phase": "Phase 01",
+        "title": "Land Levelling",
+        "status": "Completed",
+        "targetDate": null,
+        "proof": null,
+        "description": "Site preparation and levelling complete.",
+        "order": 1,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC1",
+        "phase": "Phase 02",
+        "title": "Road Network",
+        "status": "Completed",
+        "targetDate": null,
+        "proof": null,
+        "description": "Internal road network in place.",
+        "order": 2,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC1",
+        "phase": "Phase 03",
+        "title": "Utilities & Green Infrastructure",
+        "status": "Completed",
+        "targetDate": null,
+        "proof": null,
+        "description": "Utilities and green infrastructure complete.",
+        "order": 3,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC1",
+        "phase": "Phase 04",
+        "title": "Final Handover",
+        "status": "Upcoming",
+        "targetDate": null,
+        "proof": null,
+        "description": "Planned.",
+        "order": 4,
+        "show": "yes"
+      }
+    ],
     "downloads": [
       {
         "projectId": "SC1",
@@ -1419,7 +1464,52 @@
         "show": "yes"
       }
     ],
-    "timeline": [],
+    "timeline": [
+      {
+        "projectId": "MKJ",
+        "phase": "Phase 01",
+        "title": "Land Levelling",
+        "status": "Completed",
+        "targetDate": null,
+        "proof": null,
+        "description": "Site preparation and levelling complete.",
+        "order": 1,
+        "show": "yes"
+      },
+      {
+        "projectId": "MKJ",
+        "phase": "Phase 02",
+        "title": "Road Network",
+        "status": "Completed",
+        "targetDate": null,
+        "proof": null,
+        "description": "Internal road network in place.",
+        "order": 2,
+        "show": "yes"
+      },
+      {
+        "projectId": "MKJ",
+        "phase": "Phase 03",
+        "title": "Utilities & Green Infrastructure",
+        "status": "Completed",
+        "targetDate": null,
+        "proof": null,
+        "description": "Utilities and green infrastructure complete.",
+        "order": 3,
+        "show": "yes"
+      },
+      {
+        "projectId": "MKJ",
+        "phase": "Phase 04",
+        "title": "Final Handover",
+        "status": "Upcoming",
+        "targetDate": null,
+        "proof": null,
+        "description": "Planned.",
+        "order": 4,
+        "show": "yes"
+      }
+    ],
     "downloads": [],
     "neighbourhood": []
   },
@@ -1810,7 +1900,52 @@
         "show": "optional"
       }
     ],
-    "timeline": [],
+    "timeline": [
+      {
+        "projectId": "SC2",
+        "phase": "Phase 01",
+        "title": "Land Levelling",
+        "status": "Completed",
+        "targetDate": null,
+        "proof": null,
+        "description": "Site preparation and levelling complete.",
+        "order": 1,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC2",
+        "phase": "Phase 02",
+        "title": "Road Network",
+        "status": "Completed",
+        "targetDate": null,
+        "proof": null,
+        "description": "Internal road network in place.",
+        "order": 2,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC2",
+        "phase": "Phase 03",
+        "title": "Utilities & Green Infrastructure",
+        "status": "Nearing Completion",
+        "targetDate": null,
+        "proof": null,
+        "description": "Nearing completion.",
+        "order": 3,
+        "show": "yes"
+      },
+      {
+        "projectId": "SC2",
+        "phase": "Phase 04",
+        "title": "Final Handover",
+        "status": "Upcoming",
+        "targetDate": null,
+        "proof": null,
+        "description": "Planned.",
+        "order": 4,
+        "show": "yes"
+      }
+    ],
     "downloads": [
       {
         "projectId": "SC2",

@@ -12,11 +12,16 @@ export interface FeaturedItem {
 
 interface Props {
   items: FeaturedItem[];
+  /** Optional localized labels; default to English. */
+  labels?: { landArea?: string; plotSize?: string; explore?: string };
 }
 
 const AUTOPLAY_MS = 6000;
 
-export default function FeaturedProjects({ items }: Props) {
+export default function FeaturedProjects({ items, labels }: Props) {
+  const landAreaLabel = labels?.landArea ?? "Land Area";
+  const plotSizeLabel = labels?.plotSize ?? "Plot Size";
+  const exploreLabel = labels?.explore ?? "Explore";
   const [i, setI] = useState(0);
   const [paused, setPaused] = useState(false);
   const touchX = useRef<number | null>(null);
@@ -67,11 +72,11 @@ export default function FeaturedProjects({ items }: Props) {
           </div>
           <div class="flex items-center gap-10">
             <div>
-              <p class="text-[11px] font-semibold uppercase tracking-[0.1em] text-brown-light">Land Area</p>
+              <p class="text-[11px] font-semibold uppercase tracking-[0.1em] text-brown-light">{landAreaLabel}</p>
               <p class="mt-1 font-display text-xl text-brown-dark">{p.landArea}</p>
             </div>
             <div>
-              <p class="text-[11px] font-semibold uppercase tracking-[0.1em] text-brown-light">Plot Size</p>
+              <p class="text-[11px] font-semibold uppercase tracking-[0.1em] text-brown-light">{plotSizeLabel}</p>
               <p class="mt-1 font-display text-xl text-brown-dark">{p.plotSizes}</p>
             </div>
           </div>
@@ -79,7 +84,7 @@ export default function FeaturedProjects({ items }: Props) {
             href={`/projects/${p.slug}`}
             class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-[2px] border border-brown-dark px-6 py-3.5 text-[12px] font-semibold uppercase tracking-[0.1em] text-brown-dark transition-colors hover:bg-brown-dark hover:text-offwhite"
           >
-            Explore {p.name} →
+            {exploreLabel} {p.name} →
           </a>
         </div>
       </div>

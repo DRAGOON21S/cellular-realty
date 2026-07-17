@@ -2,48 +2,81 @@
 import Layout from "../layouts/Layout.astro";
 import { site } from "../data/global";
 const updated = "July 2026";
+
+const sections = [
+  {
+    h: "General information",
+    p: [
+      `The information on this website is published by ${site.brand} for general information and marketing purposes only. It does not constitute an offer, an invitation to offer, a solicitation, or a legally binding commitment of any kind. While reasonable effort is made to keep the content accurate and current, we make no representation or warranty, express or implied, as to its completeness, accuracy, reliability or suitability for any purpose.`,
+    ],
+  },
+  {
+    h: "Indicative content, visuals & specifications",
+    p: [
+      "Renders, 3D master plans, aerial views, walk-throughs, lifestyle imagery and stock photography are artistic impressions and creative representations, and may differ from actual site conditions and delivered product.",
+      "Plot sizes, areas, layouts, amenities, distances, connectivity, timelines, specifications and pricing are indicative, may be based on current plans, and are subject to change in accordance with the approved layout, the decisions of the sanctioning authorities and applicable law. Distances and travel times are approximate and depend on route, traffic and third-party infrastructure that may be proposed, under development, or subject to government timelines.",
+    ],
+  },
+  {
+    h: "Approvals, licensing & RERA",
+    p: [
+      "Each project displays its DTCP licence and, where registered, its RERA registration number on the respective project page. Where a RERA registration is stated to be in process, no bookings are solicited or accepted for that project until the registration is complete. Approval, licensing and sanction documents are available for inspection at our Corporate Office.",
+      "Any sale, allotment or booking of a plot is governed solely by the written application, allotment and agreement documents executed between the buyer and the developer, together with the approved layout and applicable statutory approvals, not by this website.",
+    ],
+  },
+  {
+    h: "Finance & pricing",
+    p: [
+      "References to bank loan or home-finance facilities indicate that such facilities may be available from nationalised or scheduled banks for eligible buyers; availability, eligibility, interest rates and terms are determined solely by the lending institution and are subject to its approvals. Pricing, where discussed, is shared on request and is subject to revision without notice.",
+    ],
+  },
+  {
+    h: "Third-party references",
+    p: [
+      "References on this website to third-party developments, companies, institutions, infrastructure or locations (for example, expressways, industrial hubs, transit or civic facilities) are provided only for context and orientation. They do not imply any ownership, association, endorsement, sponsorship or responsibility on our part, and we make no warranty regarding their status, timelines or accuracy.",
+    ],
+  },
+  {
+    h: "No professional advice; verify independently",
+    p: [
+      "Nothing on this website should be relied upon as legal, financial, tax or investment advice. Prospective buyers and investors are strongly advised to independently verify all information, inspect the original approval and title documents, and seek independent professional advice before making any decision or payment.",
+    ],
+  },
+  {
+    h: "Limitation of liability",
+    p: [
+      "To the maximum extent permitted by law, Cellular Realty and its parent, affiliates, directors, employees and agents accept no liability for any loss or damage of any kind arising from the use of, or reliance upon, this website or its content, or from any error or omission in it.",
+    ],
+  },
+];
 ---
 
-<Layout title="Disclaimer — Cellular Realty" description="Legal disclaimer for the Cellular Realty website." noindex={true}>
+<Layout title="Disclaimer | Cellular Realty" description="Legal disclaimer for the Cellular Realty website." noindex={true}>
   <section class="bg-offwhite py-16 lg:py-24">
     <div class="container-narrow">
       <p class="eyebrow">Legal</p>
       <h1 class="mt-4 font-display text-4xl text-brown-dark lg:text-6xl">Disclaimer</h1>
       <p class="mt-3 text-sm text-brown-light">Last updated: {updated}</p>
 
-      <div class="prose-legal mt-10 space-y-6 text-[16px] leading-relaxed text-ink-soft">
-        <p>
-          The information on this website is for general information only and does not constitute an
-          offer, invitation or solicitation of any kind. While every effort is made to keep the
-          content accurate and current, {site.brand} makes no representation or warranty as to its
-          completeness or accuracy.
-        </p>
-        <p>
-          Visuals including renders, 3D master plans, aerial views and lifestyle imagery are
-          artistic impressions and may be indicative or representative. Plot sizes, areas,
-          amenities, distances, timelines and specifications are subject to change and to the
-          approved layout and applicable approvals.
-        </p>
-        <p>
-          <strong class="text-brown-dark">RERA:</strong> Each project displays its DTCP licence and,
-          where registered, its RERA registration number on the respective project page. Where a RERA
-          registration is in process, this is stated as such and no bookings are solicited until
-          registration is complete. Approval and licensing documents are available for inspection at
-          our Corporate Office.
-        </p>
-        <p>
-          Bank loan facilities, where mentioned, may be available from nationalised banks for
-          eligible buyers and are subject to the respective bank's terms and approvals. Pricing is
-          shared on request and is subject to revision.
-        </p>
-        <p>
-          Nothing on this website should be relied upon as legal, financial or investment advice.
-          Prospective buyers are advised to verify all details independently and to inspect the
-          original approval documents before making any decision.
-        </p>
-        <p class="text-sm">
-          This is a general template and should be reviewed and approved by legal counsel before
-          publication.
+      <div class="mt-10 space-y-9 text-[16px] leading-relaxed text-ink-soft">
+        {
+          sections.map((s) => (
+            <div>
+              <h2 class="font-display text-2xl text-brown-dark">{s.h}</h2>
+              {s.p.map((para) => <p class="mt-3">{para}</p>)}
+            </div>
+          ))
+        }
+        <div>
+          <h2 class="font-display text-2xl text-brown-dark">Contact</h2>
+          <p class="mt-3">
+            For clarification on any information published here, contact us at
+            <a href={`mailto:${site.email}`} class="text-brown-dark underline decoration-brown-lightest underline-offset-2"> {site.email}</a>
+            {" "}or at our Corporate Office: {site.office.full}.
+          </p>
+        </div>
+        <p class="border-t border-[color:var(--color-line)] pt-6 text-sm italic">
+          This is a general template provided for convenience and must be reviewed, adapted and approved by qualified legal counsel before publication. It is not legal advice.
         </p>
       </div>
     </div>

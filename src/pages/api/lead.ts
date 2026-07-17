@@ -31,7 +31,7 @@ export const POST: APIRoute = async ({ request }) => {
     return json({ ok: false, error: "Please check the form and try again." }, 422);
   }
   const lead = parsed.data;
-  if (lead.company) return json({ ok: true }); // honeypot tripped — pretend success
+  if (lead.company) return json({ ok: true }); // honeypot tripped, pretend success
 
   // Non-newsletter leads should carry a name + phone.
   if (lead.type !== "newsletter" && (!lead.name || !lead.phone)) {

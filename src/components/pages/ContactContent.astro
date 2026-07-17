@@ -1,0 +1,178 @@
+---
+import { Icon } from "astro-icon/components";
+import { site } from "../../data/global";
+import { enquiryProjectOptions } from "../../lib/cms";
+import { getLocale, useT } from "../../lib/i18n";
+
+const locale = getLocale(Astro.url);
+const t = useT(locale);
+const s = {
+  en: {
+    eyebrow: "Connect With Cellular Realty",
+    heading: "Let's Build the New Community Together",
+    speakWithUs: "Speak With Us",
+    hours: "Mon–Sat, 9:00 AM – 7:00 PM",
+    emailLabel: "Email",
+    respond24: "We respond within 24 hours",
+    officeLabel: "Corporate Office",
+    whatsapp: "WhatsApp",
+    formHeading: "Project Enquiry",
+    formIntro: "Share your details and our team will connect with you to discuss project information, available plots and site visit options.",
+    additionalMessage: "Additional Message",
+    tellUsMore: "Tell us more",
+    scriptThankYou: "Thank you. A specialist will contact you shortly.",
+  },
+  hi: {
+    eyebrow: "सेल्युलर रियल्टी से जुड़ें",
+    heading: "आइए, मिलकर नया समुदाय बनाएँ",
+    speakWithUs: "हमसे बात करें",
+    hours: "सोम–शनि, सुबह 9:00 – शाम 7:00",
+    emailLabel: "ईमेल",
+    respond24: "हम 24 घंटे के भीतर उत्तर देते हैं",
+    officeLabel: "कॉर्पोरेट कार्यालय",
+    whatsapp: "व्हाट्सएप",
+    formHeading: "परियोजना पूछताछ",
+    formIntro: "अपनी जानकारी साझा करें और हमारी टीम परियोजना संबंधी जानकारी, उपलब्ध प्लॉट और साइट विज़िट विकल्पों पर चर्चा के लिए आपसे संपर्क करेगी।",
+    additionalMessage: "अतिरिक्त संदेश",
+    tellUsMore: "हमें और बताएँ",
+    scriptThankYou: "धन्यवाद। एक विशेषज्ञ शीघ्र ही आपसे संपर्क करेगा।",
+  },
+}[locale];
+---
+
+<section class="bg-offwhite py-16 lg:py-24">
+  <div class="container-content">
+    <p class="eyebrow">{s.eyebrow}</p>
+    <h1 class="mt-4 max-w-3xl font-display text-5xl leading-[1.03] text-brown-dark lg:text-7xl">{s.heading}</h1>
+
+    <div class="mt-16 grid gap-14 lg:grid-cols-2 lg:gap-20">
+      <!-- Left: contact details + office image -->
+      <div>
+        <ul class="space-y-8">
+          <li class="flex gap-5">
+            <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-brown-lightest/50 text-brown-lightest">
+              <Icon name="lucide:phone" class="h-5 w-5" />
+            </span>
+            <div>
+              <p class="text-[12px] font-bold uppercase tracking-[0.14em] text-brown-light">{s.speakWithUs}</p>
+              {site.phones.map((p) => (
+                <a href={`tel:${p.tel}`} class="mt-1 block font-display text-xl text-brown-dark hover:text-brown-600">{p.display}</a>
+              ))}
+              <p class="mt-1 text-sm text-brown-light">{s.hours}</p>
+            </div>
+          </li>
+          <li class="flex gap-5">
+            <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-brown-lightest/50 text-brown-lightest">
+              <Icon name="lucide:mail" class="h-5 w-5" />
+            </span>
+            <div>
+              <p class="text-[12px] font-bold uppercase tracking-[0.14em] text-brown-light">{s.emailLabel}</p>
+              <a href={`mailto:${site.email}`} class="mt-1 block font-display text-xl text-brown-dark hover:text-brown-600">{site.email}</a>
+              <p class="mt-1 text-sm text-brown-light">{s.respond24}</p>
+            </div>
+          </li>
+          <li class="flex gap-5">
+            <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-brown-lightest/50 text-brown-lightest">
+              <Icon name="lucide:map-pin" class="h-5 w-5" />
+            </span>
+            <div>
+              <p class="text-[12px] font-bold uppercase tracking-[0.14em] text-brown-light">{s.officeLabel}</p>
+              <p class="mt-1 font-display text-xl leading-snug text-brown-dark">{t.footer.officeLines[0]},<br />{t.footer.officeLines[1]}</p>
+              <div class="mt-3 flex gap-4">
+                <a href={site.whatsapp.url} target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-sm font-medium text-brown-dark hover:text-brown-600">
+                  <Icon name="lucide:message-circle" class="h-4 w-4" /> {s.whatsapp}
+                </a>
+              </div>
+            </div>
+          </li>
+        </ul>
+
+        <div class="mt-10 overflow-hidden border border-[color:var(--color-line)]">
+          <iframe
+            title="Cellular Realty | Corporate Office, Star Tower, Sector 30, Gurugram"
+            src="https://www.google.com/maps?q=Star+Tower+Sector+30+Gurugram&output=embed"
+            width="100%"
+            height="300"
+            loading="lazy"
+            style="border:0"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+
+      <!-- Right: enquiry form -->
+      <div class="bg-brown-100/50 p-8 lg:p-10">
+        <h2 class="font-display text-3xl text-brown-dark">{s.formHeading}</h2>
+        <p class="mt-2 text-[15px] text-ink-soft">{s.formIntro}</p>
+        <form
+          id="contact-form"
+          class="mt-8 grid gap-6"
+          data-l-sending={t.enquiry.sending}
+          data-l-thankyou={s.scriptThankYou}
+          data-l-error={t.enquiry.genericError}
+          data-l-network={t.enquiry.networkError}
+          data-l-callback={t.enquiry.requestCallBack}
+        >
+          <input type="text" name="company" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true" />
+          <div class="grid gap-6 sm:grid-cols-2">
+            <label class="block">
+              <span class="text-[12px] font-semibold uppercase tracking-[0.1em] text-brown-light">{t.enquiry.fullName}</span>
+              <input name="name" required placeholder={t.enquiry.fullNamePlaceholder} class="mt-2 w-full border-b border-brown-light/40 bg-transparent py-2.5 text-brown-dark outline-none placeholder:text-brown-light/50 focus:border-brown-lightest" />
+            </label>
+            <label class="block">
+              <span class="text-[12px] font-semibold uppercase tracking-[0.1em] text-brown-light">{t.enquiry.phone}</span>
+              <input name="phone" type="tel" required placeholder="+91 00000 00000" class="mt-2 w-full border-b border-brown-light/40 bg-transparent py-2.5 text-brown-dark outline-none placeholder:text-brown-light/50 focus:border-brown-lightest" />
+            </label>
+          </div>
+          <label class="block">
+            <span class="text-[12px] font-semibold uppercase tracking-[0.1em] text-brown-light">{t.enquiry.email}</span>
+            <input name="email" type="email" required placeholder="vikram@example.com" class="mt-2 w-full border-b border-brown-light/40 bg-transparent py-2.5 text-brown-dark outline-none placeholder:text-brown-light/50 focus:border-brown-lightest" />
+          </label>
+          <label class="block">
+            <span class="text-[12px] font-semibold uppercase tracking-[0.1em] text-brown-light">{t.enquiry.interestedIn}</span>
+            <select name="project" class="mt-2 w-full border-b border-brown-light/40 bg-transparent py-2.5 text-brown-dark outline-none focus:border-brown-lightest">
+              <option value="">{t.enquiry.selectProject}</option>
+              {enquiryProjectOptions.map((o) => <option value={o}>{o}</option>)}
+            </select>
+          </label>
+          <label class="block">
+            <span class="text-[12px] font-semibold uppercase tracking-[0.1em] text-brown-light">{s.additionalMessage}</span>
+            <textarea name="message" rows="3" placeholder={s.tellUsMore} class="mt-2 w-full border-b border-brown-light/40 bg-transparent py-2.5 text-brown-dark outline-none placeholder:text-brown-light/50 focus:border-brown-lightest"></textarea>
+          </label>
+          <p id="contact-status" class="hidden text-sm"></p>
+          <button type="submit" class="mt-1 inline-flex items-center justify-center gap-2 rounded-[2px] bg-brown-lightest px-8 py-4 text-[13px] font-semibold uppercase tracking-[0.12em] text-brown-dark transition-colors hover:bg-brown-300">
+            {t.enquiry.requestCallBack} <Icon name="lucide:arrow-right" class="h-4 w-4" />
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById("contact-form") as HTMLFormElement | null;
+  const status = document.getElementById("contact-status");
+  const L = form?.dataset ?? ({} as DOMStringMap);
+  form?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const btn = form.querySelector("button");
+    const data = Object.fromEntries(new FormData(form)) as Record<string, string>;
+    if (btn) { btn.disabled = true; btn.textContent = L.lSending || "Sending…"; }
+    try {
+      const res = await fetch("/api/lead", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ ...data, type: "enquiry", source: "contact-page" }),
+      }).then((r) => r.json());
+      if (status) {
+        status.classList.remove("hidden");
+        status.textContent = res.ok ? (L.lThankyou || "Thank you.") : res.error || L.lError || "Something went wrong.";
+        status.className = res.ok ? "text-sm text-brown-dark" : "text-sm text-red-700";
+      }
+      if (res.ok) form.reset();
+    } catch {
+      if (status) { status.classList.remove("hidden"); status.textContent = L.lNetwork || "Network error."; status.className = "text-sm text-red-700"; }
+    } finally {
+      if (btn) { btn.disabled = false; btn.textContent = L.lCallback || "Request Call Back"; }
+    }
+  });
+</script>

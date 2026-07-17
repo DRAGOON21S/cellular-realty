@@ -6,6 +6,7 @@ import MobileActionBar from "../components/MobileActionBar.astro";
 import EnquiryModal from "../components/EnquiryModal.tsx";
 import { site } from "../data/global";
 import { enquiryProjectOptions } from "../lib/cms";
+import { getLocale, useT, localizePath, toBasePath } from "../lib/i18n";
 
 export interface Props {
   title?: string;
@@ -20,11 +21,14 @@ export interface Props {
   newsletter?: boolean;
 }
 
+// Locale is derived from the URL (/hi/* → hi, everything else → en).
+const locale = getLocale(Astro.url);
+const t = useT(locale);
+
 const orgSchema = {
   "@context": "https://schema.org",
   "@type": "RealEstateAgent",
   name: site.brand,
-  legalName: site.parentEntity,
   url: site.url,
   email: site.email,
   telephone: site.phones[0].tel,
@@ -42,7 +46,7 @@ const orgSchema = {
 
 const {
   title = `${site.brand} | ${site.tagline}`,
-  description = "Licensed, well-planned DDJAY plotted townships across Jhajjar and Delhi NCR by Cellular Realty.",
+  description = t.seo.defaultDescription,
   ogImage = "/brand/cellular-realty-favicon.png",
   noindex = false,
   transparentHeader = false,
@@ -51,11 +55,14 @@ const {
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, site.url).href;
+const basePath = toBasePath(Astro.url.pathname);
+const enHref = new URL(basePath, site.url).href;
+const hiHref = new URL(localizePath(basePath, "hi"), site.url).href;
 const structuredData = [orgSchema, ...jsonLd];
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={locale}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -63,6 +70,18 @@ const structuredData = [orgSchema, ...jsonLd];
     <meta name="description" content={description} />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
     <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="en" href={enHref} />
+    <link rel="alternate" hreflang="hi" href={hiHref} />
+    <link rel="alternate" hreflang="x-default" href={enHref} />
+
+    <!-- Body font: Plus Jakarta Sans — self-hosted, see @font-face in global.css -->
+    <link rel="preload" href="/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
+    {locale === "hi" && (
+      <>
+        <link rel="preload" href="/fonts/noto-sans-devanagari.woff2" as="font" type="font/woff2" crossorigin />
+        <link rel="preload" href="/fonts/noto-serif-devanagari.woff2" as="font" type="font/woff2" crossorigin />
+      </>
+    )}
 
     <link rel="icon" type="image/svg+xml" href="/brand/cellular-realty-favicon.svg" />
     <link rel="icon" type="image/png" href="/brand/cellular-realty-favicon.png" />
@@ -82,25 +101,27 @@ const structuredData = [orgSchema, ...jsonLd];
     {structuredData.map((obj) => (
       <script type="application/ld+json" set:html={JSON.stringify(obj)} />
     ))}
+
+    <slot name="head" />
   </head>
   <body class="min-h-screen antialiased">
     <a
       href="#main"
       class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-brown-dark focus:px-4 focus:py-2 focus:text-offwhite"
-      >Skip to content</a
+      >{t.common.skipToContent}</a
     >
 
-    <Header transparent={transparentHeader} />
+    <Header transparent={transparentHeader} locale={locale} />
 
     <main id="main">
       <slot />
     </main>
 
-    <Footer newsletter={newsletter} />
-    <MobileActionBar />
+    <Footer newsletter={newsletter} locale={locale} />
+    <MobileActionBar locale={locale} />
 
     <!-- Universal Enquiry modal — any [data-enquire] trigger opens it. -->
-    <EnquiryModal projectOptions={enquiryProjectOptions} client:idle />
+    <EnquiryModal projectOptions={enquiryProjectOptions} labels={t.enquiry} client:idle />
 
   </body>
 </html>

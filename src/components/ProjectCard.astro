@@ -5,8 +5,25 @@ import type { Project } from "../lib/cms";
 export interface Props {
   project: Project;
   class?: string;
+  /** Optional localized labels; default to English. */
+  labels?: {
+    landArea?: string;
+    plotSizes?: string;
+    detailsOnLaunch?: string;
+    registerInterest?: string;
+    enquiry?: string;
+    viewDetails?: string;
+  };
 }
-const { project: p, class: klass = "" } = Astro.props;
+const { project: p, class: klass = "", labels = {} } = Astro.props;
+const L = {
+  landArea: labels.landArea ?? "Land Area",
+  plotSizes: labels.plotSizes ?? "Plot Sizes",
+  detailsOnLaunch: labels.detailsOnLaunch ?? "Details on launch.",
+  registerInterest: labels.registerInterest ?? "Register Interest",
+  enquiry: labels.enquiry ?? "Enquiry",
+  viewDetails: labels.viewDetails ?? "View Details",
+};
 
 const img = p.cardImage ?? p.heroImage ?? "/media/stock-images/stock-tree-lined-street.webp";
 const badge = p.launchTag ?? p.status;
@@ -62,11 +79,11 @@ const locationFull = p.locationShort.includes(p.state) ? p.locationShort : `${p.
         <div class="mt-6 grid grid-cols-2 gap-4 border-t border-[color:var(--color-line)] pt-5">
           <div class="border-l-2 border-brown-lightest pl-3">
             <p class="text-[11px] font-semibold uppercase tracking-[0.1em] text-brown-light">Land Area</p>
-            <p class="mt-1 text-[17px] font-medium text-brown-dark">{p.landAreaDisplay ?? "—"}</p>
+            <p class="mt-1 text-[17px] font-medium text-brown-dark">{p.landAreaDisplay ?? "–"}</p>
           </div>
           <div class="border-l-2 border-brown-lightest pl-3">
             <p class="text-[11px] font-semibold uppercase tracking-[0.1em] text-brown-light">Plot Sizes</p>
-            <p class="mt-1 text-[17px] font-medium text-brown-dark">{p.plotSizes ?? "—"}</p>
+            <p class="mt-1 text-[17px] font-medium text-brown-dark">{p.plotSizes ?? "–"}</p>
           </div>
         </div>
       )

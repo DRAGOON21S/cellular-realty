@@ -1,0 +1,82 @@
+---
+import Button from "../ui/Button.astro";
+import { Icon } from "astro-icon/components";
+import { getLocale, useT } from "../../lib/i18n";
+
+const locale = getLocale(Astro.url);
+const t = useT(locale);
+
+const icons = ["lucide:factory", "lucide:route", "lucide:hospital", "lucide:train-front", "lucide:landmark", "lucide:trending-up"];
+
+const copy = {
+  en: {
+    eyebrow: "Location Insight",
+    heading: "Why Jhajjar",
+    heroSub: "Bordering the national capital and neighbouring Reliance MET City, Jhajjar is set to become one of Delhi NCR's most active growth corridors over the coming two decades.",
+    points: [
+      { title: "Reliance MET City", body: "600+ companies from 11+ countries and 40,000+ jobs, set to house 10–40 lakh residents, driving vast, sustained housing demand next door." },
+      { title: "Gurugram–Jhajjar Green Corridor", body: "A proposed six-lane corridor bringing Gurugram within ~20–25 minutes and IGI Airport within ~40–55 minutes." },
+      { title: "World-class amenities", body: "AIIMS at Bhadsa and an upcoming International Cricket Stadium anchor the region's civic infrastructure." },
+      { title: "KMP & HORC", body: "The KMP Expressway and Haryana Orbital Rail Corridor form a major economic and freight loop across North India." },
+      { title: "A self-sufficient city", body: "District Headquarters and a Police Commissionerate ensure strong law and order and civic administration." },
+      { title: "The wealth corridor", body: "Sectors 36 & 37 are Jhajjar's prime residential sectors, connected to the corridor via the proposed 75-metre sector road passing near South City Greens." },
+    ],
+    ctaHeading: "Own a plot in Jhajjar's prime sectors.",
+    exploreScg: "Explore South City Greens",
+    requestCallBack: "Request a Call Back",
+  },
+  hi: {
+    eyebrow: "स्थान अंतर्दृष्टि",
+    heading: "झज्जर क्यों",
+    heroSub: "राष्ट्रीय राजधानी की सीमा पर और रिलायंस MET सिटी के निकट स्थित झज्जर, आने वाले दो दशकों में दिल्ली एनसीआर के सबसे सक्रिय विकास गलियारों में से एक बनने की ओर अग्रसर है।",
+    points: [
+      { title: "रिलायंस MET सिटी", body: "11+ देशों की 600+ कंपनियाँ और 40,000+ रोज़गार, जो 10–40 लाख निवासियों को बसाने के लिए तैयार है, ठीक पड़ोस में विशाल और निरंतर आवास माँग को गति देता है।" },
+      { title: "गुरुग्राम–झज्जर ग्रीन कॉरिडोर", body: "एक प्रस्तावित छह-लेन गलियारा जो गुरुग्राम को लगभग 20–25 मिनट और IGI हवाई अड्डे को लगभग 40–55 मिनट के भीतर लाता है।" },
+      { title: "विश्वस्तरीय सुविधाएँ", body: "भादसा में एम्स और एक आगामी अंतरराष्ट्रीय क्रिकेट स्टेडियम इस क्षेत्र के नागरिक बुनियादी ढाँचे को सुदृढ़ करते हैं।" },
+      { title: "KMP और HORC", body: "KMP एक्सप्रेसवे और हरियाणा ऑर्बिटल रेल कॉरिडोर उत्तर भारत में एक प्रमुख आर्थिक एवं माल-ढुलाई लूप बनाते हैं।" },
+      { title: "एक आत्मनिर्भर शहर", body: "ज़िला मुख्यालय और एक पुलिस कमिश्नरेट मज़बूत कानून-व्यवस्था और नागरिक प्रशासन सुनिश्चित करते हैं।" },
+      { title: "समृद्धि का गलियारा", body: "सेक्टर 36 और 37 झज्जर के प्रमुख आवासीय सेक्टर हैं, जो साउथ सिटी ग्रीन्स के निकट से गुज़रने वाली प्रस्तावित 75-मीटर सेक्टर सड़क के माध्यम से गलियारे से जुड़े हैं।" },
+    ],
+    ctaHeading: "झज्जर के प्रमुख सेक्टरों में एक प्लॉट के मालिक बनें।",
+    exploreScg: "साउथ सिटी ग्रीन्स देखें",
+    requestCallBack: "कॉल बैक का अनुरोध करें",
+  },
+}[locale];
+
+const points = copy.points.map((p, i) => ({ ...p, icon: icons[i] }));
+---
+
+<section class="relative flex min-h-[60vh] items-center overflow-hidden bg-brown-900 text-offwhite">
+  <img src="/media/homepage/insights/cellular-realty-insight-why-jhajjar.webp" alt="" class="absolute inset-0 h-full w-full object-cover opacity-40" loading="eager" />
+  <div class="absolute inset-0 bg-gradient-to-t from-brown-900 via-brown-900/55 to-brown-900/60"></div>
+  <div class="container-content relative py-36">
+    <p class="eyebrow text-brown-300">{copy.eyebrow}</p>
+    <h1 class="mt-6 max-w-3xl font-display text-5xl leading-[1.05] lg:text-7xl">{copy.heading}</h1>
+    <p class="mt-6 max-w-2xl text-lg text-offwhite/80">{copy.heroSub}</p>
+  </div>
+</section>
+
+<section class="bg-offwhite py-24 lg:py-32">
+  <div class="container-content grid gap-x-10 gap-y-14 md:grid-cols-2 lg:grid-cols-3">
+    {points.map((p, i) => (
+      <div class="border-t-2 border-brown-lightest pt-6">
+        <div class="flex items-center gap-4">
+          <Icon name={p.icon} class="h-8 w-8 text-brown-lightest" />
+          <span class="font-display text-4xl text-brown-200">0{i + 1}</span>
+        </div>
+        <h3 class="mt-5 font-display text-2xl text-brown-dark">{p.title}</h3>
+        <p class="mt-3 text-[16px] leading-relaxed text-ink-soft">{p.body}</p>
+      </div>
+    ))}
+  </div>
+</section>
+
+<section class="bg-brown-900 py-20 text-center text-offwhite">
+  <div class="container-content">
+    <h2 class="mx-auto max-w-2xl font-display text-3xl lg:text-4xl">{copy.ctaHeading}</h2>
+    <div class="mt-8 flex flex-wrap justify-center gap-4">
+      <Button href="/projects/south-city-greens" variant="accent" size="lg">{copy.exploreScg}</Button>
+      <Button enquire variant="outline-light" size="lg">{copy.requestCallBack}</Button>
+    </div>
+  </div>
+</section>

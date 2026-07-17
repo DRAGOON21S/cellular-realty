@@ -4,14 +4,16 @@ import Button from "../../components/ui/Button.astro";
 import ProjectCard from "../../components/ProjectCard.astro";
 import { Icon } from "astro-icon/components";
 import { projectTabs, projectsByStatus } from "../../lib/cms";
+import ProjectMap from "../../components/ProjectMap.tsx";
+import { projectMapItems } from "../../lib/project-map";
 
 // Ongoing first (content-spec: live focus), then Delivered, then Upcoming.
 const tabs = projectTabs.filter((t) => projectsByStatus(t.key).length > 0);
 ---
 
 <Layout
-  title="Projects — Cellular Realty"
-  description="Explore Cellular Realty's DDJAY plotted developments across Jhajjar, Gurugram and Rewari — ongoing, delivered and upcoming."
+  title="Projects | Cellular Realty"
+  description="Explore Cellular Realty's DDJAY plotted developments across Jhajjar, Gurugram and Rewari: ongoing, delivered and upcoming."
   newsletter={true}
 >
   <section class="bg-offwhite py-16 lg:py-24">
@@ -83,12 +85,15 @@ const tabs = projectTabs.filter((t) => projectsByStatus(t.key).length > 0);
         ))
       }
 
-      <!-- Map view placeholder (interactive map wired in Phase 4) -->
-      <div data-map-view hidden class="mt-12 flex min-h-[420px] items-center justify-center border border-[color:var(--color-line)] bg-brown-100/40 text-center">
-        <p class="max-w-sm text-brown-light">
-          Interactive map view — showing project locations across Jhajjar, Gurugram &amp; Rewari.
-          <span class="mt-2 block text-sm">Coming soon.</span>
-        </p>
+      <!-- Map view — interactive project map -->
+      <div data-map-view hidden class="mt-12">
+        <ProjectMap
+          items={projectMapItems}
+          eyebrow="Our Footprint"
+          heading="Growing Across Haryana's Emerging Corridors"
+          paragraph="From established communities in Farrukhnagar to ongoing developments in Jhajjar and future opportunities in Rewari, our portfolio follows some of the region's most promising residential growth corridors."
+          client:visible
+        />
       </div>
     </div>
   </section>

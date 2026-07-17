@@ -82,8 +82,7 @@ These are content/legal facts that cannot be invented — the build surfaces the
   `public/media`; add a web-optimised version before enabling that download.
 - **Legal document PDFs** — `legal-documents/{approvals,ddjay,dtcp,master-plan,rera}` were empty;
   supply them for the RERA QR targets and "documents at Corporate Office".
-- **Confirm** TT Hoves commercial licence (else swap the `@font-face` fallback), and permission to
-  display the client-logo marquee (CPWD, Indian Railways, L&T, NBCC, …).
+- **Confirm** permission to display the client-logo marquee (CPWD, Indian Railways, L&T, NBCC, …).
 
 ## Roadmap (post-launch)
 

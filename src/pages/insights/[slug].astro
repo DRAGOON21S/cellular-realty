@@ -2,18 +2,26 @@
 import Layout from "../../layouts/Layout.astro";
 import Button from "../../components/ui/Button.astro";
 import { articles, getProject, type Article } from "../../lib/cms";
+import { getCollection, render } from "astro:content";
 
 export function getStaticPaths() {
   return articles.map((a) => ({ params: { slug: a.slug }, props: { article: a } }));
 }
 interface Props { article: Article; }
 const { article: a } = Astro.props;
+
 const related = a.relatedProjectId ? getProject(
   { SCG: "south-city-greens", SC1: "south-city-1", SC2: "south-city-2", MKJ: "maruti-kunj", CC01: "cellular-city-01", CC02: "cellular-city-02" }[a.relatedProjectId] ?? ""
 ) : undefined;
+
+// Full editorial body (content collection). Matched to the article by slug; falls
+// back to the excerpt-only placeholder when a body has not been written yet.
+const bodies = await getCollection("insights");
+const entry = bodies.find((e) => e.id === a.slug);
+const Content = entry ? (await render(entry)).Content : null;
 ---
 
-<Layout title={`${a.title} — Cellular Realty`} description={a.excerpt}>
+<Layout title={`${a.title} | Cellular Realty`} description={a.excerpt}>
   <!-- HERO -->
   <section class="relative flex min-h-[56vh] items-end overflow-hidden bg-brown-900 text-offwhite">
     <img src={a.image ?? undefined} alt="" class="absolute inset-0 h-full w-full object-cover opacity-45" loading="eager" />
@@ -25,23 +33,30 @@ const related = a.relatedProjectId ? getProject(
   </section>
 
   <!-- BODY -->
-  <section class="bg-offwhite py-20 lg:py-28">
-    <div class="container-narrow">
-      <p class="font-display text-2xl leading-relaxed text-brown-dark">{a.excerpt}</p>
+  <section class="bg-offwhite py-16 lg:py-24">
+    <div class="container-content">
+      <!-- Standfirst -->
+      <p class="mx-auto max-w-[44rem] font-display text-[1.5rem] leading-relaxed text-brown-dark">{a.excerpt}</p>
 
-      <div class="mt-10 border-l-4 border-brown-lightest bg-brown-100/40 p-8">
-        <p class="text-[15px] leading-relaxed text-ink-soft">
-          The full article is being finalised by our editorial team. In the meantime, our advisors
-          can share detailed location and investment insights directly.
-        </p>
-        <div class="mt-6 flex flex-wrap gap-4">
-          <Button enquire variant="accent">Request a Call Back</Button>
-          <Button href="/why-jhajjar" variant="outline">Read: Why Jhajjar</Button>
+      {Content ? (
+        <div class="insight-body mt-12 lg:mt-14">
+          <Content />
         </div>
-      </div>
+      ) : (
+        <div class="mx-auto mt-10 max-w-[44rem] border-l-4 border-brown-lightest bg-brown-100/40 p-8">
+          <p class="text-[15px] leading-relaxed text-ink-soft">
+            The full article is being finalised by our editorial team. In the meantime, our advisors
+            can share detailed location and investment insights directly.
+          </p>
+          <div class="mt-6 flex flex-wrap gap-4">
+            <Button enquire variant="accent">Request a Call Back</Button>
+            <Button href="/why-jhajjar" variant="outline">Read: Why Jhajjar</Button>
+          </div>
+        </div>
+      )}
 
       {related && (
-        <a href={`/projects/${related.slug}`} class="group mt-14 flex items-center gap-6 border border-[color:var(--color-line)] p-6 hover:bg-brown-100/40">
+        <a href={`/projects/${related.slug}`} class="group mx-auto mt-16 flex max-w-[44rem] items-center gap-6 border border-[color:var(--color-line)] p-6 hover:bg-brown-100/40">
           <img src={related.cardImage ?? related.heroImage ?? undefined} alt={related.name} class="h-24 w-32 shrink-0 object-cover" />
           <div>
             <p class="text-[12px] font-semibold uppercase tracking-[0.1em] text-brown-light">Related Project</p>
@@ -50,6 +65,18 @@ const related = a.relatedProjectId ? getProject(
           </div>
         </a>
       )}
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-brown-900 py-16 text-offwhite lg:py-20">
+    <div class="container-content text-center">
+      <p class="eyebrow text-brown-300">Plan Your Next Step</p>
+      <h2 class="mx-auto mt-4 max-w-2xl font-display text-3xl leading-tight lg:text-[42px]">Explore our licensed plotted communities in Jhajjar</h2>
+      <div class="mt-8 flex flex-wrap justify-center gap-4">
+        <Button href="/projects" variant="accent" size="lg">View Projects</Button>
+        <Button enquire variant="outline-light" size="lg">Talk to an Advisor</Button>
+      </div>
     </div>
   </section>
 </Layout>

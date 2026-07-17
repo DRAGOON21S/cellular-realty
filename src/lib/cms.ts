@@ -183,9 +183,16 @@ export const featuredProjects: Project[] = ["SCG", "SC2", "SC1"]
 export const neighbourhoodByRegion = (region: string): NeighbourhoodItem[] =>
   neighbourhood.filter((n) => n.region.toLowerCase() === region.toLowerCase());
 
-/** "Interested In" options for the enquiry form (content spec). */
+/**
+ * "Interested In" options for the enquiry form.
+ * Fixed to the exact approved list and order (spec §0.2 / §2.1.2) — do not
+ * add or reorder without approval. Project-specific CTAs preselect via data-project.
+ */
 export const enquiryProjectOptions: string[] = [
-  ...publishedProjects.filter((p) => !p.comingSoon).map((p) => p.name),
+  "Maruti Kunj",
+  "South City 1",
+  "South City 2",
   "Upcoming Rewari Projects",
+  "South City Greens",
   "Not Sure Yet",
 ];

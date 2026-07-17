@@ -9,9 +9,10 @@ export interface LeaderItem {
 
 interface Props {
   leaders: LeaderItem[];
+  ourLeadershipLabel?: string;
 }
 
-export default function LeadershipCarousel({ leaders }: Props) {
+export default function LeadershipCarousel({ leaders, ourLeadershipLabel = "Our Leadership" }: Props) {
   const [i, setI] = useState(0);
   const l = leaders[i];
 
@@ -29,7 +30,7 @@ export default function LeadershipCarousel({ leaders }: Props) {
         <p class="mt-6 max-w-xl text-[16px] leading-relaxed text-offwhite/70">{l.bio}</p>
 
         <div class="mt-10">
-          <p class="text-[12px] font-semibold uppercase tracking-[0.14em] text-brown-300">Our Leadership</p>
+          <p class="text-[12px] font-semibold uppercase tracking-[0.14em] text-brown-300">{ourLeadershipLabel}</p>
           <div class="mt-4 flex flex-wrap gap-3">
             {leaders.map((ld, n) => (
               <button

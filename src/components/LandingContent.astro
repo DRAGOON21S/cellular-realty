@@ -1,0 +1,161 @@
+---
+import Button from "./ui/Button.astro";
+import BrandPillars from "./BrandPillars.tsx";
+import FeaturedProjects, { type FeaturedItem } from "./FeaturedProjects.tsx";
+import TestimonialsCarousel from "./TestimonialsCarousel.tsx";
+import { Icon } from "astro-icon/components";
+import { getLocale, useT } from "../lib/i18n";
+import { getPillars, getFeaturedProjectsL, getArticlesL, getTestimonialsL } from "../lib/cms-hi";
+
+const locale = getLocale(Astro.url);
+const t = useT(locale);
+const stateLabel = locale === "hi" ? "हरियाणा" : "Haryana";
+
+const clients = ["CPWD", "Indian Railways", "PWD Haryana", "NBCC", "L&T Infra", "IVRCL", "Lafarge India", "Hero Realty"];
+
+const metricIcons = ["lucide:award", "lucide:building-2", "lucide:layout-grid", "lucide:map"];
+const metrics = t.home.metrics.map((m, i) => ({ ...m, icon: metricIcons[i] }));
+
+const pillars = getPillars(locale);
+
+const featured: FeaturedItem[] = getFeaturedProjectsL(locale).map((p) => ({
+  slug: p.slug,
+  name: p.name,
+  location: p.locationShort.includes(stateLabel) ? p.locationShort : `${p.locationShort}, ${stateLabel}`,
+  landArea: p.landAreaDisplay ?? "–",
+  plotSizes: p.plotSizes ?? "–",
+  image: p.heroImage ?? p.cardImage ?? "/media/stock-images/stock-tree-lined-street.webp",
+  badge: p.launchTag ?? p.status,
+}));
+
+const articles = getArticlesL(locale);
+const testItems = getTestimonialsL(locale).map((tst) => ({ name: tst.name, role: tst.role, quote: tst.quote, rating: tst.rating }));
+const heroPoster = "/media/projects/south-city-greens/hero/south-city-greens-hero-entrance-gate.webp";
+---
+
+<!-- ============ HERO ============ -->
+<section class="relative flex min-h-[100svh] items-center overflow-hidden bg-brown-900">
+  <video class="absolute inset-0 h-full w-full object-cover" autoplay muted loop playsinline poster={heroPoster}>
+    <source src="/media/homepage/hero-video/cellular-realty-homepage-hero.mp4" type="video/mp4" />
+  </video>
+  <div class="absolute inset-0 bg-gradient-to-t from-brown-900/95 via-brown-900/45 to-brown-900/65"></div>
+  <div class="container-content relative w-full py-40 text-offwhite">
+    <p class="eyebrow text-brown-300">{t.home.heroEyebrow}</p>
+    <h1 class="mt-6 max-w-4xl font-display text-[40px] leading-[1.1] sm:text-6xl lg:text-[72px]" set:html={t.home.heroTitleHtml} />
+    <p class="mt-6 max-w-xl text-lg text-offwhite/85 lg:text-xl">{t.home.heroSubtitle}</p>
+    <div class="mt-9 flex flex-wrap gap-4">
+      <Button href="/projects" variant="accent" size="lg">{t.common.exploreMore}</Button>
+      <Button enquire data-cta="Schedule a Call" variant="outline-light" size="lg">{t.common.scheduleCall}</Button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRUST METRICS ============ -->
+<section class="border-b border-[color:var(--color-line)] bg-offwhite">
+  <div class="container-content grid grid-cols-2 gap-y-10 py-14 lg:grid-cols-4 lg:gap-0">
+    {
+      metrics.map((m, i) => (
+        <div class:list={["flex items-center gap-4 px-4 lg:px-8", i > 0 && "lg:border-l lg:border-[color:var(--color-line)]"]}>
+          <Icon name={m.icon} class="h-8 w-8 shrink-0 text-brown-lightest" />
+          <div>
+            <p class="font-display text-3xl leading-none text-brown-dark lg:text-[34px]">
+              {m.value} <span class="text-2xl lg:text-3xl">{m.label}</span>
+            </p>
+            <p class="mt-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-brown-light">{m.caption}</p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<!-- ============ BRAND PILLARS ============ -->
+<section class="bg-offwhite py-24 lg:py-32">
+  <div class="container-content grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
+    <div>
+      <p class="eyebrow">{t.home.pillarsEyebrow}</p>
+      <h2 class="mt-4 font-display text-4xl leading-[1.15] text-brown-dark lg:text-[52px]" set:html={t.home.pillarsHeadingHtml} />
+      <p class="mt-6 text-[16px] leading-[1.8] text-ink-soft">{t.home.pillarsBody1}</p>
+      <p class="mt-4 text-[16px] leading-[1.8] text-ink-soft">{t.home.pillarsBody2}</p>
+      <div class="mt-9">
+        <Button href="/about" variant="outline">{t.common.discoverStory}</Button>
+      </div>
+    </div>
+    <BrandPillars pillars={pillars} variant="panel" client:visible />
+  </div>
+</section>
+
+<!-- ============ FEATURED PLOTTED DEVELOPMENT ============ -->
+<section class="bg-brown-100/50 py-24 lg:py-32">
+  <div class="container-content">
+    <div class="flex flex-wrap items-end justify-between gap-6">
+      <div class="max-w-xl">
+        <p class="eyebrow">{t.home.featuredEyebrow}</p>
+        <h2 class="mt-4 font-display text-4xl text-brown-dark lg:text-[52px]">{t.home.featuredHeading}</h2>
+        <p class="mt-4 text-[16px] text-ink-soft">{t.home.featuredBody}</p>
+      </div>
+      <Button href="/projects" variant="outline">{t.common.viewAllProjects}</Button>
+    </div>
+    <div class="mt-14">
+      <FeaturedProjects items={featured} labels={t.home.featuredLabels} client:visible />
+    </div>
+  </div>
+</section>
+
+<!-- ============ ASSOCIATED COMPANIES ============ -->
+<section class="overflow-hidden border-y border-[color:var(--color-line)] bg-offwhite py-14">
+  <div class="marquee">
+    <ul class="marquee__track">
+      {[...clients, ...clients].map((c) => <li class="mx-10 font-display text-2xl text-brown-light/70 lg:text-3xl">{c}</li>)}
+    </ul>
+  </div>
+</section>
+
+<!-- ============ LATEST INSIGHTS ============ -->
+<section class="bg-offwhite py-24 lg:py-32">
+  <div class="container-content">
+    <div class="flex flex-wrap items-end justify-between gap-6">
+      <div>
+        <p class="eyebrow">{t.home.insightsEyebrow}</p>
+        <h2 class="mt-4 font-display text-4xl text-brown-dark lg:text-[52px]">{t.home.insightsHeading}</h2>
+      </div>
+      <Button href="/insights" variant="outline">{t.common.viewAllInsights}</Button>
+    </div>
+    <div class="mt-14 grid gap-10 md:grid-cols-2 lg:grid-cols-3">
+      {
+        articles.map((a) => (
+          <article class="group flex flex-col">
+            <a href={`/insights/${a.slug}`} class="block aspect-[16/10] overflow-hidden">
+              <img src={a.image ?? "/media/stock-images/stock-tree-lined-street.webp"} alt={a.title} loading="lazy" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]" />
+            </a>
+            <p class="mt-6 text-[12px] font-semibold uppercase tracking-[0.12em] text-brown-lightest">{a.category} • {a.readTime}</p>
+            <h3 class="mt-3 font-display text-[26px] leading-[1.35] text-brown-dark"><a href={`/insights/${a.slug}`} class="hover:text-brown-600">{a.title}</a></h3>
+            <p class="mt-3 line-clamp-3 text-[15px] leading-relaxed text-ink-soft">{a.excerpt}</p>
+            <a href={`/insights/${a.slug}`} class="mt-5 inline-flex items-center gap-2 text-[12px] font-semibold uppercase tracking-[0.12em] text-brown-dark">
+              {t.common.readArticle} <Icon name="lucide:arrow-right" class="h-4 w-4" />
+            </a>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="bg-brown-100/50 py-24 lg:py-32">
+  <div class="container-content">
+    <p class="eyebrow text-center">{t.home.testimonialsEyebrow}</p>
+    <h2 class="mt-4 text-center font-display text-4xl text-brown-dark lg:text-[52px]">{t.home.testimonialsHeading}</h2>
+    <div class="mt-14">
+      <TestimonialsCarousel items={testItems} client:visible />
+    </div>
+  </div>
+</section>
+
+<style>
+  .marquee { width: 100%; overflow: hidden; }
+  .marquee__track { display: flex; width: max-content; animation: marquee-scroll 38s linear infinite; }
+  .marquee:hover .marquee__track { animation-play-state: paused; }
+  @keyframes marquee-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) { .marquee__track { animation: none; } }
+</style>
