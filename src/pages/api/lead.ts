@@ -52,12 +52,31 @@ export const POST: APIRoute = async ({ request }) => {
 };
 
 // ---------------------------------------------------------------------------
-// Lead delivery. Interim: log to server. Swap the body for a Supabase insert
-// (or email via Resend/SES) without touching the UI — the contract is stable.
-// e.g.  await supabase.from("leads").insert(record)
+// Lead delivery. POSTs each lead as JSON to the webhook in LEADS_WEBHOOK_URL
+// (set in Vercel → Settings → Environment Variables, and in a local .env for dev).
+// Currently pointed at a Google Apps Script web app that appends to a Sheet; the
+// same webhook contract works for Zapier/Make/n8n or a custom endpoint later.
+// If the var is unset, we log the lead so nothing is silently lost in development.
 // ---------------------------------------------------------------------------
 async function deliverLead(record: Record<string, unknown>): Promise<void> {
-  console.log("[lead]", JSON.stringify(record));
+  const url = process.env.LEADS_WEBHOOK_URL;
+  if (!url) {
+    console.log("[lead]", JSON.stringify(record));
+    return;
+  }
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), 8000);
+  try {
+    const res = await fetch(url, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(record),
+      signal: ctrl.signal,
+    });
+    if (!res.ok) throw new Error(`lead webhook responded ${res.status}`);
+  } finally {
+    clearTimeout(timer);
+  }
 }
 
 function json(body: unknown, status = 200) {
